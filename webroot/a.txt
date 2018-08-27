@@ -1,0 +1,640 @@
+<div class="newsfeed " data-config="{&quot;lengths&quot;:[95,&quot;all&quot;],&quot;ajax&quot;:true,&quot;init&quot;:0,&quot;addts&quot;:true}" data-more="16FhyHi5S4Ny2mg5SSrcvSZmHj4JXXGhcFd+8Wa6dAmRMCOU2yOOkowNx5t4Z4sCjx1BIlIbnyvOUTthMLuCGc2dX17Hi1WdvGYlrxLv9XJEKiyyA05gFuB9Ht7x9Z24tgO7KO6SsdRVMWOFupzNcNmp0+z4d/o8x">
+  <div class="hl_time">NEW in the last 5 minutes</div>
+<div class="hl " data-id="951201043">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951201043?-833:12" target="_blank" rel="nofollow">"Playing Serie A and La Liga sides will be tough - but it will help put Rangers back on the map"</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THENATIONALSCOTLAND"><span class="src-part">The National, Scotland<span class="darw"></span></span></span><span class="time" data-time="1534906925">04:02</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_time">In the last 10 minutes</div>
+<div class="hl " data-id="951200782">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951200782?-833:12" target="_blank" rel="nofollow">Opinion: Ed Woodward must sign 6ft 3in colossus in January to ensure Mourinho keeps United job</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALLFANCAST"><span class="src-part">FootballFanCast.com<span class="darw"></span></span></span><span class="time" data-time="1534906453">03:54</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951200778">
+   <span class="f f_AU" c="AU"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951200778?-833:12" target="_blank" rel="nofollow">Rumour Mill: Atletico and Real Madrid to fight for Marcos Alonso, Ramsey&#8217;s huge Arsenal demand</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOXSPORTSAU"><span class="src-part">Fox Sports (Australia)<span class="darw"></span></span></span><span class="time" data-time="1534906452">03:54</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_time">In the last hour</div>
+<div class="hl " data-id="951199269">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951199269?-833:12" target="_blank" rel="nofollow">Pogba or Mourinho must leave Manchester United; Real Madrid target yet another Chelsea star;&#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="BRISTOLLIVE"><span class="src-part">Bristol Live<span class="darw"></span></span></span><span class="time" data-time="1534904149">03:15</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951198554">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951198554?-833:12" target="_blank" rel="nofollow">Transfer Talk: Mourinho, Woodward clash over Martial</a><span class="end"></span> <span class="meta"><span class="src" data-pub="ESPNCOUK"><span class="src-part">ESPN.co.uk<span class="darw"></span></span></span><span class="time" data-time="1534903461">03:04</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951198524">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951198524?-833:12" target="_blank" rel="nofollow">James Milner Believes Brendan Rodgers Could Have Turned Things Around</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SBNATIONTHELIVERPOOLOFFSIDE"><span class="src-part wrap">The Liverpool Offside (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534903458">03:04</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_time">In the last 2 hours</div>
+<div class="hl " data-id="951198215">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951198215?-833:12" target="_blank" rel="nofollow">Americans Abroad in Bundesliga ahead of opening weekend</a><span class="end"></span> <span class="meta"><span class="src" data-pub="NBCSPORTS"><span class="src-part">NBC Sports<span class="darw"></span></span></span><span class="time" data-time="1534903303">03:01</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951198137">
+   <span class="f f_IN" c="IN"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951198137?-833:12" target="_blank" rel="nofollow">(Image) Klopp &#38; VVD reacting like proud parents as Joe Gomez pulled off another impressive&#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THICKACCENT"><span class="src-part">Thick Accent (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534902930">02:55</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951197826">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951197826?-833:12" target="_blank" rel="nofollow">'Back to the middle ages': Italian police investigate Lazio fans' sexist flyers</a><span class="end"></span> <span class="meta"><span class="src" data-pub="NWSUN"><span class="src-part">The Guardian<span class="darw"></span></span></span><span class="time" data-time="1534902811">02:53</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951197500">
+   <span class="f f_IE" c="IE"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951197500?-833:12" target="_blank" rel="nofollow">Leeds go top as Hernandez denies Swans</a><span class="end"></span> <span class="meta"><span class="src" data-pub="EVENINGHERALD"><span class="src-part">The Evening Herald<span class="darw"></span></span></span><span class="time" data-time="1534902247">02:44</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951197492">
+   <span class="f f_IE" c="IE"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951197492?-833:12" target="_blank" rel="nofollow">Hernandez hits leveller to put Leeds out in front</a><span class="end"></span> <span class="meta"><span class="src" data-pub="IRISHINDEP"><span class="src-part">The Irish Independent<span class="darw"></span></span></span><span class="time" data-time="1534902245">02:44</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951196713">
+   <span class="f f_IN" c="IN"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951196713?-833:12" target="_blank" rel="nofollow">Ceferin nominated for second term as UEFA president</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SPORTSKEEDA"><span class="src-part">Sportskeeda<span class="darw"></span></span></span><span class="time" data-time="1534901093">02:24</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951196276">
+   <span class="f f_IN" c="IN"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951196276?-833:12" target="_blank" rel="nofollow">Soccer: FIFA intervene to run Uruguayan Football Association</a><span class="end"></span> <span class="meta"><span class="src" data-pub="REUTERS"><span class="src-part">Reuters<span class="darw"></span></span></span><span class="time" data-time="1534900704">02:18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951196058">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951196058?-833:12" target="_blank" rel="nofollow">Bayern Munich: Robert Lewandowski finally addresses transfer rumors</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FANSIDEDBAYERNSTRIKES"><span class="src-part">Bayern Strikes (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534900454">02:14</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951196024">
+   <span class="f f_AU" c="AU"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951196024?-833:12" target="_blank" rel="nofollow">Trent Sainsbury&#8217;s PSV on course for Champions League after first leg playoff win</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOXSPORTSAU"><span class="src-part">Fox Sports (Australia)<span class="darw"></span></span></span><span class="time" data-time="1534900439">02:13</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_time">In the last 4 hours</div>
+<div class="hl " data-id="951194452">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951194452?-833:12" target="_blank" rel="nofollow">Leeds snatch draw with Swansea to preserve Bielsa's fine start</a><span class="end"></span> <span class="meta"><span class="src" data-pub="IND"><span class="src-part">The Independent<span class="darw"></span></span></span><span class="time" data-time="1534898819">01:46</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951194287">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951194287?-833:12" target="_blank" rel="nofollow">Notes &#38; Quotes: August 21, 2018</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SBNATIONMANAGINGMADRID"><span class="src-part">Managing Madrid (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534898639">01:43</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951193870">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951193870?-833:12" target="_blank" rel="nofollow">FIFA intervene to run Uruguayan Football Association</a><span class="end"></span> <span class="meta"><span class="src" data-pub="REUTERSUK"><span class="src-part">Reuters.co.uk<span class="darw"></span></span></span><span class="time" data-time="1534898223">01:37</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><span id="avid" class="hl_ad"></span>
+<div class="hl " data-id="951193834">
+   <span class="f f_AU" c="AU"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951193834?-833:12" target="_blank" rel="nofollow">Jamieson: We owe Newcastle one</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOURFOURTWOAU"><span class="src-part">FourFourTwo (AU)<span class="darw"></span></span></span><span class="time" data-time="1534898105">01:35</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951193778">
+   <span class="f f_IN" c="IN"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951193778?-833:12" target="_blank" rel="nofollow">Marseille have 'moved on' from Balotelli deal</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SPORTSKEEDA"><span class="src-part">Sportskeeda<span class="darw"></span></span></span><span class="time" data-time="1534898066">01:34</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951192753">
+   <span class="f f_IN" c="IN"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951192753?-833:12" target="_blank" rel="nofollow">(Image) Leeds United fan going through a tough period receives an incredible gesture from the&#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THICKACCENT"><span class="src-part">Thick Accent (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534896915">01:15</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951192348">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951192348?-833:12" target="_blank" rel="nofollow">Mkhitaryan: Arsenal on right path under Emery</a><span class="end"></span> <span class="meta"><span class="src" data-pub="ESPNCOUK"><span class="src-part">ESPN.co.uk<span class="darw"></span></span></span><span class="time" data-time="1534896780">01:13</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951191727">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191727?-833:12" target="_blank" rel="nofollow">Gary McAllister: Rangers boss Steven Gerrard is proving he can lead the way at Ibrox</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GLASGOWEVENINGTIMES"><span class="src-part">Glasgow Evening Times<span class="darw"></span></span></span><span class="time" data-time="1534896191">01:03</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951191726">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191726?-833:12" target="_blank" rel="nofollow">Gary McAllister pleased to see changes on and off the park paying dividends for Rangers</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GLASGOWEVENINGTIMES"><span class="src-part">Glasgow Evening Times<span class="darw"></span></span></span><span class="time" data-time="1534896191">01:03</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951191664">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191664?-833:12" target="_blank" rel="nofollow">The remarkable story of Liverpool's FOUR number one goalkeepers this year</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GOLIVERPOOL"><span class="src-part">Liverpool Echo<span class="darw"></span></span></span><span class="time" data-time="1534896178">01:02</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951191617">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191617?-833:12" target="_blank" rel="nofollow">Tottenham news recap: Alexis Sanchez injury, new stadium latest, Vincent Janssen update</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALLLONDON"><span class="src-part">Football.London<span class="darw"></span></span></span><span class="time" data-time="1534896169">01:02</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951191534">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191534?-833:12" target="_blank" rel="nofollow">Is Liverpool's Roberto Firmino suffering a World Cup hangover?</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GOLIVERPOOL"><span class="src-part">Liverpool Echo<span class="darw"></span></span></span><span class="time" data-time="1534896146">01:02</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951191529">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191529?-833:12" target="_blank" rel="nofollow">Why Fabinho's absence is no reason to worry for Liverpool</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GOLIVERPOOL"><span class="src-part">Liverpool Echo<span class="darw"></span></span></span><span class="time" data-time="1534896146">01:02</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951191473">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191473?-833:12" target="_blank" rel="nofollow">Everton's forgotten man who could provide future competition to Morgan Schneiderlin</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GOLIVERPOOL"><span class="src-part">Liverpool Echo<span class="darw"></span></span></span><span class="time" data-time="1534896092">01:01</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951191366">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191366?-833:12" target="_blank" rel="nofollow">Cristiano Ronaldo poses with his girlfriend Georgina Rodriguez and kids in matching jerseys</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DAILYMAIL"><span class="src-part">Daily Mail<span class="darw"></span></span></span><span class="time" data-time="1534895668">00:54</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951191319">
+   <span class="f f_AU" c="AU"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191319?-833:12" target="_blank" rel="nofollow">'He&#8217;s got something that a lot of youngsters don&#8217;t have': Arnold on Arzani</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SOCCEROOS"><span class="src-part">Socceroos - Official Site<span class="darw"></span></span></span><span class="time" data-time="1534895640">00:54</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951191082">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951191082?-833:12" target="_blank" rel="nofollow">Chelsea news recap: new signing could cost club European spot, Alonso wanted by Real &#38; Atletico</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALLLONDON"><span class="src-part">Football.London<span class="darw"></span></span></span><span class="time" data-time="1534895561">00:52</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951190752">
+   <span class="f f_IN" c="IN"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951190752?-833:12" target="_blank" rel="nofollow">McClaren defiant amid QPR woes</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SPORTSKEEDA"><span class="src-part">Sportskeeda<span class="darw"></span></span></span><span class="time" data-time="1534895040">00:44</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951190740">
+   <span class="f f_NG" c="NG"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951190740?-833:12" target="_blank" rel="nofollow">NFF Thanks Presidency, Others for Averting FIFA Ban</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THISDAY"><span class="src-part">ThisDay Live<span class="darw"></span></span></span><span class="time" data-time="1534895037">00:43</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951190674">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951190674?-833:12" target="_blank" rel="nofollow">Swansea City 2-2 Leeds United Player Ratings: McBurnie shines</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THEFOOTBALLLAB"><span class="src-part">The Football Lab (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534895010">00:43</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951190031">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951190031?-833:12" target="_blank" rel="nofollow">Transfer news and rumours live: Martial decides to stay at Man Utd</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GOALDOTCOM"><span class="src-part">Goal.com<span class="darw"></span></span></span><span class="time" data-time="1534894427">00:33</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951189774">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951189774?-833:12" target="_blank" rel="nofollow">Messi and Ramos set to lead protest on behalf of La Liga players</a><span class="end"></span> <span class="meta"><span class="src" data-pub="LIVESOCCERTV"><span class="src-part">Live Soccer TV<span class="darw"></span></span></span><span class="time" data-time="1534894358">00:32</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951189726">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951189726?-833:12" target="_blank" rel="nofollow">Arsenal news recap: latest on Chelsea and Man United pursuit of Ramsey, Gazidis considers Milan</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALLLONDON"><span class="src-part">Football.London<span class="darw"></span></span></span><span class="time" data-time="1534894349">00:32</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951189562">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951189562?-833:12" target="_blank" rel="nofollow">Gary McAllister delighted by direction of travel at Rangers</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DAILYMAIL"><span class="src-part">Daily Mail<span class="darw"></span></span></span><span class="time" data-time="1534894332">00:32</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951189346">
+   <span class="f f_NG" c="NG"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951189346?-833:12" target="_blank" rel="nofollow">Arsenal CEO, Gazidis, Eyeing Milan Job</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THISDAY"><span class="src-part">ThisDay Live<span class="darw"></span></span></span><span class="time" data-time="1534893830">00:23</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951189318">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951189318?-833:12" target="_blank" rel="nofollow">Amr Warda&#8217;s first Champions League goal helps Paok Thessaloniki FC hold Benfica</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GOALDOTCOM"><span class="src-part">Goal.com<span class="darw"></span></span></span><span class="time" data-time="1534893825">00:23</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951189315">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951189315?-833:12" target="_blank" rel="nofollow">Aston Villa, Slavia Prague and the curse of Chinese cash</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THESEFOOTBALLTIMES"><span class="src-part">These Football Times<span class="darw"></span></span></span><span class="time" data-time="1534893819">00:23</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951189299">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951189299?-833:12" target="_blank" rel="nofollow">Aston Villa vs Brentford live as Steve Bruce considers making changes</a><span class="end"></span> <span class="meta"><span class="src" data-pub="BIRMINGHAMMAIL"><span class="src-part">Birmingham Mail<span class="darw"></span></span></span><span class="time" data-time="1534893814">00:23</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951188916">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951188916?-833:12" target="_blank" rel="nofollow">Champions League round-up: PSV Eindhoven move closer to group stages</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DAILYMAIL"><span class="src-part">Daily Mail<span class="darw"></span></span></span><span class="time" data-time="1534893727">00:22</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951188664">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951188664?-833:12" target="_blank" rel="nofollow">Henrikh Mkhitaryan urges Arsenal fans to be patient with Unai Emery</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DAILYMAIL"><span class="src-part">Daily Mail<span class="darw"></span></span></span><span class="time" data-time="1534893224">00:13</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951188450">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951188450?-833:12" target="_blank" rel="nofollow">Transfer live: Martial decides to stay at Man Utd</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GOALDOTCOM"><span class="src-part">Goal.com<span class="darw"></span></span></span><span class="time" data-time="1534893180">00:13</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951188437">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951188437?-833:12" target="_blank" rel="nofollow">Neil Cameron: Dermot Desmond will run Celtic his way no matter who the manager is</a><span class="end"></span> <span class="meta"><span class="src" data-pub="HERALD"><span class="src-part">The Scottish Herald<span class="darw"></span></span></span><span class="time" data-time="1534893177">00:12</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951188436">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951188436?-833:12" target="_blank" rel="nofollow">Neil Cameron: Scott Allan is too good to be left rotting at Celtic Park</a><span class="end"></span> <span class="meta"><span class="src" data-pub="HERALD"><span class="src-part">The Scottish Herald<span class="darw"></span></span></span><span class="time" data-time="1534893177">00:12</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951188002">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951188002?-833:12" target="_blank" rel="nofollow">Argentina coach unsure about Messi&#8217;s future</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SBNATIONBARCABLAUGRANES"><span class="src-part">Barca Blaugranes (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534893083">00:11</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951187807">
+   <span class="f f_IN" c="IN"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951187807?-833:12" target="_blank" rel="nofollow">(Image) Arsenal in his blood &#8211; Arsene Wenger spotted wearing Gunners merchandise during a&#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THICKACCENT"><span class="src-part">Thick Accent (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534892705">00:05</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_time">Earlier today</div>
+<div class="hl " data-id="951187611">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951187611?-833:12" target="_blank" rel="nofollow">Ivan Gazdis could be biggest defeat of all</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FANSIDEDPAININTHEARSENAL"><span class="src-part wrap">Pain in the Arsenal (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534892597">00:03</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951187412">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951187412?-833:12" target="_blank" rel="nofollow">Dominic Matteo sends message on Twitter about Leeds away fans</a><span class="end"></span> <span class="meta"><span class="src" data-pub="HEREISTHECITY"><span class="src-part">HITC<span class="darw"></span></span></span><span class="time" data-time="1534892562">00:02</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_time">In the last 6 hours</div>
+<div class="hl " data-id="951186965">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951186965?-833:12" target="_blank" rel="nofollow">Shearer: Aguero is best foreign player to ever play in PL</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALL365"><span class="src-part">Football365<span class="darw"></span></span></span><span class="time" data-time="1534892224">23:57 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951186607">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951186607?-833:12" target="_blank" rel="nofollow">Ed Woodward told who the 'ideal candidate' is to replace Jose Mourinho at Man Utd</a><span class="end"></span> <span class="meta"><span class="src" data-pub="METROCOUK"><span class="src-part">Metro.co.uk<span class="darw"></span></span></span><span class="time" data-time="1534891954">23:52 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951186386">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951186386?-833:12" target="_blank" rel="nofollow">CL: PSV take away advantage</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SKYSPORTS"><span class="src-part">Sky Sports<span class="darw"></span></span></span><span class="time" data-time="1534891907">23:51 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951186382">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951186382?-833:12" target="_blank" rel="nofollow">Reports &#8211; Aberdeen knock back &#163;3.5 million bid from Celtic for defender McKenna</a><span class="end"></span> <span class="meta"><span class="src" data-pub="EVENINGEXPRESS"><span class="src-part">Evening Express<span class="darw"></span></span></span><span class="time" data-time="1534891904">23:51 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951186246">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951186246?-833:12" target="_blank" rel="nofollow">LAFC reach final of U-13 Concacaf Champions League</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SBNATIONANGELSONPARADE"><span class="src-part">Angels On Parade (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534891585">23:46 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951186214">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951186214?-833:12" target="_blank" rel="nofollow">Aston Villa and Derby County miss out on Real Madrid star; Leeds United and Celtic miss out on&#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="BRISTOLLIVE"><span class="src-part">Bristol Live<span class="darw"></span></span></span><span class="time" data-time="1534891528">23:45 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951185941">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951185941?-833:12" target="_blank" rel="nofollow">Potter Reveals Why He Moved Roberts To Right-Wing vs Leeds United</a><span class="end"></span> <span class="meta"><span class="src" data-pub="VITALFOOTBALL"><span class="src-part wrap">Vital Football - Swansea City<span class="darw"></span></span></span><span class="time" data-time="1534891378">23:42 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951185888">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951185888?-833:12" target="_blank" rel="nofollow">Video: 'Bring back Jose siege mentality'</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SKYSPORTS"><span class="src-part">Sky Sports<span class="darw"></span></span></span><span class="time" data-time="1534891365">23:42 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951185862">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951185862?-833:12" target="_blank" rel="nofollow">Leeds stay unbeaten; Lampard's Derby victorious</a><span class="end"></span> <span class="meta"><span class="src" data-pub="ESPNCOUK"><span class="src-part">ESPN.co.uk<span class="darw"></span></span></span><span class="time" data-time="1534891361">23:42 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951185706">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951185706?-833:12" target="_blank" rel="nofollow">Watch: Pablo Hernandez On Swansea City Draw</a><span class="end"></span> <span class="meta"><span class="src" data-pub="LEEDSUNITEDFC"><span class="src-part wrap">Leeds United - Official Site<span class="darw"></span></span></span><span class="time" data-time="1534891336">23:42 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951185705">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951185705?-833:12" target="_blank" rel="nofollow">Report: Swansea City 2-2 Leeds United</a><span class="end"></span> <span class="meta"><span class="src" data-pub="LEEDSUNITEDFC"><span class="src-part wrap">Leeds United - Official Site<span class="darw"></span></span></span><span class="time" data-time="1534891336">23:42 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951185665">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951185665?-833:12" target="_blank" rel="nofollow">UEFA consider introducing VAR from Champions League quarter-finals in attempt to build on World &#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="MIRR"><span class="src-part">Mirror.co.uk<span class="darw"></span></span></span><span class="time" data-time="1534891329">23:42 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951185638">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951185638?-833:12" target="_blank" rel="nofollow">Retirement: The hidden struggles</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SKYSPORTS"><span class="src-part">Sky Sports<span class="darw"></span></span></span><span class="time" data-time="1534891325">23:42 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951185629">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951185629?-833:12" target="_blank" rel="nofollow">Letter from London &#8211; The Sporting Life</a><span class="end"></span> <span class="meta"><span class="src" data-pub="LICENSE"><span class="src-part">License! Global Magazine<span class="darw"></span></span></span><span class="time" data-time="1534891322">23:42 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184992">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184992?-833:12" target="_blank" rel="nofollow">Gary McAllister: New signings before transfer window closes are vital for Rangers because of&#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="HERALD"><span class="src-part">The Scottish Herald<span class="darw"></span></span></span><span class="time" data-time="1534890762">23:32 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951184834">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184834?-833:12" target="_blank" rel="nofollow">Gallery: Swans 2 Leeds 2</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SWANSEACITYFC"><span class="src-part wrap">Swansea City - Official Site<span class="darw"></span></span></span><span class="time" data-time="1534890730">23:32 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184777">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184777?-833:12" target="_blank" rel="nofollow">Pundit makes bold claim about Jose Mourinho's future as Manchester United vs Tottenham looms</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALLLONDON"><span class="src-part">Football.London<span class="darw"></span></span></span><span class="time" data-time="1534890721">23:32 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184704">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184704?-833:12" target="_blank" rel="nofollow">Manchester City could be considering January swoop for &#163;60m Premier league midfielder</a><span class="end"></span> <span class="meta"><span class="src" data-pub="CAUGHTOFFSIDE"><span class="src-part">CaughtOffside<span class="darw"></span></span></span><span class="time" data-time="1534890708">23:31 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184638">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184638?-833:12" target="_blank" rel="nofollow">Eden Hazard and his Chelsea team-mates don masks during fitness tests</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DAILYMAIL"><span class="src-part">Daily Mail<span class="darw"></span></span></span><span class="time" data-time="1534890699">23:31 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184602">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184602?-833:12" target="_blank" rel="nofollow">QPR press conference: Steve McClaren on Loftus Road turning on him, message to fans and Bassong</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALLLONDON"><span class="src-part">Football.London<span class="darw"></span></span></span><span class="time" data-time="1534890683">23:31 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951184551">
+   <span class="f f_IE" c="IE"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184551?-833:12" target="_blank" rel="nofollow">PSV beat BATE in five-goal Champions League thriller while Benfica are held at home</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THE42"><span class="src-part">The42<span class="darw"></span></span></span><span class="time" data-time="1534890631">23:30 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184545">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184545?-833:12" target="_blank" rel="nofollow">Aberdeen reject &#163;3.5m Celtic bid for Scott McKenna and insist the player is not for sale</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GLASGOWEVENINGTIMES"><span class="src-part">Glasgow Evening Times<span class="darw"></span></span></span><span class="time" data-time="1534890616">23:30 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184522">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184522?-833:12" target="_blank" rel="nofollow">UEFA Forging Ahead with Plans to Increase Value of Women's Football</a><span class="end"></span> <span class="meta"><span class="src" data-pub="VOANEWSCOM"><span class="src-part">Voice of America<span class="darw"></span></span></span><span class="time" data-time="1534890524">23:28 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184521">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184521?-833:12" target="_blank" rel="nofollow">Championship Review: Leeds United fight back twice for point at Swansea City | More woe for QPR &#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="THISISSHEFFIELD"><span class="src-part">Sheffield Star<span class="darw"></span></span></span><span class="time" data-time="1534890523">23:28 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184381">
+   <span class="f f_FR" c="FR"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184381?-833:12" target="_blank" rel="nofollow">The best of the day</a><span class="end"></span> <span class="meta"><span class="src" data-pub="ASMONACOFC"><span class="src-part wrap">AS Monaco FC - Official Site<span class="darw"></span></span></span><span class="time" data-time="1534890208">23:23 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951184374">
+   <span class="f f_IN" c="IN"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184374?-833:12" target="_blank" rel="nofollow">Poor Alioski, Brilliant Hernandez &#8211; The best and the worst rated Leeds stars vs Swansea City</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SOCCERSOULS"><span class="src-part">SoccerSouls (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534890206">23:23 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951184055">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951184055?-833:12" target="_blank" rel="nofollow">PSV beat BATE in Champions League thriller</a><span class="end"></span> <span class="meta"><span class="src" data-pub="BBC"><span class="src-part">BBC<span class="darw"></span></span></span><span class="time" data-time="1534890124">23:22 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183987">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183987?-833:12" target="_blank" rel="nofollow">Leeds United player ratings as the Whites go top of the table at Swansea City</a><span class="end"></span> <span class="meta"><span class="src" data-pub="LEEDSLIVE"><span class="src-part">Leeds Live<span class="darw"></span></span></span><span class="time" data-time="1534890112">23:21 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183981">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183981?-833:12" target="_blank" rel="nofollow">McClaren urges QPR patience</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SKYSPORTS"><span class="src-part">Sky Sports<span class="darw"></span></span></span><span class="time" data-time="1534890112">23:21 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183951">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183951?-833:12" target="_blank" rel="nofollow">Will Messi ever play for Argentina again?</a><span class="end"></span> <span class="meta"><span class="src" data-pub="CBS"><span class="src-part">CBSSports.com<span class="darw"></span></span></span><span class="time" data-time="1534890107">23:21 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951183950">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183950?-833:12" target="_blank" rel="nofollow">Well Done Gary Neville &#8211; Several Arsenal Fans React To Defence of Unai Emery</a><span class="end"></span> <span class="meta"><span class="src" data-pub="INSIDEFUTBOLCOM"><span class="src-part">Inside Futbol<span class="darw"></span></span></span><span class="time" data-time="1534890106">23:21 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183758">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183758?-833:12" target="_blank" rel="nofollow">Leeds Player Ratings: Swansea City 2-2 Leeds United</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SBNATIONTHROUGHITALLTOGETHER"><span class="src-part wrap">Through It All Together (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534889823">23:17 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183711">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183711?-833:12" target="_blank" rel="nofollow">Anthony Martial plans to remain at Manchester United</a><span class="end"></span> <span class="meta"><span class="src" data-pub="101GREATGOALS"><span class="src-part">101 Great Goals<span class="darw"></span></span></span><span class="time" data-time="1534889692">23:14 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183494">
+   <span class="f f_FR" c="FR"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183494?-833:12" target="_blank" rel="nofollow">McClaren under fire as QPR crash again</a><span class="end"></span> <span class="meta"><span class="src" data-pub="AFP"><span class="src-part">AFP<span class="darw"></span></span></span><span class="time" data-time="1534889578">23:12 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183346">
+   <span class="f f_US" c="US"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183346?-833:12" target="_blank" rel="nofollow">Ian Joy sits down with Marco Reus and other Borussia Dortmund stars | 2018-19 Bundesliga</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOXSPORTS"><span class="src-part">FOX Sports<span class="darw"></span></span></span><span class="time" data-time="1534889545">23:12 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951183299">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183299?-833:12" target="_blank" rel="nofollow">'I'm starting to think we got ripped off' ... These Southampton fans react as former star excels</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALLFANCAST"><span class="src-part">FootballFanCast.com<span class="darw"></span></span></span><span class="time" data-time="1534889538">23:12 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183179">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183179?-833:12" target="_blank" rel="nofollow">Gary Johnson sacked by Cheltenham Town after FOUR games of the League Two season</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DEVONLIVE"><span class="src-part">Devon Live<span class="darw"></span></span></span><span class="time" data-time="1534889521">23:12 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951183177">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951183177?-833:12" target="_blank" rel="nofollow">'Oli got his rewards'</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SWANSEACITYFC"><span class="src-part wrap">Swansea City - Official Site<span class="darw"></span></span></span><span class="time" data-time="1534889519">23:11 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951182938">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182938?-833:12" target="_blank" rel="nofollow">Aberdeen reject Celtic's opening bid for Scott McKenna and insist 21-year-old star will not&#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DAILYMAIL"><span class="src-part">Daily Mail<span class="darw"></span></span></span><span class="time" data-time="1534889491">23:11 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951182832">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182832?-833:12" target="_blank" rel="nofollow">Liverpool news: Jurgen Klopp's men proving that size doesn't matter in Crystal Palace win</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DAILYSTAR"><span class="src-part">Daily Star<span class="darw"></span></span></span><span class="time" data-time="1534889469">23:11 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_break"><!-- --></div>
+<div class="hl " data-id="951182760">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182760?-833:12" target="_blank" rel="nofollow">Match Recap: Leeds United fight for a 2-2 draw with Swansea City</a><span class="end"></span> <span class="meta"><span class="src" data-pub="SBNATIONTHROUGHITALLTOGETHER"><span class="src-part wrap">Through It All Together (Weblog)<span class="darw"></span></span></span><span class="time" data-time="1534889222">23:07 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951182733">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182733?-833:12" target="_blank" rel="nofollow">Mourinho tells Man Utd chiefs to sell Martial - gossip</a><span class="end"></span> <span class="meta"><span class="src" data-pub="BBC"><span class="src-part">BBC<span class="darw"></span></span></span><span class="time" data-time="1534889153">23:05 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl " data-id="951182689">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182689?-833:12" target="_blank" rel="nofollow">Czech ref for Atalanta-Copenhagen</a><span class="end"></span> <span class="meta"><span class="src" data-pub="FOOTBALLITALIA"><span class="src-part">Football Italia<span class="darw"></span></span></span><span class="time" data-time="1534889072">23:04 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl hl_inv" data-id="951182633">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182633?-833:12" target="_blank" rel="nofollow">Marcelo Bielsa&#8217;s first five games in charge at Leeds</a><span class="end"></span> <span class="meta"><span class="src" data-pub="BTSPORT"><span class="src-part">BT Sport<span class="darw"></span></span></span><span class="time" data-time="1534889013">23:03 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl hl_inv" data-id="951182580">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182580?-833:12" target="_blank" rel="nofollow">'It's the right way' - Arsenal star Mkhitaryan urges patience with Emery's style</a><span class="end"></span> <span class="meta"><span class="src" data-pub="GOALDOTCOM"><span class="src-part">Goal.com<span class="darw"></span></span></span><span class="time" data-time="1534888998">23:03 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_inv hl_break"><!-- --></div>
+<div class="hl hl_inv" data-id="951182532">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182532?-833:12" target="_blank" rel="nofollow">Cristiano Ronaldo rebrands entire family as girlfriend and four children dress up in Juventus&#133;</a><span class="end"></span> <span class="meta"><span class="src" data-pub="DAILYMAIL"><span class="src-part">Daily Mail<span class="darw"></span></span></span><span class="time" data-time="1534888982">23:03 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl hl_inv" data-id="951182422">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182422?-833:12" target="_blank" rel="nofollow">Swansea City 2 Leeds United 2: Bielsa pleased with 'fair result' at the Liberty Stadium</a><span class="end"></span> <span class="meta"><span class="src" data-pub="YORKSHIREEVENINGPOST"><span class="src-part">Yorkshire Evening Post<span class="darw"></span></span></span><span class="time" data-time="1534888961">23:02 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl hl_inv" data-id="951182421">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182421?-833:12" target="_blank" rel="nofollow">Swansea City v Leeds United: Phil Hay&#8217;s player ratings</a><span class="end"></span> <span class="meta"><span class="src" data-pub="YORKSHIREEVENINGPOST"><span class="src-part">Yorkshire Evening Post<span class="darw"></span></span></span><span class="time" data-time="1534888961">23:02 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl hl_inv" data-id="951182383">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182383?-833:12" target="_blank" rel="nofollow">Leeds Boss Bielsa Compliments Swansea City After 2-2 Draw</a><span class="end"></span> <span class="meta"><span class="src" data-pub="VITALFOOTBALL"><span class="src-part wrap">Vital Football - Swansea City<span class="darw"></span></span></span><span class="time" data-time="1534888956">23:02 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+<div class="hl hl_inv" data-id="951182249">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182249?-833:12" target="_blank" rel="nofollow">Lozano helps fire PSV to victory; Benfica held</a><span class="end"></span> <span class="meta"><span class="src" data-pub="ESPNCOUK"><span class="src-part">ESPN.co.uk<span class="darw"></span></span></span><span class="time" data-time="1534888932">23:02 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div><div class="hl_inv hl_break"><!-- --></div>
+<div class="hl hl_inv" data-id="951182243">
+   <span class="f f_UK" c="UK"><!-- --></span>
+   <div class="hl__inner"><a class="hll" href="http://c.newsnow.co.uk/A/951182243?-833:12" target="_blank" rel="nofollow">'Can't say I'm crushed': Some Leeds fans react to club announcement</a><span class="end"></span> <span class="meta"><span class="src" data-pub="HEREISTHECITY"><span class="src-part">HITC<span class="darw"></span></span></span><span class="time" data-time="1534888930">23:02 21-Aug-18</span></span>
+      <a class="hl__menu-toggle c-context-menu__btn js-article-menu__toggle" href="#"><span class="sprite"></span></a>
+   </div>
+</div>
+    <div class="hl_tail ">
+    <form class="njs" action="/ajax/fredir" method="GET">
+      <input type="hidden" name="o" value="more" />
+            <input type="hidden" name="dmore" value="o1`p_=2_l?-t_bal_-F_oo_/-o_rt_p-S__/h/`" />
+      <input type="submit" name="more" value="more" />
+    </form>
+    <ul class="inline hl_tail_nav js">
+      <li class="first">
+        <a class="hl_more nv b bg_tween" href="#"><span class="i">more</span></a>
+      </li>
+      <li class="date_tag js">
+   <span class="dtc dtcreal h-arrow h-arrow--down" href="javascript://" data-href="/h/Sport/Football?type=ln&#38;d=" data-date="{&quot;sel&quot;:false,&quot;latest&quot;:1534906925,&quot;now&quot;:1534908600}" data-clear="/h/Sport/Football?type=ln">
+      
+      <span class="dtctxt"><span class="d">22 Aug</span><span class="t"> 04:02</span></span>
+   </span>
+</li>
+    </ul>
+  </div>
+  <script>nn.DatepickerInit();</script>
+</div>
