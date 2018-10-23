@@ -47,7 +47,7 @@ class SchedulesController extends AppController
     const MATCHSTATS = self::GLOBAL_ESPN_URL . "/football/matchstats?gameId=";
     const LINEUPS = self::GLOBAL_ESPN_URL . "/football/lineups?gameId=";
     const VIDEO = self::GLOBAL_ESPN_URL . "/football/video?gameId=";
-    const BASEURL = 'http://202.92.7.103/~mxkdpjgahosting/';
+    const BASEURL = 'http://35.196.34.175/';
 
     const COMMON_STYLE = '
         <style>
