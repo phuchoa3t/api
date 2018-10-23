@@ -21,6 +21,7 @@
  * You can remove this if you are confident that your PHP version is sufficient.
  */
 if (version_compare(PHP_VERSION, '5.6.0') < 0) {
+    echo 1;die;
     trigger_error('Your PHP version must be equal or higher than 5.6.0 to use CakePHP.' . PHP_EOL, E_USER_ERROR);
 }
 
@@ -28,6 +29,7 @@ if (version_compare(PHP_VERSION, '5.6.0') < 0) {
  * You can remove this if you are confident you have intl installed.
  */
 if (!extension_loaded('intl')) {
+    echo 2;die;
     trigger_error('You must enable the intl extension to use CakePHP.' . PHP_EOL, E_USER_ERROR);
 }
 
@@ -35,5 +37,6 @@ if (!extension_loaded('intl')) {
  * You can remove this if you are confident you have mbstring installed.
  */
 if (!extension_loaded('mbstring')) {
+    echo 3;die;
     trigger_error('You must enable the mbstring extension to use CakePHP.' . PHP_EOL, E_USER_ERROR);
 }

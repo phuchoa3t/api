@@ -76,23 +76,16 @@ class NewsController extends AppController
 
     public function listNews()
     {
-        $html     = \Pharse::file_get_dom(self::COMMON);
-        $newsfeed = $html("#content .newsmain_wrap.central_ln_wrap")[0](".newsfeed")[0];
-
-        $f = fopen("a.txt", "w");
-        fwrite($f, $newsfeed->toString());
-        fclose($f);
-        $listNews = [];
+        $url = $this->getRequest()->getQuery('url');
+        if (!$url) {
+            return false;
+        }
+        $html     = \Pharse::file_get_dom($url);
+        $newsfeed = $html("#content .newsmain_wrap.central_ln_wrap");
+        $newsfeed = $newsfeed[0](".newsfeed")[0];
 
         $listNews = $this->_convertNewsHtmlToArray($newsfeed);
-
-
-        print_r(($listNews));
-        die;
-//        foreach ($trs as $tr) {
-////            echo $tr->toString() . "\n============================\n\n\n";
-//        }
-        $this->response->withStringBody($trs->toString())->withStatus(200)->send();
+        $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
         die;
     }
 
@@ -109,33 +102,40 @@ class NewsController extends AppController
         $html     = $this->_deobfuscate($stream);
         $html     = \Pharse::str_get_dom($html);
         $listNews = $this->_convertNewsHtmlToArray($html, $more);
-        print_r($listNews);
+        $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
         die;
     }
 
     public function _convertNewsHtmlToArray($html, $more = null)
     {
         $divs = $html(".hl_time");
+        $listNews['List_All'] = [];
         foreach ($divs as $div) {
             $next                           = $div->getNextSibling();
-            $listNews[$div->getPlainText()] = [];
+
+            $item = [
+                'title' => $div->getPlainText(),
+                'SubCatgory' => []
+            ];
 
             while ($next != null && trim($next->getAttribute('class')) != 'hl_time') {
-                if (trim($next->getAttribute('class')) == 'hl') {
+                if (preg_match('/^hl([^a-z])*$/', trim($next->getAttribute('class')))) {
                     $aTag                             = $next('.hll')[0];
-                    $listNews[$div->getPlainText()][] = [
+
+                    $item['SubCatgory'][] = [
                         'title'  => $aTag->getPlainText(),
                         'url'    => Router::url([
                             'controller' => 'News',
                             'action'     => 'detail',
                             'url'        => $aTag->getAttribute('href')
                         ], true),
-                        'time'   => $next('.time')[0]->getPlainText(),
+                        'time'   => $next('.time')[0]->getAttribute('data-time'),
                         'chanel' => $next('.src-part')[0]->getPlainText()
                     ];
                 }
                 $next = $next->getNextSibling();
             }
+            $listNews['List_All'][] = $item;
         }
         $listNews['loadmore'] = $more ? $more : Router::url([
             'controller' => 'News',
@@ -147,13 +147,21 @@ class NewsController extends AppController
 
     public function detail()
     {
+
         $url            = urldecode($this->getRequest()->getQuery('url'));
         $content        = file_get_contents($url);
-        $destinationUrl = \Pharse::str_get_dom($content)('#retrieval-msg strong a')[0]->getAttribute('href');
+        $destinationUrl = \Pharse::str_get_dom($content);
+        $destinationUrl = $destinationUrl('#retrieval-msg strong a');
+        $destinationUrl = $destinationUrl[0]->getAttribute('href');
 
         $thirdPartyContent = \Pharse::file_get_dom(self::WEBSITE_CONVERT . $destinationUrl);
-        $content = $thirdPartyContent('rss channel item')[0]('description')[0]->getPlainText();
-        $this->response->withStringBody($content)->withStatus(200)->send();
+        $item = $thirdPartyContent('rss channel item')[0];
+        $content = $item('description')[0]->getPlainText();
+        $title = "<h2>" . $item('title')[0]->getPlainText() . "</h2>";
+
+        $content = str_replace('<strong><a href="https://blockads.fivefilters.org">Let\'s block ads!</a></strong> <a href="https://blockads.fivefilters.org/acceptable.html">(Why?)</a></p>', '', $content);
+        $this->response->withStringBody($title . $content)->withStatus(200)->send();
         die;
     }
 }
+
