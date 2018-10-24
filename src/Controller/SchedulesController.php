@@ -124,7 +124,7 @@ class SchedulesController extends AppController
 
                     $matchInfo['score'] = $score;
                     $matchInfo['match_status'] = $matchStatus;
-                    preg_match('/\"events\"\:\[\{\"id\"\:\"'.$matchInfo['gameId'].'\",\"date\"\:\"(.*)\"/', $htmlString, $time);
+                    preg_match('/\{\"id\"\:\"'.$matchInfo['gameId'].'\",\"date\"\:\"(.*)\"/', $htmlString, $time);
                     $matchInfo['time'] = isset($time[1]) ? $time[1] : '';
                     $matchInfo['date'] = $tr('.matchTeams')[0]->getPlainText();
                     $matchInfo['competition'] = $tr('td')[5]('span')[0]->getPlainText();
