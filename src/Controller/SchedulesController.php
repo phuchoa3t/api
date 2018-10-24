@@ -106,19 +106,11 @@ class SchedulesController extends AppController
                     ];
 
                     $matchStatus = '';
-                    $time = '';
+
                     $score = '';
                     $td4 = $tr('td')[4]('a')[0]->getPlainText();
                     if (strpos(strtolower($td4), 'am') !== false ||
                         strpos(strtolower($td4), 'pm') !== false) {
-                        $time = $td4;
-                        $href = $tr('td')[4]('a')[0]->getAttribute('href');
-                        $time_origin = [];
-                        preg_match('/\"detail\"\:\"(.*)\",\"link\"\:\"'.preg_quote($href, '/') .'\"\},\"league\"/', $htmlString, $time_origin);
-
-                        $matchInfo['time_origin'] = isset($time_origin[1]) ? $time_origin[1] : '';
-                        $time_origin = explode('"detail":"', $matchInfo['time_origin']);
-                        $matchInfo['time_origin'] = end($time_origin);
 
                     } else {
                         $matchStatus = $td4;
@@ -132,7 +124,8 @@ class SchedulesController extends AppController
 
                     $matchInfo['score'] = $score;
                     $matchInfo['match_status'] = $matchStatus;
-                    $matchInfo['time'] = $time;
+                    preg_match('/\"events\"\:\[\{\"id\"\:\"'.$matchInfo['gameId'].'\",\"date\"\:\"(.*)\"/', $htmlString, $time);
+                    $matchInfo['time'] = isset($time[1]) ? $time[1] : '';
                     $matchInfo['date'] = $tr('.matchTeams')[0]->getPlainText();
                     $matchInfo['competition'] = $tr('td')[5]('span')[0]->getPlainText();
 
