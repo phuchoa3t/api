@@ -118,7 +118,8 @@ class SchedulesController extends AppController
 
                         $matchInfo['time_origin'] = isset($time_origin[1]) ? $time_origin[1] : '';
                         $time_origin = explode('"detail":"', $matchInfo['time_origin']);
-                        $matchInfo['time_origin'] = end($matchInfo);
+                        $matchInfo['time_origin'] = end($time_origin);
+
                     } else {
                         $matchStatus = $td4;
                     }
