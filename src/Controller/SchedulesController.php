@@ -125,6 +125,8 @@ class SchedulesController extends AppController
                     $matchInfo['score'] = $score;
                     $matchInfo['match_status'] = $matchStatus;
                     $matchInfo['time'] = $time;
+                    $matchInfo['date'] = $tr('.matchTeams')[0]->getPlainText();
+                    $matchInfo['competition'] = $tr('td')[5]('span')[0]->getPlainText();
 
                     $item['matches'][] = $matchInfo;
                 }
