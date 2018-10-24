@@ -47,7 +47,6 @@ class SchedulesController extends AppController
     const MATCHSTATS = self::GLOBAL_ESPN_URL . "/football/matchstats?gameId=";
     const LINEUPS = self::GLOBAL_ESPN_URL . "/football/lineups?gameId=";
     const VIDEO = self::GLOBAL_ESPN_URL . "/football/video?gameId=";
-    const BASEURL = 'http://35.196.34.175/';
 
     const COMMON_STYLE = '
         <style>
@@ -288,7 +287,7 @@ class SchedulesController extends AppController
             <script>
                 $(function(){
                     $("a").click(function() { 
-                        if ($(this).attr("href") && $(this).attr("href").indexOf("' . self::BASEURL . '") != -1
+                        if ($(this).attr("href") && $(this).attr("href").indexOf("' . BASEURL . '") != -1
                             || $(this).hasClass("button-filter-alt")
                         ) {
                             return true;        
@@ -301,7 +300,7 @@ class SchedulesController extends AppController
         ';
 
 
-        $html = preg_replace('/href=\"\//', 'href="' . self::BASEURL, $html);
+        $html = preg_replace('/href=\"\//', 'href="' . BASEURL, $html);
 
         $this->response->withStringBody(self::COMMON_STYLE . $style . $html . $script)->withStatus(200)->send();
         die;
@@ -413,7 +412,7 @@ class SchedulesController extends AppController
             <script>
                 $(function(){
                     $("a").click(function() { 
-                        if ($(this).attr("href").indexOf("' . self::BASEURL . '") != -1) {
+                        if ($(this).attr("href").indexOf("' . BASEURL . '") != -1) {
                             return true;        
                         }
                         
