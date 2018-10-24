@@ -113,10 +113,9 @@ class SchedulesController extends AppController
                         $time = $td4;
                         $href = $tr('td')[4]('a')[0]->getAttribute('href');
 
-                        preg_match('/"detail":"(.*)","link":"'.$href.'"/', $html->getPlainText(), $time_origin);
+                        preg_match('/\"detail\"\:\"(.*)\",\"link\"\:\"'.preg_quote($href, '/') .'\"/', $html->getPlainText(), $time_origin);
 
-                        var_dump($time_origin);die;
-//                        $matchInfo['time_origin'] =
+                        $matchInfo['time_origin'] = isset($time_origin[1]) ? $time_origin[1] : '';
                     } else {
                         $matchStatus = $td4;
                     }
