@@ -117,9 +117,8 @@ class SchedulesController extends AppController
                         preg_match('/\"detail\"\:\"(.*)\",\"link\"\:\"'.preg_quote($href, '/') .'\"\},\"league\"/', $htmlString, $time_origin);
 
                         $matchInfo['time_origin'] = isset($time_origin[1]) ? $time_origin[1] : '';
-                        $time_origin = [];
-                        preg_match('/\"detail\"\:\"(.*)/', $matchInfo['time_origin'],$time_origin);
-                        $matchInfo['time_origin'] = isset($time_origin[1]) ? $time_origin[1] : $matchInfo['time_origin'];
+                        $time_origin = explode('"detail":"', $matchInfo['time_origin']);
+                        $matchInfo['time_origin'] = end($matchInfo);
                     } else {
                         $matchStatus = $td4;
                     }
