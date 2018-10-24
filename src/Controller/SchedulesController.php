@@ -77,6 +77,7 @@ class SchedulesController extends AppController
     {
         if (!isset($html("#sched-container")[0])) {
             // for special team
+            $htmlString = $html->getPlainText();
             $boxes = $html('.Table__fixtures');
             if (count($boxes) <= 0) {
                 $boxes = $html('.Table__results');
@@ -113,7 +114,7 @@ class SchedulesController extends AppController
                         $time = $td4;
                         $href = $tr('td')[4]('a')[0]->getAttribute('href');
                         $time_origin = [];
-                        preg_match('/\"detail\"\:\"(.*)\",\"link\"\:\"'.preg_quote($href, '/') .'\"/', $html->getPlainText(), $time_origin);
+                        preg_match('/\"detail\"\:\"(.*)\",\"link\"\:\"'.preg_quote($href, '/') .'\"/', $htmlString, $time_origin);
 
                         $matchInfo['time_origin'] = isset($time_origin[1]) ? $time_origin[1] : '';
                     } else {
