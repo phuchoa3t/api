@@ -331,13 +331,8 @@ class SchedulesController extends AppController
             $gameId = $this->getRequest()->getQuery('gameId');
         }
         $html = \Pharse::file_get_dom(self::REPORT . $gameId);
-        $html('#header-wrapper')[0]->delete();
-        $html('#custom-nav')[0]->delete();
-        $html('.ad-banner-wrapper')[0]->delete();
 
 
-        $html('.col-c')[0]->delete();
-        $html('.article-footer')[0]->delete();
         $style = '
             <style>
                 #article-feed .article .article-body aside.inline-photo {
@@ -346,7 +341,8 @@ class SchedulesController extends AppController
                 #pane-main, #main-container {
                     padding-top: 0px!important;
                 }
-                #article-feed .article .article-social, .article-meta .authors>li .author, .ad-300 {
+                #article-feed .article .article-social, .article-meta .authors>li .author, .ad-300, 
+                .article-footer, .col-c, .ad-banner-wrapper, #custom-nav,#header-wrapper {
                     display: none;
                 }
             </style>
