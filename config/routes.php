@@ -60,6 +60,9 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
 
+    /** ==================================================================================================
+     * Football
+     */
     $routes->connect('/list-news', ['controller' => 'News', 'action' => 'listNews']);
     $routes->connect('/fixtures', ['controller' => 'Schedules', 'action' => 'fixtures']);
     $routes->connect('/summary/*', ['controller' => 'Schedules', 'action' => 'summary']);
@@ -76,6 +79,30 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/privacy-policy.html', ['controller' => 'Schedules', 'action' => 'policy']);
     $routes->connect('/policy', ['controller' => 'Schedules', 'action' => 'policy']);
     $routes->connect('/policy-dn-media-corp', ['controller' => 'Schedules', 'action' => 'policydn']);
+    /**
+     * End Football
+     *====================================================================================================*/
+
+    /** ==================================================================================================
+     * Lien quan
+     */
+    $routes->connect('/tuong', ['controller' => 'Garena', 'action' => 'tuong']);
+    $routes->connect('/get-type-tuong', ['controller' => 'Garena', 'action' => 'getTypesTuong']);
+    $routes->connect('/search-tuong', ['controller' => 'Garena', 'action' => 'searchTuong']);
+    $routes->connect('/chi-tiet-tuong', ['controller' => 'Garena', 'action' => 'chiTietTuong']);
+    $routes->connect('/ngoc', ['controller' => 'Garena', 'action' => 'ngoc']);
+    $routes->connect('/get-filter-ngoc', ['controller' => 'Garena', 'action' => 'getFilterNgoc']);
+    $routes->connect('/doc-chieu', ['controller' => 'Garena', 'action' => 'docChieu']);
+    $routes->connect('/trang-bi', ['controller' => 'Garena', 'action' => 'trangBi']);
+    $routes->connect('/get-filter-trang-bi', ['controller' => 'Garena', 'action' => 'getFilterTrangBi']);
+    $routes->connect('/tin-tuc', ['controller' => 'Garena', 'action' => 'tintuc']);
+    $routes->connect('/chi-tiet-tin-tuc', ['controller' => 'Garena', 'action' => 'newsDetail']);
+    $routes->connect('/cam-nang', ['controller' => 'Garena', 'action' => 'camnang']);
+    $routes->connect('/chi-tiet-cam-nang', ['controller' => 'Garena', 'action' => 'camnangDetail']);
+    /**
+     * End Lien quan
+     *====================================================================================================*/
+
 
     /**
      * Connect catchall routes for all controllers.
