@@ -36,7 +36,7 @@ class GarenaController extends AppController
             $id     = isset($matches[0]) ? $matches[0] : '';
             $name   = $tuong('.name')[0]->getPlainText();
 
-            if ((empty($typeSearchId) || $typeId == $typeSearchId)
+            if ((empty($typeSearchId) || $typeSearchId == 'all' || $typeId == $typeSearchId)
                 && (empty($nameSearch) || preg_match('/' . $nameSearch . '/', strtolower($this->_vn_to_str($name))))
             ) {
                 $result['List_All'][] = [
@@ -79,7 +79,7 @@ class GarenaController extends AppController
             $name = $ngoc('.name')[0]->getPlainText();
             $tags = $ngoc('.tags')[0]->getPlainText();
 
-            if ((empty($color) || preg_match('/' . $color . '/', $tags))
+            if ((empty($color) || $color == 'all' || preg_match('/' . $color . '/', $tags))
                 && (empty($tier) || preg_match('/cap\-' . $tier . '/', $tags))
             ) {
                 $result['List_Ngoc'][] = [
