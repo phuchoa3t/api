@@ -80,7 +80,7 @@ class GarenaController extends AppController
             $tags = $ngoc('.tags')[0]->getPlainText();
 
             if ((empty($color) || $color == 'all' || preg_match('/' . $color . '/', $tags))
-                && (empty($tier) || preg_match('/cap\-' . $tier . '/', $tags))
+                && (empty($tier) || $tier == 0 || preg_match('/cap\-' . $tier . '/', $tags))
             ) {
                 $result['List_Ngoc'][] = [
                     'name' => $name,
@@ -113,8 +113,8 @@ class GarenaController extends AppController
             $note = $html($trangBi('a')[0]->getAttribute('data-target'))[0]('.modal-dialog')[0]->html();
             if (
                 (empty($nameSearch) || preg_match('/' . $nameSearch . '/', strtolower($this->_vn_to_str($name))))
-                && (empty($type) || preg_match('/cap\-' . $type . '/', $tags))
-                && (empty($property) || preg_match('/' . $property . '/', $tags))
+                && (empty($type) || $type == 0 || preg_match('/cap\-' . $type . '/', $tags))
+                && (empty($property) || $property == 0 || preg_match('/' . $property . '/', $tags))
             ) {
                 $result['List_TrangBi'][] = [
                     'name' => $name,
