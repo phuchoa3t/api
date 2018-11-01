@@ -89,7 +89,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/tuong', ['controller' => 'Garena', 'action' => 'tuong']);
     $routes->connect('/get-type-tuong', ['controller' => 'Garena', 'action' => 'getTypesTuong']);
     $routes->connect('/search-tuong', ['controller' => 'Garena', 'action' => 'searchTuong']);
-    $routes->connect('/chi-tiet-tuong', ['controller' => 'Garena', 'action' => 'chiTietTuong']);
+    $routes->connect('/chi-tiet-tuong/*', ['controller' => 'Garena', 'action' => 'chiTietTuong']);
     $routes->connect('/ngoc', ['controller' => 'Garena', 'action' => 'ngoc']);
     $routes->connect('/get-filter-ngoc', ['controller' => 'Garena', 'action' => 'getFilterNgoc']);
     $routes->connect('/doc-chieu', ['controller' => 'Garena', 'action' => 'docChieu']);

@@ -50,14 +50,23 @@ class GarenaController extends AppController
         die;
     }
 
-    public function chiTietTuong($url = null)
+    public function chiTietTuong($id)
     {
-        $url    = $this->getRequest()->getQuery('url', self::CHI_TIET_TUONG_URL);
-        $html   = \Pharse::file_get_dom($url);
-        $result = [
-            'ChiTietTuong' => []
-        ];
+        $url  = $this->getRequest()->getQuery('url', self::CHI_TIET_TUONG_URL);
+        $url  .= $id;
+        $html = \Pharse::file_get_dom($url);
 
+        $name   = $html('.skin-hero')[0]('.title')[0]->getPlainText();
+        $tieusu = $html('#tab-2')[0]->html();
+        $Vai_Tro_Khuyen_Khich = $html('#tab-4')[0]->html();
+        echo $Vai_Tro_Khuyen_Khich;die;
+        $result = [
+            'ChiTietTuong' => [
+                'Name'   => $name,
+                'Tieu_Su' => base64_encode($tieusu),
+                'Vai_Tro_Khuyen_Khich' => base64_encode($tieusu),
+            ]
+        ];
         $this->response->withStringBody(json_encode($result))->withStatus(200)->send();
         die;
     }
@@ -110,9 +119,7 @@ class GarenaController extends AppController
         foreach ($trangBis as $trangBi) {
             $name   = $trangBi('.name')[0]->getPlainText();
             $tags   = $trangBi('.tags')[0]->getPlainText();
-            $skills = $html($trangBi('a')[0]->getAttribute('data-target'))[0]('.modal-dialog')[0];
-            $note   = $skills('.name')[0]->getPlainText();
-            $note   .= "\n" . $skills('.txt')[0]->toString(false, true, true);
+            $skills = $html($trangBi('a')[0]->getAttribute('data-target'))[0]('.modal-dialog')[0]->html();
             if (
                 (empty($nameSearch) || preg_match('/' . $nameSearch . '/', strtolower($this->_vn_to_str($name))))
                 && (empty($type) || $type == 0 || preg_match('/cap\-' . $type . '/', $tags))
@@ -121,7 +128,7 @@ class GarenaController extends AppController
                 $result['List_TrangBi'][] = [
                     'name' => $name,
                     'img'  => $trangBi('img')[0]->getAttribute('src'),
-                    'note' => preg_replace("/[[:blank:]]+/"," ",$note)
+                    'note' => base64_encode($skills)
                 ];
             }
         }
