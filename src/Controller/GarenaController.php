@@ -108,9 +108,11 @@ class GarenaController extends AppController
             'List_TrangBi' => []
         ];
         foreach ($trangBis as $trangBi) {
-            $name = $trangBi('.name')[0]->getPlainText();
-            $tags = $trangBi('.tags')[0]->getPlainText();
-            $note = $html($trangBi('a')[0]->getAttribute('data-target'))[0]('.modal-dialog')[0]->html();
+            $name   = $trangBi('.name')[0]->getPlainText();
+            $tags   = $trangBi('.tags')[0]->getPlainText();
+            $skills = $html($trangBi('a')[0]->getAttribute('data-target'))[0]('.modal-dialog')[0];
+            $note   = $skills('.name')[0]->getPlainText();
+            $note   .= "\n" . $skills('.txt')[0]->toString(false, true, true);
             if (
                 (empty($nameSearch) || preg_match('/' . $nameSearch . '/', strtolower($this->_vn_to_str($name))))
                 && (empty($type) || $type == 0 || preg_match('/cap\-' . $type . '/', $tags))
@@ -119,11 +121,11 @@ class GarenaController extends AppController
                 $result['List_TrangBi'][] = [
                     'name' => $name,
                     'img'  => $trangBi('img')[0]->getAttribute('src'),
-                    'note' => $note
+                    'note' => preg_replace("/[[:blank:]]+/"," ",$note)
                 ];
             }
         }
-        $this->response->withStringBody(json_encode($result))->withStatus(200)->send();
+        $this->response->withStringBody(json_encode($result, JSON_UNESCAPED_UNICODE))->withStatus(200)->send();
         die;
     }
 
