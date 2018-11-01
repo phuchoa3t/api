@@ -9,23 +9,23 @@ require ROOT . "/vendor/ressio/pharse/pharse.php";
 
 class GarenaController extends AppController
 {
-    const BASE_URL           = 'https://lienquan.garena.vn';
-    const NEWS_BASE_URL      = 'http://gamek.vn';
-    const TUONG_URL          = 'https://lienquan.garena.vn/tuong';
+    const BASE_URL = 'https://lienquan.garena.vn';
+    const NEWS_BASE_URL = 'http://gamek.vn';
+    const TUONG_URL = 'https://lienquan.garena.vn/tuong';
     const CHI_TIET_TUONG_URL = 'https://lienquan.garena.vn/tuong-chi-tiet/';
-    const NGOC_URL           = 'https://lienquan.garena.vn/bo-tro';
-    const DOC_CHIEU_URL      = 'https://lienquan.garena.vn/doc-chieu';
-    const TRANG_BI_URL       = 'https://lienquan.garena.vn/trang-bi';
-    const TIN_TUC_URL        = 'http://gamek.vn/lien-quan-mobile/page-1.htm';
-    const CAM_NANG_URL       = 'http://lienquan.net/cam-nang?page=1';
+    const NGOC_URL = 'https://lienquan.garena.vn/bo-tro';
+    const DOC_CHIEU_URL = 'https://lienquan.garena.vn/doc-chieu';
+    const TRANG_BI_URL = 'https://lienquan.garena.vn/trang-bi';
+    const TIN_TUC_URL = 'http://gamek.vn/lien-quan-mobile/page-1.htm';
+    const CAM_NANG_URL = 'http://lienquan.net/cam-nang?page=1';
 
     public function tuong($url = null)
     {
-        $url          = $this->getRequest()->getQuery('url', self::TUONG_URL);
+        $url = $this->getRequest()->getQuery('url', self::TUONG_URL);
         $typeSearchId = $this->getRequest()->getQuery('type_id');
-        $nameSearch   = strtolower($this->_vn_to_str($this->getRequest()->getQuery('name')));
+        $nameSearch = strtolower($this->_vn_to_str($this->getRequest()->getQuery('name')));
 
-        $html   = \Pharse::file_get_dom($url);
+        $html = \Pharse::file_get_dom($url);
         $tuongs = $html('.list-champion');
         $result = [
             'List_All' => []
@@ -33,16 +33,16 @@ class GarenaController extends AppController
         foreach ($tuongs as $tuong) {
             preg_match('/\d+/', $tuong('a')[0]->getAttribute('href'), $matches);
             $typeId = $tuong('.tags')[0]->getAttribute('type');
-            $id     = isset($matches[0]) ? $matches[0] : '';
-            $name   = $tuong('.name')[0]->getPlainText();
+            $id = isset($matches[0]) ? $matches[0] : '';
+            $name = $tuong('.name')[0]->getPlainText();
 
             if ((empty($typeSearchId) || $typeSearchId == 'all' || $typeId == $typeSearchId)
                 && (empty($nameSearch) || preg_match('/' . $nameSearch . '/', strtolower($this->_vn_to_str($name))))
             ) {
                 $result['List_All'][] = [
-                    'id'   => $id,
+                    'id' => $id,
                     'name' => $name,
-                    'img'  => self::BASE_URL . $tuong('img')[0]->getAttribute('src')
+                    'img' => self::BASE_URL . $tuong('img')[0]->getAttribute('src')
                 ];
             }
         }
@@ -52,22 +52,19 @@ class GarenaController extends AppController
 
     public function chiTietTuong($id)
     {
-        $url  = $this->getRequest()->getQuery('url', self::CHI_TIET_TUONG_URL);
-        $url  .= $id;
-        $html = \Pharse::file_get_dom($url);
+        $url = $this->getRequest()->getQuery('url', self::CHI_TIET_TUONG_URL);
+        $url .= $id;
 
-        $name   = $html('.skin-hero')[0]('.title')[0]->getPlainText();
-        $tieusu = $html('#tab-2')[0]->html();
-        $Vai_Tro_Khuyen_Khich = $html('#tab-4')[0]->html();
-        echo $Vai_Tro_Khuyen_Khich;die;
-        $result = [
-            'ChiTietTuong' => [
-                'Name'   => $name,
-                'Tieu_Su' => base64_encode($tieusu),
-                'Vai_Tro_Khuyen_Khich' => base64_encode($tieusu),
-            ]
-        ];
-        $this->response->withStringBody(json_encode($result))->withStatus(200)->send();
+        $style = '
+            <style>
+                .head-top, .tab-link.info-tab, .left-banner, .pennelRight, footer, body >img {
+                    display: none!important;
+                }
+           </style>
+        ';
+
+        $meta = '<base href="https://lienquan.garena.vn/" target="_blank">';
+        echo $style . $meta . file_get_contents($url);
         die;
     }
 
@@ -76,9 +73,9 @@ class GarenaController extends AppController
         $url = $this->getRequest()->getQuery('url', self::NGOC_URL);
 
         $color = $this->getRequest()->getQuery('color');
-        $tier  = strtolower($this->_vn_to_str($this->getRequest()->getQuery('tier')));
+        $tier = strtolower($this->_vn_to_str($this->getRequest()->getQuery('tier')));
 
-        $html  = \Pharse::file_get_dom($url);
+        $html = \Pharse::file_get_dom($url);
         $ngocs = $html('.list-rune');
 
         $result = [
@@ -93,7 +90,7 @@ class GarenaController extends AppController
             ) {
                 $result['List_Ngoc'][] = [
                     'name' => $name,
-                    'img'  => self::BASE_URL . $ngoc('img')[0]->getAttribute('src'),
+                    'img' => self::BASE_URL . $ngoc('img')[0]->getAttribute('src'),
                     'note' => $ngoc('.text')[0]->getPlainText()
                 ];
             }
@@ -107,18 +104,18 @@ class GarenaController extends AppController
         $url = $this->getRequest()->getQuery('url', self::TRANG_BI_URL);
 
         $nameSearch = strtolower($this->_vn_to_str($this->getRequest()->getQuery('name')));
-        $type       = $this->getRequest()->getQuery('type');
-        $property   = $this->getRequest()->getQuery('property');
+        $type = $this->getRequest()->getQuery('type');
+        $property = $this->getRequest()->getQuery('property');
 
-        $html     = \Pharse::file_get_dom($url);
+        $html = \Pharse::file_get_dom($url);
         $trangBis = $html('.group-items');
 
         $result = [
             'List_TrangBi' => []
         ];
         foreach ($trangBis as $trangBi) {
-            $name   = $trangBi('.name')[0]->getPlainText();
-            $tags   = $trangBi('.tags')[0]->getPlainText();
+            $name = $trangBi('.name')[0]->getPlainText();
+            $tags = $trangBi('.tags')[0]->getPlainText();
             $skills = $html($trangBi('a')[0]->getAttribute('data-target'))[0]('.modal-dialog')[0]->html();
             if (
                 (empty($nameSearch) || preg_match('/' . $nameSearch . '/', strtolower($this->_vn_to_str($name))))
@@ -127,7 +124,7 @@ class GarenaController extends AppController
             ) {
                 $result['List_TrangBi'][] = [
                     'name' => $name,
-                    'img'  => $trangBi('img')[0]->getAttribute('src'),
+                    'img' => $trangBi('img')[0]->getAttribute('src'),
                     'note' => base64_encode($skills)
                 ];
             }
@@ -141,14 +138,14 @@ class GarenaController extends AppController
         $url = $this->getRequest()->getQuery('url', self::DOC_CHIEU_URL);
 
 
-        $html      = \Pharse::file_get_dom($url);
+        $html = \Pharse::file_get_dom($url);
         $docChieus = $html('.tabs-content');
 
         $result = [
             'List_Doc_Chieu' => []
         ];
 
-        $imgs     = [];
+        $imgs = [];
         $imgsHtml = $html('.tabs-all')[0]('li');
 
         foreach ($imgsHtml as $imgHtml) {
@@ -157,9 +154,9 @@ class GarenaController extends AppController
 
         foreach ($docChieus as $docChieu) {
             $result['List_Doc_Chieu'][] = [
-                'name'  => $docChieu('.title')[0]->getPlainText(),
-                'img'   => $imgs['#' . $docChieu->getAttribute('id')],
-                'note'  => $docChieu('.txtcript')[0]->getPlainText(),
+                'name' => $docChieu('.title')[0]->getPlainText(),
+                'img' => $imgs['#' . $docChieu->getAttribute('id')],
+                'note' => $docChieu('.txtcript')[0]->getPlainText(),
                 'video' => $docChieu('.playvideo')[0]->getAttribute('data-video')
             ];
         }
@@ -174,9 +171,9 @@ class GarenaController extends AppController
             $html = \Pharse::file_get_dom($url);
         }
 
-        $result      = [
+        $result = [
             'color' => [],
-            'tier'  => []
+            'tier' => []
         ];
         $itemFilters = $html('.item-filter');
         foreach ($itemFilters as $itemFilter) {
@@ -207,8 +204,8 @@ class GarenaController extends AppController
             $html = \Pharse::file_get_dom($url);
         }
 
-        $result      = [
-            'type'       => [],
+        $result = [
+            'type' => [],
             'properties' => []
         ];
         $optionsType = $html('#select-type')[0]('option');
@@ -239,7 +236,7 @@ class GarenaController extends AppController
             $html = \Pharse::file_get_dom($url);
         }
         $itemFilters = $html('.item-filter');
-        $typesTuong  = [
+        $typesTuong = [
             'Type_Tuong' => []
         ];
         foreach ($itemFilters as $itemFilter) {
@@ -318,11 +315,11 @@ class GarenaController extends AppController
         $htmlNews = $html('.newsgame')[0]('ul li');
         foreach ($htmlNews as $htmlNew) {
             $news['TinTuc'][] = [
-                'title'       => $htmlNew('.ltitle')[0]('a')[0]->getPlainText(),
-                'img'         => $htmlNew('img')[0]->getAttribute('src'),
-                'date'        => $htmlNew('.right ')[0]('p')[1]->getPlainText(),
+                'title' => $htmlNew('.ltitle')[0]('a')[0]->getPlainText(),
+                'img' => $htmlNew('img')[0]->getAttribute('src'),
+                'date' => $htmlNew('.right ')[0]('p')[1]->getPlainText(),
                 'description' => $htmlNew('.right ')[0]('p')[2]->getPlainText(),
-                'detail'      => BASEURL . '/chi-tiet-tin-tuc?url=' . self::NEWS_BASE_URL . $htmlNew('a')[0]->getAttribute('href')
+                'detail' => BASEURL . '/chi-tiet-tin-tuc?url=' . self::NEWS_BASE_URL . $htmlNew('a')[0]->getAttribute('href')
             ];
         }
         endpoint:
@@ -346,8 +343,8 @@ class GarenaController extends AppController
         $htmlNews = $html('.videos_box');
         foreach ($htmlNews as $htmlNew) {
             $news['CamNang'][] = [
-                'title'  => $htmlNew('.text1')[0]->getPlainText(),
-                'img'    => $htmlNew('img')[0]->getAttribute('src'),
+                'title' => $htmlNew('.text1')[0]->getPlainText(),
+                'img' => $htmlNew('img')[0]->getAttribute('src'),
                 'detail' => BASEURL . '/chi-tiet-cam-nang?url=' . $htmlNew('a')[0]->getAttribute('href')
             ];
         }
@@ -361,9 +358,10 @@ class GarenaController extends AppController
         $url = $this->getRequest()->getQuery('url');
 
         if ($url) {
-            $html    = \Pharse::file_get_dom($url);
-            $h1      = $html('.topdetail')[0]('h1')[0]->html();
-            $h2      = $html('.rightdetail')[0]('h2')[0]->html();
+            $html = \Pharse::file_get_dom($url);
+            $html('.link-content-footer')[0]->delete();
+            $h1 = $html('.topdetail')[0]('h1')[0]->html();
+            $h2 = $html('.rightdetail')[0]('h2')[0]->html();
             $content = $html('.rightdetail_content')[0]->html();
             $this->response->withStringBody($h1 . "<br/>" . $h2 . "<br/>" . $content)->withStatus(200)->send();
         }
@@ -375,9 +373,19 @@ class GarenaController extends AppController
         $url = $this->getRequest()->getQuery('url');
 
         if ($url) {
-            $html    = \Pharse::file_get_dom($url);
-            $content = $html('.news-content')[0]->html();
-            $this->response->withStringBody($content)->withStatus(200)->send();
+            $html = \Pharse::file_get_dom($url);
+            $content = '';
+            $content .= isset($html('.news-content')[0]) ? $html('.news-content')[0]->html() : '';
+            $style = '
+                <style>
+                .videoWrapper iframe{
+                    width: 100%;
+                    height: 100%;
+                }
+                </style>
+            ';
+            $content .= isset($html('.videoWrapper')[0]) ? $html('.videoWrapper')[0]->html() : '';
+            $this->response->withStringBody($style . $content)->withStatus(200)->send();
         }
         die;
     }
