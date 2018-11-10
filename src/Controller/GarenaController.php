@@ -344,7 +344,7 @@ class GarenaController extends AppController
         foreach ($htmlNews as $htmlNew) {
             $news['CamNang'][] = [
                 'title' => $htmlNew('.text1')[0]->getPlainText(),
-                'img' => $htmlNew('img')[0]->getAttribute('src'),
+                'img' => $this->_getLatestUrl($htmlNew('img')[0]->getAttribute('src')),
                 'detail' => BASEURL . '/chi-tiet-cam-nang?url=' . $htmlNew('a')[0]->getAttribute('href')
             ];
         }
@@ -396,5 +396,19 @@ class GarenaController extends AppController
             $this->response->withStringBody($style . $content)->withStatus(200)->send();
         }
         die;
+    }
+
+    private function _getLatestUrl($url)
+    {
+        if (!$url) {
+            return '';
+        }
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        $header = curl_exec($ch);
+        $redir = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+        return $redir;
     }
 }
