@@ -370,7 +370,7 @@ class GarenaController extends AppController
             $p = $html('.topdetail')[0]('.mgt15')[0]->html();
             $h2 = '<h3>' . $html('.rightdetail')[0]('h2')[0]->getPlainText() . '</h3>';
             $content = $html('.rightdetail_content')[0]->html();
-            $this->response->withStringBody($h1 . "<br/>" . $p . "<br/>" . $h2 . "<br/>" . $content)->withStatus(200)->send();
+            $this->response->withStringBody($style . $h1 . "<br/>" . $p . "<br/>" . $h2 . "<br/>" . $content)->withStatus(200)->send();
         }
         die;
     }
