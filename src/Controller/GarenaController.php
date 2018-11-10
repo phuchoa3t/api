@@ -344,7 +344,7 @@ class GarenaController extends AppController
         foreach ($htmlNews as $htmlNew) {
             $news['CamNang'][] = [
                 'title' => $htmlNew('.text1')[0]->getPlainText(),
-                'img' => $this->_getLatestUrl($htmlNew('img')[0]->getAttribute('src')),
+                'img' => $this->removeHttp($htmlNew('img')[0]->getAttribute('src')),
                 'detail' => BASEURL . '/chi-tiet-cam-nang?url=' . $htmlNew('a')[0]->getAttribute('href')
             ];
         }
@@ -398,8 +398,15 @@ class GarenaController extends AppController
         die;
     }
 
+
+    private function removeHttp($url)
+    {
+        return preg_replace('#^(https?://|ftps?://)?(www.)?#', 'https://', $url);
+    }
+
     private function _getLatestUrl($url)
     {
+
         if (!$url) {
             return '';
         }
