@@ -356,14 +356,21 @@ class GarenaController extends AppController
     public function newsDetail()
     {
         $url = $this->getRequest()->getQuery('url');
+        $style = '
+            <style>
+                body { text-align: justify;} 
+                img { max-width: 100%; height:auto !important;}
+            </style>
+        ';
 
         if ($url) {
             $html = \Pharse::file_get_dom($url);
             $html('.link-content-footer')[0]->delete();
-            $h1 = $html('.topdetail')[0]('h1')[0]->html();
-            $h2 = $html('.rightdetail')[0]('h2')[0]->html();
+            $h1 = '<h2>' . $html('.topdetail')[0]('h1')[0]->getPlainText() . '</h2>';
+            $p = $html('.topdetail')[0]('.mgt15')[0]->html();
+            $h2 = '<h3>' . $html('.rightdetail')[0]('h2')[0]->getPlainText() . '</h3>';
             $content = $html('.rightdetail_content')[0]->html();
-            $this->response->withStringBody($h1 . "<br/>" . $h2 . "<br/>" . $content)->withStatus(200)->send();
+            $this->response->withStringBody($h1 . "<br/>" . $p . "<br/>" . $h2 . "<br/>" . $content)->withStatus(200)->send();
         }
         die;
     }
@@ -374,7 +381,8 @@ class GarenaController extends AppController
 
         if ($url) {
             $html = \Pharse::file_get_dom($url);
-            $content = '';
+            $content = isset($html('.title')[0]) ? $html('.title')[0]->html() : '';
+            $content = isset($html('.block_timer')[0]) ? $html('.block_timer')[0]->html() : '';
             $content .= isset($html('.news-content')[0]) ? $html('.news-content')[0]->html() : '';
             $style = '
                 <style>
