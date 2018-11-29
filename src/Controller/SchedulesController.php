@@ -122,7 +122,7 @@ class SchedulesController extends AppController
                     preg_match('/\d+/', $summaryOriginUrl, $matches);
                     $matchInfo['gameId'] = isset($matches[0]) ? $matches[0] : '';
 
-                    $matchInfo['score'] = $score;
+                    $matchInfo['score'] = strlen($score) > 2 ? $score : '';
                     $matchInfo['match_status'] = $matchStatus;
                     preg_match('/\{\"id\"\:\"'.$matchInfo['gameId'].'\",\"date\"\:\"(.*)\"/', $htmlString, $time);
                     $time = isset($time[1]) ? $time[1] : '';
@@ -180,7 +180,7 @@ class SchedulesController extends AppController
                     } else {
                         $matchStatus = $match('td')[2]('a')[0]->getPlainText();
                     }
-                    $matchInfo['score'] = $score;
+                    $matchInfo['score'] = strlen($score) > 2 ? $score : '';
                     $matchInfo['match_status'] = $matchStatus;
                     $matchInfo['time'] = $time;
 
