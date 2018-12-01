@@ -46,6 +46,10 @@ class GarenaController extends AppController
                 ];
             }
         }
+        usort($result['List_All'], function ($a, $b) {
+            return strcasecmp($a['name'], $b['name']);
+        });
+
         $this->response->withStringBody(json_encode($result))->withStatus(200)->send();
         die;
     }

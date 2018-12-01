@@ -8,24 +8,24 @@ require ROOT . "/vendor/ressio/pharse/pharse.php";
 
 class NewsController extends AppController
 {
-    const BASE_URL          = "http://www.newsnow.co.uk";
-    const WEBSITE_CONVERT   = "http://ftr.fivefilters.org/makefulltextfeed.php?url=";
-    const COMMON            = self::BASE_URL . "/h/Sport/Football";
-    const PREMIER_LEAGUE    = self::BASE_URL . "/h/Sport/Football/Premier+League";
-    const LALIGA            = self::BASE_URL . "/h/Sport/Football/La+Liga";
-    const SERIE_A           = self::BASE_URL . "/h/Sport/Football/Serie+A";
-    const BUNDESLIGA        = self::BASE_URL . "/h/Sport/Football/Bundesliga";
-    const LIGUE_1           = self::BASE_URL . "/h/Sport/Football/Ligue+1";
-    const CHAMPIONS_LEAGUE  = self::BASE_URL . "/h/Sport/Football/Europe/UEFA+Champions+League";
+    const BASE_URL = "http://www.newsnow.co.uk";
+    const WEBSITE_CONVERT = "http://ftr.fivefilters.org/makefulltextfeed.php?url=";
+    const COMMON = self::BASE_URL . "/h/Sport/Football";
+    const PREMIER_LEAGUE = self::BASE_URL . "/h/Sport/Football/Premier+League";
+    const LALIGA = self::BASE_URL . "/h/Sport/Football/La+Liga";
+    const SERIE_A = self::BASE_URL . "/h/Sport/Football/Serie+A";
+    const BUNDESLIGA = self::BASE_URL . "/h/Sport/Football/Bundesliga";
+    const LIGUE_1 = self::BASE_URL . "/h/Sport/Football/Ligue+1";
+    const CHAMPIONS_LEAGUE = self::BASE_URL . "/h/Sport/Football/Europe/UEFA+Champions+League";
     const MANCHESTER_UNITED = self::BASE_URL . "/h/Sport/Football/Premier+League/Manchester+United";
-    const CHELSEA           = self::BASE_URL . "/h/Sport/Football/Premier+League/Chelsea";
-    const ARSEAL            = self::BASE_URL . "/h/Sport/Football/Premier+League/Arsenal";
-    const LIVERPOOL         = self::BASE_URL . "/h/Sport/Football/Premier+League/Liverpool";
-    const BARCELONA         = self::BASE_URL . "/h/Sport/Football/La+Liga/Barcelona";
-    const REAL_MADRID       = self::BASE_URL . "/h/Sport/Football/La+Liga/Real+Madrid";
-    const BAYERN_MUNICH     = self::BASE_URL . "/h/Sport/Football/Bundesliga/Bayern+Munich";
-    const JUVENTUS          = self::BASE_URL . "/h/Sport/Football/Serie+A/Juventus";
-    const AC_MILAN          = self::BASE_URL . "/h/Sport/Football/Serie+A/AC+Milan";
+    const CHELSEA = self::BASE_URL . "/h/Sport/Football/Premier+League/Chelsea";
+    const ARSEAL = self::BASE_URL . "/h/Sport/Football/Premier+League/Arsenal";
+    const LIVERPOOL = self::BASE_URL . "/h/Sport/Football/Premier+League/Liverpool";
+    const BARCELONA = self::BASE_URL . "/h/Sport/Football/La+Liga/Barcelona";
+    const REAL_MADRID = self::BASE_URL . "/h/Sport/Football/La+Liga/Real+Madrid";
+    const BAYERN_MUNICH = self::BASE_URL . "/h/Sport/Football/Bundesliga/Bayern+Munich";
+    const JUVENTUS = self::BASE_URL . "/h/Sport/Football/Serie+A/Juventus";
+    const AC_MILAN = self::BASE_URL . "/h/Sport/Football/Serie+A/AC+Milan";
 
     function _deobfuscate($d)
     {
@@ -80,7 +80,7 @@ class NewsController extends AppController
         if (!$url) {
             return false;
         }
-        $html     = \Pharse::file_get_dom($url);
+        $html = \Pharse::file_get_dom($url);
         $newsfeed = $html("#content .newsmain_wrap.central_ln_wrap");
         $newsfeed = $newsfeed[0](".newsfeed")[0];
 
@@ -91,16 +91,16 @@ class NewsController extends AppController
 
     public function loadMore()
     {
-        $more     = $this->getRequest()->getQuery('more');
-        $data     = json_decode(file_get_contents(self::BASE_URL . '/ajax/more?more=' . $more), true);
-        $more     = Router::url([
+        $more = $this->getRequest()->getQuery('more');
+        $data = json_decode(file_get_contents(self::BASE_URL . '/ajax/more?more=' . $more), true);
+        $more = Router::url([
             'controller' => 'News',
-            'action'     => 'loadMore',
-            'more'       => urlencode($data['content']['more'])
+            'action' => 'loadMore',
+            'more' => urlencode($data['content']['more'])
         ], true);
-        $stream   = join("", $data['stream']);
-        $html     = $this->_deobfuscate($stream);
-        $html     = \Pharse::str_get_dom($html);
+        $stream = join("", $data['stream']);
+        $html = $this->_deobfuscate($stream);
+        $html = \Pharse::str_get_dom($html);
         $listNews = $this->_convertNewsHtmlToArray($html, $more);
         $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
         die;
@@ -111,7 +111,7 @@ class NewsController extends AppController
         $divs = $html(".hl_time");
         $listNews['List_All'] = [];
         foreach ($divs as $div) {
-            $next                           = $div->getNextSibling();
+            $next = $div->getNextSibling();
 
             $item = [
                 'title' => $div->getPlainText(),
@@ -120,16 +120,16 @@ class NewsController extends AppController
 
             while ($next != null && trim($next->getAttribute('class')) != 'hl_time') {
                 if (preg_match('/^hl([^a-z])*$/', trim($next->getAttribute('class')))) {
-                    $aTag                             = $next('.hll')[0];
+                    $aTag = $next('.hll')[0];
 
                     $item['SubCatgory'][] = [
-                        'title'  => $aTag->getPlainText(),
-                        'url'    => Router::url([
+                        'title' => $aTag->getPlainText(),
+                        'url' => Router::url([
                             'controller' => 'News',
-                            'action'     => 'detail',
-                            'url'        => $aTag->getAttribute('href')
+                            'action' => 'detail',
+                            'url' => $aTag->getAttribute('href')
                         ], true),
-                        'time'   => $next('.time')[0]->getAttribute('data-time'),
+                        'time' => $next('.time')[0]->getAttribute('data-time'),
                         'chanel' => $next('.src-part')[0]->getPlainText()
                     ];
                 }
@@ -139,8 +139,8 @@ class NewsController extends AppController
         }
         $listNews['loadmore'] = $more ? $more : Router::url([
             'controller' => 'News',
-            'action'     => 'loadMore',
-            'more'       => urlencode($html->getAttribute('data-more'))
+            'action' => 'loadMore',
+            'more' => urlencode($html->getAttribute('data-more'))
         ], true);
         return $listNews;
     }
@@ -148,13 +148,20 @@ class NewsController extends AppController
     public function detail()
     {
 
-        $url            = urldecode($this->getRequest()->getQuery('url'));
-        $content        = file_get_contents($url);
+        $url = urldecode($this->getRequest()->getQuery('url'));
+        $content = file_get_contents($url);
         $destinationUrl = \Pharse::str_get_dom($content);
         $destinationUrl = $destinationUrl('#retrieval-msg strong a');
         $destinationUrl = $destinationUrl[0]->getAttribute('href');
 
         $thirdPartyContent = \Pharse::file_get_dom(self::WEBSITE_CONVERT . $destinationUrl);
+
+        if (strpos($thirdPartyContent->getPlainText(), 'URL blocked - Why') !== false
+            || strlen($thirdPartyContent->getPlainText()) <= 20
+        ) {
+            $this->response->withStringBody(file_get_contents($destinationUrl))->withStatus(200)->send();
+            die;
+        }
         $item = $thirdPartyContent('rss channel item')[0];
         $content = $item('description')[0]->getPlainText();
         $title = "<h2>" . $item('title')[0]->getPlainText() . "</h2>";
