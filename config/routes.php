@@ -70,8 +70,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/commentary/*', ['controller' => 'Schedules', 'action' => 'commentary']);
     $routes->connect('/soccer/commentary', ['controller' => 'Schedules', 'action' => 'commentary']);
     $routes->connect('/football/commentary', ['controller' => 'Schedules', 'action' => 'commentary']);
+    $routes->connect('/*/commentary', ['controller' => 'Schedules', 'action' => 'commentary']);
     $routes->connect('/matchstats/*', ['controller' => 'Schedules', 'action' => 'matchstats']);
     $routes->connect('/football/matchstats', ['controller' => 'Schedules', 'action' => 'matchstats']);
+    $routes->connect('/*/matchstats', ['controller' => 'Schedules', 'action' => 'matchstats']);
     $routes->connect('/soccer/matchstats', ['controller' => 'Schedules', 'action' => 'matchstats']);
     $routes->connect('/lineups/*', ['controller' => 'Schedules', 'action' => 'lineups']);
     $routes->connect('/video/*', ['controller' => 'Schedules', 'action' => 'video']);
