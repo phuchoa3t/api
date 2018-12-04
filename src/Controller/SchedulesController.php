@@ -304,7 +304,7 @@ class SchedulesController extends AppController
         ';
 
 
-        $html = preg_replace('/href=\"\//', 'href="' . BASEURL, $html);
+        $html = preg_replace('/href=\"\//', 'href="' . BASEURL . '/', $html);
 
         $this->response->withStringBody(self::COMMON_STYLE . $style . $html . $script)->withStatus(200)->send();
         die;
