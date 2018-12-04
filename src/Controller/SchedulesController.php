@@ -342,7 +342,7 @@ class SchedulesController extends AppController
                     padding-top: 0px!important;
                 }
                 #article-feed .article .article-social, .article-meta .authors>li .author, .ad-300, 
-                .article-footer, .col-c, .ad-banner-wrapper, #custom-nav,#header-wrapper, .iframe-video.article-figure.video {
+                .article-footer, .col-c, .ad-banner-wrapper, #custom-nav,#header-wrapper{
                     display: none!important;
                 }
             </style>
