@@ -231,9 +231,11 @@ class SchedulesController extends AppController
         $charts = [];
         $i = 1;
         foreach ($table('tr') as $tr) {
+            $img = $tr('td')[0]('.team-logo')[0]->getAttribute('src');
+            $img = str_replace('a.espncdn.com', 'a.espncdn.com/combiner/i?img=', $img);
             $charts[] = [
                 'stt' => $i++,
-                'logo' => $tr('td')[0]('.team-logo')[0]->getAttribute('src'),
+                'logo' => $img,
                 'name' => $tr('td')[0]('.team-names')[0]->getPlainText(),
                 'gp' => $tr('td')[1]->getPlainText(),
                 'w' => $tr('td')[2]->getPlainText(),
