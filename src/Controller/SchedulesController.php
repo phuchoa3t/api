@@ -311,7 +311,7 @@ class SchedulesController extends AppController
         $html = preg_replace('/href=\"\//', 'href="' . BASEURL . '/', $html);
 
 
-        preg_replace('/a.espncdn.com\/i\/teamlogos/', 'a.espncdn.com/combiner/i?img=/i/teamlogos', $html);
+        $html = preg_replace('/a.espncdn.com\/i\/teamlogos/', 'a.espncdn.com/combiner/i?img=/i/teamlogos', $html);
 
         $this->response->withStringBody(self::COMMON_STYLE . $style . $html . $script)->withStatus(200)->send();
         die;
