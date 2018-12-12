@@ -469,8 +469,17 @@ class SchedulesController extends AppController
            }
            </style>
         ';
+        $script = `
+            $(document).ready(function(){
+                $('.iframe-video').each(function(){
+                    if (!$(this).find('.video-play-button').length){
+                        $(this).closest('article.highlight').remove()
+                    }
+                });
+            });
+        `;
 
-        $this->response->withStringBody(self::COMMON_STYLE . $style . $html)->withStatus(200)->send();
+        $this->response->withStringBody(self::COMMON_STYLE . $style . $html . $script)->withStatus(200)->send();
         die;
     }
 }

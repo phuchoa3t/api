@@ -1,5 +1,5 @@
 <?php
-define('BASEURL', 'http://api.local');
+define('BASEURL', 'http://35.231.167.153');
 return [
     /**
      * Debug Level:
