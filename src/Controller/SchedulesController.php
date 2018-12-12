@@ -270,7 +270,8 @@ class SchedulesController extends AppController
 
     public function summary($gameId)
     {
-        $html = \Pharse::file_get_dom(self::SUMMARY . $gameId, true, true);
+        $server_output = $this->_curl(self::SUMMARY . $gameId);
+        $html   = \Pharse::str_get_dom($server_output, true);
         $style  = '
             <style>
                 #gamepackage-column-wrap .col-one, #header-wrapper , #custom-nav, 
