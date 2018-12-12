@@ -333,7 +333,26 @@ class SchedulesController extends AppController
         if (!$gameId) {
             $gameId = $this->getRequest()->getQuery('gameId');
         }
-        $html = \Pharse::file_get_dom(self::REPORT . $gameId);
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,self::REPORT . $gameId);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        $rqheaders = getallheaders();
+        $headers = [];
+        foreach ($rqheaders as $key => $val) {
+            if (strpos($val, ":") != false
+                || preg_match('/host|Host|Accept\-Encoding/', $key)
+            ){
+                continue;
+            }
+            $headers[] = $key . ':' . $val;
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $server_output = curl_exec ($ch);
+
+        $html = \Pharse::str_get_dom($server_output);
 
 
         $style = '
@@ -461,14 +480,19 @@ class SchedulesController extends AppController
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,self::VIDEO . $gameId);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         $rqheaders = getallheaders();
         $headers = [];
         foreach ($rqheaders as $key => $val) {
-            $headers[] = $key . ': ' . $val;
+            if (strpos($val, ":") != false
+                || preg_match('/host|Host|Accept\-Encoding/', $key)
+            ){
+                continue;
+            }
+            $headers[] = $key . ':' . $val;
         }
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
         $server_output = curl_exec ($ch);
 
 
