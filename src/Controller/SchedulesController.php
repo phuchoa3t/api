@@ -470,6 +470,7 @@ class SchedulesController extends AppController
            </style>
         ';
         $script = `
+            <script>
             $(document).ready(function(){
                 $('.iframe-video').each(function(){
                     if (!$(this).find('.video-play-button').length){
@@ -477,6 +478,7 @@ class SchedulesController extends AppController
                     }
                 });
             });
+            </script>
         `;
 
         $this->response->withStringBody(self::COMMON_STYLE . $style . $html . $script)->withStatus(200)->send();
