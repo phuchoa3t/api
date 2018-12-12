@@ -452,9 +452,28 @@ class SchedulesController extends AppController
         die;
     }
 
+    public function test() {
+
+    }
+
     public function video($gameId)
     {
-        $html = \Pharse::file_get_dom(self::VIDEO . $gameId);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,self::VIDEO . $gameId);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $rqheaders = getallheaders();
+        $headers = [];
+        foreach ($rqheaders as $key => $val) {
+            $headers[] = $key . ': ' . $val;
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $server_output = curl_exec ($ch);
+
+
+
+        $html = \Pharse::str_get_dom($server_output);
         $html('#header-wrapper')[0]->delete();
         $html('#custom-nav')[0]->delete();
         $html('.ad-banner-wrapper')[0]->delete();
@@ -469,19 +488,8 @@ class SchedulesController extends AppController
            }
            </style>
         ';
-        $script = "
-            <script>
-            $(document).ready(function(){
-                $('.iframe-video').each(function(){
-                    if (!$(this).find('.video-play-button').length){
-                        $(this).closest('article.highlight').remove()
-                    }
-                });
-            });
-            </script>
-        ";
 
-        $this->response->withStringBody(self::COMMON_STYLE . $style . $html . $script)->withStatus(200)->send();
+        $this->response->withStringBody(self::COMMON_STYLE . $style . $html)->withStatus(200)->send();
         die;
     }
 }
