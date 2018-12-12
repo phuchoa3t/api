@@ -472,7 +472,6 @@ class SchedulesController extends AppController
         $script = "
             <script>
             $(document).ready(function(){
-                console.log($('html').html());
                 $('.iframe-video').each(function(){
                     if (!$(this).find('.video-play-button').length){
                         $(this).closest('article.highlight').remove()
