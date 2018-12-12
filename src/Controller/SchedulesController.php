@@ -469,7 +469,7 @@ class SchedulesController extends AppController
            }
            </style>
         ';
-        $script = `
+        $script = "
             <script>
             $(document).ready(function(){
                 $('.iframe-video').each(function(){
@@ -479,7 +479,7 @@ class SchedulesController extends AppController
                 });
             });
             </script>
-        `;
+        ";
 
         $this->response->withStringBody(self::COMMON_STYLE . $style . $html . $script)->withStatus(200)->send();
         die;
