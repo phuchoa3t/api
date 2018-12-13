@@ -50,7 +50,7 @@ class SchedulesController extends AppController
 
     const COMMON_STYLE = '
         <style>
-            #gamepackage-odds, #gamepackage-conversation, #gamepackage-game-information {
+            #gamepackage-odds, #gamepackage-conversation, #gamepackage-game-information, #gamepackage-mobilead {
                 display: none!important;
             }
         </style>
