@@ -164,7 +164,6 @@ class GarenaController extends AppController
             return $this->e_sortcb($a['name'], $b['name']);
         });
 
-        print_r($result);die;
         $this->response->withStringBody(json_encode($result, JSON_UNESCAPED_UNICODE))->withStatus(200)->send();
         die;
     }
