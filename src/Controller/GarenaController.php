@@ -47,7 +47,7 @@ class GarenaController extends AppController
             }
         }
         usort($result['List_All'], function ($a, $b) {
-            return strcasecmp($a['name'], $b['name']);
+            return $this->e_sortcb($a['name'], $b['name']);
         });
 
         $this->response->withStringBody(json_encode($result))->withStatus(200)->send();
@@ -64,11 +64,36 @@ class GarenaController extends AppController
                 .head-top, .tab-link.info-tab, .left-banner, .pennelRight, footer, body >img {
                     display: none!important;
                 }
+                @media only screen and (min-width: 0px) and (max-width: 500px) {
+                    #tab-4 table tbody tr td:first-child{
+                        width: 35% !important;
+                    }
+                    #tab-4 table tbody tr td:last-child ul{
+                        margin-left: 20px !important;
+                    }
+                    .item-skill.itemskillnew {
+                        max-height: 500px !important;
+                        height: unset !important;
+                    }
+                    .menu-m {
+                        display: none!important;  
+                    }
+                }
            </style>
         ';
 
+        $script = '
+            <script>
+                $(function () {
+                    $(".item-skill").addClass("itemskillnew")
+
+                });
+            </script>
+        ';
+
         $meta = '<base href="https://lienquan.garena.vn/" target="_blank">';
-        echo $style . $meta . file_get_contents($url);
+
+        echo $style . $meta . file_get_contents($url) . $script;
         die;
     }
 
@@ -133,8 +158,104 @@ class GarenaController extends AppController
                 ];
             }
         }
+
+
+        usort($result['List_TrangBi'], function ($a, $b) {
+            return $this->e_sortcb($a['name'], $b['name']);
+        });
+
+        print_r($result);die;
         $this->response->withStringBody(json_encode($result, JSON_UNESCAPED_UNICODE))->withStatus(200)->send();
         die;
+    }
+    
+    private function e_sortcb($a, $b) {
+        $map = array(
+            'Á' => 'A',
+            'Ă' => 'Az',
+            'Ằ' => 'Azz',
+            'Ắ' => 'Azzz',
+            'Ẳ' => 'Azzzz',
+            'Ẵ' => 'Azzzzz',
+            'Ặ' => 'Azzzzzz',
+            'Â' => 'Azzzzzzz',
+            'Ầ' => 'Azzzzzzz',
+            'Ấ' => 'Azzzzzzzz',
+            'Ẩ' => 'Azzzzzzzzz',
+            'Ẫ' => 'Azzzzzzzzzz',
+            'Ậ' => 'Azzzzzzzzzzz',
+            'á' => 'a',
+            'ă' => 'az',
+            'ằ' => 'azz',
+            'ắ' => 'azzz',
+            'ẳ' => 'azzzz',
+            'ẵ' => 'azzzzz',
+            'ặ' => 'azzzzzz',
+            'â' => 'azzzzzzz',
+            'ầ' => 'azzzzzzzz',
+            'ấ' => 'azzzzzzzzz',
+            'ẩ' => 'azzzzzzzzzz',
+            'ẫ' => 'azzzzzzzzzzz',
+            'ậ' => 'azzzzzzzzzzzz',
+            'Đ' => 'Dz',
+            'đ' => 'dz',
+            'Ê' => 'Ez',
+            'Ề' => 'Ezz',
+            'Ế' => 'Ezzz',
+            'Ể' => 'Ezzzz',
+            'Ễ' => 'Ezzzzz',
+            'Ệ' => 'Ezzzzzz',
+            'ê' => 'ezzzzzzz',
+            'ề' => 'ezzzzzzzz',
+            'ê' => 'ezzzzzzzzz',
+            'ể' => 'ezzzzzzzzzz',
+            'ễ' => 'ezzzzzzzzzzz',
+            'ệ' => 'ezzzzzzzzzzzz',
+            'Ô' => 'Oz',
+            'Ồ' => 'Ozz',
+            'Ố' => 'Ozzz',
+            'Ổ' => 'Ozzzz',
+            'Ỗ' => 'Ozzzzz',
+            'Ộ' => 'Ozzzzzz',
+            'Ơ' => 'Ozzzzzzz',
+            'Ờ' => 'Ozzzzzzzz',
+            'Ớ' => 'Ozzzzzzzzz',
+            'Ở' => 'Ozzzzzzzzz',
+            'Ỡ' => 'Ozzzzzzzzzz',
+            'Ợ' => 'Ozzzzzzzzzzz',
+            'ô' => 'oz',
+            'ồ' => 'ozz',
+            'ố' => 'ozzz',
+            'ổ' => 'ozzzz',
+            'ỗ' => 'ozzzzz',
+            'ộ' => 'ozzzzzz',
+            'ơ' => 'ozzzzzzz',
+            'ờ' => 'ozzzzzzzz',
+            'ớ' => 'ozzzzzzzzz',
+            'ở' => 'ozzzzzzzzzz',
+            'ỡ' => 'ozzzzzzzzzzz',
+            'ợ' => 'ozzzzzzzzzzzz',
+            'Ư' => 'Uz',
+            'Ừ' => 'Uzz',
+            'Ứ' => 'Uzzz',
+            'Ử' => 'Uzzzz',
+            'Ữ' => 'Uzzzzz',
+            'Ự' => 'Uzzzzzz',
+            'ư' => 'uz',
+            'ừ' => 'uzz',
+            'ứ' => 'uzzz',
+            'ử' => 'uzzzz',
+            'ữ' => 'uzzzzz',
+            'ự' => 'uzzzzzz',
+        );
+        $keys = array_keys($map);
+        $vals = array_values($map);
+        $a = str_replace($keys, $vals, $a);
+        $b = str_replace($keys, $vals, $b);
+        if ($a == $b) {
+            return 0;
+        }
+        return ($a < $b) ? -1 : 1;
     }
 
     public function docChieu()
@@ -374,7 +495,7 @@ class GarenaController extends AppController
             $p = $html('.topdetail')[0]('.mgt15')[0]->html();
             $h2 = '<h4>' . $html('.rightdetail')[0]('h2')[0]->getPlainText() . '</h4>';
             $content = $html('.rightdetail_content')[0]->html();
-            $this->response->withStringBody($style . $h1 . "<br/>" . $p . "<br/>" . $h2 . "<br/>" . $content)->withStatus(200)->send();
+            $this->response->withStringBody($style . $h1 . $p . $h2 . $content)->withStatus(200)->send();
         }
         die;
     }
@@ -386,13 +507,16 @@ class GarenaController extends AppController
         if ($url) {
             $html = \Pharse::file_get_dom($url);
             $content = isset($html('.title')[0]) ? $html('.title')[0]->html() : '';
-            $content = isset($html('.block_timer')[0]) ? $html('.block_timer')[0]->html() : '';
+            $content .= isset($html('.block_timer')[0]) ? $html('.block_timer')[0]->html() : '';
             $content .= isset($html('.news-content')[0]) ? $html('.news-content')[0]->html() : '';
             $style = '
                 <style>
                 .videoWrapper iframe{
                     width: 100%;
                     height: 100%;
+                }
+                img {
+                    max-width: 100%!important;
                 }
                 </style>
             ';
