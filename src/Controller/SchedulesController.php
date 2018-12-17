@@ -175,8 +175,8 @@ class SchedulesController extends AppController
                     } else {
                         $matchStatus = $record;
                     }
-                    if ($td3) {
-                        $time = $td3;
+                    if ($td3 || $match('td')[2]('a')[0]->getPlainText() == 'TBD') {
+                        $time = $td3 ? $td3 : $match('td')[2]('a')[0]->getPlainText();
                     } else {
                         $matchStatus = $match('td')[2]('a')[0]->getPlainText();
                     }
