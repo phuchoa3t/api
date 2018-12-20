@@ -238,12 +238,12 @@ class SchedulesController extends AppController
         $points = $right('.Table2__tbody tr');
 
         foreach ($points as $k => $point) {
-            if (strpos($point->getAttribute('class'), 'subgroup-headers') !== false) {
+            if (preg_match('header/',
+                $point->getAttribute('class'))){
                 unset($points[$k]);
             }
         }
         $points = array_values($points);
-
         foreach ($teams as $k => $team) {
             $img      = $team('img')[0]->getAttribute('src');
             $charts[] = [
