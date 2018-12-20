@@ -245,7 +245,7 @@ class SchedulesController extends AppController
         }
         $points = array_values($points);
         foreach ($teams as $k => $team) {
-            $img      = $team('img')[0]->getAttribute('src');
+            $img      = htmlspecialchars_decode($team('img')[0]->getAttribute('src'));
             $charts[] = [
                 'stt'  => $i++,
                 'logo' => $img,
