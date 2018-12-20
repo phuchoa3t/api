@@ -238,7 +238,7 @@ class SchedulesController extends AppController
         $points = $right('.Table2__tbody tr');
 
         foreach ($points as $k => $point) {
-            if (preg_match('header/',
+            if (preg_match('/header/',
                 $point->getAttribute('class'))){
                 unset($points[$k]);
             }
