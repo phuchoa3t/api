@@ -77,6 +77,10 @@ class NewsController extends AppController
     public function listNews()
     {
         $url = $this->getRequest()->getQuery('url');
+        $url = urldecode($url);
+        $url = urldecode($url);
+        $url = urldecode($url);
+        $url = preg_replace('/\s/', '+', $url);
         if (!$url) {
             return false;
         }
