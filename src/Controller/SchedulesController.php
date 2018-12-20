@@ -227,23 +227,37 @@ class SchedulesController extends AppController
         }
         $html = \Pharse::file_get_dom($url);
 
-        $table  = $html('#main-container')[0]('table')[0];
+        $table  = $html('.page-container')[0]('table')[0];
         $charts = [];
         $i      = 1;
-        foreach ($table('tr') as $tr) {
-            $img      = $tr('td')[0]('.team-logo')[0]->getAttribute('src');
+
+        $left = $table('.v-top')[0];
+        $right = $table('.v-top')[1];
+
+        $teams = $left('.team-link');
+        $points = $right('.Table2__tbody tr');
+
+        foreach ($points as $k => $point) {
+            if (strpos($point->getAttribute('class'), 'subgroup-headers') !== false) {
+                unset($points[$k]);
+            }
+        }
+        $points = array_values($points);
+
+        foreach ($teams as $k => $team) {
+            $img      = $team('img')[0]->getAttribute('src');
             $charts[] = [
                 'stt'  => $i++,
                 'logo' => $img,
-                'name' => $tr('td')[0]('.team-names')[0]->getPlainText(),
-                'gp'   => $tr('td')[1]->getPlainText(),
-                'w'    => $tr('td')[2]->getPlainText(),
-                'd'    => $tr('td')[3]->getPlainText(),
-                'l'    => $tr('td')[4]->getPlainText(),
-                'f'    => $tr('td')[5]->getPlainText(),
-                'a'    => $tr('td')[6]->getPlainText(),
-                'gd'   => $tr('td')[7]->getPlainText(),
-                'p'    => $tr('td')[8]->getPlainText(),
+                'name' => $team('.hide-mobile')[0]->getPlainText(),
+                'gp'   => $points[$k]('td')[0]->getPlainText(),
+                'w'    => $points[$k]('td')[1]->getPlainText(),
+                'd'    => $points[$k]('td')[2]->getPlainText(),
+                'l'    => $points[$k]('td')[3]->getPlainText(),
+                'f'    => $points[$k]('td')[4]->getPlainText(),
+                'a'    => $points[$k]('td')[5]->getPlainText(),
+                'gd'   => $points[$k]('td')[6]->getPlainText(),
+                'p'    => $points[$k]('td')[7]->getPlainText(),
             ];
         }
 
