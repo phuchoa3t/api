@@ -119,7 +119,7 @@ class GarenaController extends AppController
             ) {
                 $result['List_Ngoc'][] = [
                     'name' => $name,
-                    'img' => self::BASE_URL . $ngoc('img')[0]->getAttribute('src'),
+                    'img' => $ngoc('img')[0]->getAttribute('src'),
                     'note' => $ngoc('.text')[0]->getPlainText()
                 ];
             }
@@ -455,8 +455,7 @@ class GarenaController extends AppController
     {
         $url = $this->getRequest()->getQuery('url', self::CAM_NANG_URL);
 
-        $content = $this->_curl($url);
-        $html = \Pharse::str_get_dom($content);
+        $html = \Pharse::file_get_dom($url);
         $news = [
             'CamNang' => []
         ];
@@ -492,10 +491,10 @@ class GarenaController extends AppController
             $html = \Pharse::file_get_dom($url);
             $html('.link-content-footer')[0]->delete();
             $h1 = '<h3>' . $html('.topdetail')[0]('h1')[0]->getPlainText() . '</h3>';
-            $p = $html('.topdetail')[0]('.mgt15')[0]->html();
+            //$p = $html('.topdetail')[0]('.mgt15')[0]->html();
             $h2 = '<h4>' . $html('.rightdetail')[0]('h2')[0]->getPlainText() . '</h4>';
             $content = $html('.rightdetail_content')[0]->html();
-            $this->response->withStringBody($style . $h1 . $p . $h2 . $content)->withStatus(200)->send();
+            $this->response->withStringBody($style . $h1 . $h2 . $content)->withStatus(200)->send();
         }
         die;
     }
