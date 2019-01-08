@@ -167,7 +167,7 @@ class GarenaController extends AppController
         $this->response->withStringBody(json_encode($result, JSON_UNESCAPED_UNICODE))->withStatus(200)->send();
         die;
     }
-    
+
     private function e_sortcb($a, $b) {
         $map = array(
             'Á' => 'A',
@@ -455,7 +455,8 @@ class GarenaController extends AppController
     {
         $url = $this->getRequest()->getQuery('url', self::CAM_NANG_URL);
 
-        $html = \Pharse::file_get_dom($url);
+        $content = $this->_curl($url);
+        $html = \Pharse::str_get_dom($content);
         $news = [
             'CamNang' => []
         ];
@@ -544,5 +545,26 @@ class GarenaController extends AppController
         $header = curl_exec($ch);
         $redir = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
         return $redir;
+    }
+
+    private function _curl($url)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        $rqheaders = getallheaders();
+        $headers   = [];
+        foreach ($rqheaders as $key => $val) {
+            if (strpos($val, ":") != false
+                || preg_match('/host|Host|Accept\-Encoding/', $key)
+            ) {
+                continue;
+            }
+            $headers[] = $key . ':' . $val;
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        return curl_exec($ch);
     }
 }
