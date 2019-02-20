@@ -9,17 +9,18 @@ require ROOT . "/vendor/ressio/pharse/pharse.php";
 class FootBallLiveScoresController extends AppController
 {
     const VIDEO = "https://hoofoot.com";
+    const NEWS_URL = [
+        'https://www.goal.com/en/news/{PAGE}',
+        'https://www.goal.com/en/team/manchester-united/{PAGE}/6eqit8ye8aomdsrrq0hk3v7gh',
+    ];
 
-    public function listNews()
+    public function listNews($selectID = 0, $page = 1)
     {
-        $url = $this->getRequest()->getQuery('url');
-        $url = urldecode($url);
-        $url = urldecode($url);
-        $url = urldecode($url);
-        $url = preg_replace('/\s/', '+', $url);
+        $url = self::NEWS_URL[$selectID] ?? '';
+        $url = preg_replace('/{PAGE}/', $page, $url);
 
         if (!$url) {
-            return false;
+            die;
         }
         $html = \Pharse::file_get_dom($url);
         $news = $html("article");
@@ -63,6 +64,11 @@ class FootBallLiveScoresController extends AppController
             'title' => $currentDate,
             'SubCatgory' => $item
         ];
+        $response['loadmore'] = Router::url([
+            'action' => 'listNews',
+            $selectID,
+            $page + 1
+        ], true);
 
         $this->response->withStringBody(json_encode($response))->withStatus(200)->send();
         die;
