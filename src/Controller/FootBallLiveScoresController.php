@@ -39,8 +39,8 @@ class FootBallLiveScoresController extends AppController
 
             $img    = $new('img')[1]->getAttribute('src');
             $img    = preg_replace('/quality=\d+/', 'quality=100', $img);
-            $img    = preg_replace('/h=\d+/', 'h=50', $img);
-            $img    .= '&w=50';
+            $img    = preg_replace('/h=\d+/', 'h=80', $img);
+            $img    .= '&w=80';
             $response['List_All'][] = [
                 'image'      => $img,
                 'title'      => $new('.title-wrapper')[0]('h3')[0]->getPlainText(),
