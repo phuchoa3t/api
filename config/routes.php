@@ -64,7 +64,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * Football
      */
     $routes->connect('/list-news', ['controller' => 'News', 'action' => 'listNews']);
-    $routes->connect('/fixtures', ['controller' => 'Schedules', 'action' => 'fixtures']);
+    $routes->connect('/fixtures/*', ['controller' => 'Schedules', 'action' => 'fixtures']);
     $routes->connect('/summary/*', ['controller' => 'Schedules', 'action' => 'summary']);
     $routes->connect('/report/*', ['controller' => 'Schedules', 'action' => 'report']);
     $routes->connect('/commentary/*', ['controller' => 'Schedules', 'action' => 'commentary']);
@@ -77,7 +77,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/soccer/matchstats', ['controller' => 'Schedules', 'action' => 'matchstats']);
     $routes->connect('/lineups/*', ['controller' => 'Schedules', 'action' => 'lineups']);
     $routes->connect('/video/*', ['controller' => 'Schedules', 'action' => 'video']);
-    $routes->connect('/chart', ['controller' => 'Schedules', 'action' => 'chart']);
+    $routes->connect('/chart/*', ['controller' => 'Schedules', 'action' => 'chart']);
     $routes->connect('/football/report', ['controller' => 'Schedules', 'action' => 'report']);
     $routes->connect('/football/categories/*', ['controller' => 'Schedules', 'action' => 'categories']);
     $routes->connect('/privacy-policy.html', ['controller' => 'Schedules', 'action' => 'policy']);
