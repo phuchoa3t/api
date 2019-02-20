@@ -10,15 +10,15 @@ class FootBallLiveScoresController extends AppController
 {
     const VIDEO    = "https://hoofoot.com";
     const NEWS_URL = [
-        "https://www.goal.com/en/news/PAGE",
-        "https://www.goal.com/en/uefa-champions-league/PAGE/4oogyu6o156iphvdvphwpck10",
-        "https://www.goal.com/en/premier-league/PAGE/2kwbbcootiqqgmrzs6o5inle5",
-        "https://www.goal.com/en/primera-divisi%C3%B3n/1/34pl8szyvrbwcmfkuocjm3r6t",
-        "https://www.goal.com/en/serie-a/PAGE/1r097lpxe0xn03ihb7wi98kao",
-        "https://www.goal.com/en/bundesliga/PAGE/6by3h89i2eykc341oz7lv1ddd",
-        "https://www.goal.com/en/ligue-1/PAGE/dm5ka0os1e3dxcp3vh05kmp33",
-        "https://www.goal.com/en/uefa-europa-league/PAGE/4c1nfi2j1m731hcay25fcgndq",
-        "https://www.goal.com/en/transfer-news/PAGE"
+        "https://www.goal.com/en/news/{PAGE}",
+        "https://www.goal.com/en/uefa-champions-league/{PAGE}/4oogyu6o156iphvdvphwpck10",
+        "https://www.goal.com/en/premier-league/{PAGE}/2kwbbcootiqqgmrzs6o5inle5",
+        "https://www.goal.com/en/primera-divisi%C3%B3n/{PAGE}/34pl8szyvrbwcmfkuocjm3r6t",
+        "https://www.goal.com/en/serie-a/{PAGE}/1r097lpxe0xn03ihb7wi98kao",
+        "https://www.goal.com/en/bundesliga/{PAGE}/6by3h89i2eykc341oz7lv1ddd",
+        "https://www.goal.com/en/ligue-1/{PAGE}/dm5ka0os1e3dxcp3vh05kmp33",
+        "https://www.goal.com/en/uefa-europa-league/{PAGE}/4c1nfi2j1m731hcay25fcgndq",
+        "https://www.goal.com/en/transfer-news/{PAGE}"
     ];
 
     public function listNews($selectID = 0, $page = 1)
