@@ -39,7 +39,6 @@ class SchedulesController extends AppController
     const BAYERN_MUNICH_RESULT   = self::GLOBAL_ESPN_URL . "/soccer/team/results/_/id/132/bayern%20munich";
     const AC_MILAN_FIXTURES      = self::GLOBAL_ESPN_URL . "/football/team/fixtures/_/id/103/ac-milan";
     const AC_MILAN_RESULT        = self::ESPN_URL . "/soccer/team/results/_/id/103/ac%20milan";
-    const FIXTURES               = self::ESPN_URL . "/soccer/team/fixtures/_/id/111/juventus";
     const RESULT                 = self::GLOBAL_ESPN_URL . "/football/team/results/_/id/111/juventus";
     const SUMMARY                = self::GLOBAL_ESPN_URL . "/football/match?gameId=";
     const REPORT                 = self::GLOBAL_ESPN_URL . "/football/report?gameId=";
@@ -56,10 +55,47 @@ class SchedulesController extends AppController
         </style>
     ';
 
+    const FIXTURES = [
+        "http://global.espn.com/football/fixtures",
+        "/league/uefa.champions",
+        "/league/eng.1",
+        "/league/esp.1",
+        "/league/ger.1",
+        "/league/ita.1",
+        "/league/fra.1",
+        "/league/uefa.europa"
+    ];
 
-    public function fixtures()
+    const CHARTS = [
+        "http://global.espn.com/football/table/_/league/uefa.champions",
+        "http://global.espn.com/football/table/_/league/eng.1",
+        "http://global.espn.com/football/table/_/league/esp.1",
+        "http://global.espn.com/football/table/_/league/ger.1",
+        "http://global.espn.com/football/table/_/league/ita.1",
+        "http://global.espn.com/football/table/_/league/fra.1",
+        "http://global.espn.com/soccer/table/_/league/uefa.europa"
+    ];
+
+    public function fixtures($os = '', $selectId = 0, $date = '')
     {
-        $url = $this->getRequest()->getQuery('url');
+        if ($os == 'ios') {
+            if ($selectId == 0) {
+                $url = self::FIXTURES[$selectId];
+                if ($date) {
+                    $url .= '/_/date/' . $date;
+                }
+            } else {
+                $url = self::FIXTURES[0];
+                if ($date) {
+                    $url .= '/_/date/' . $date;
+                } else {
+                    $url .= '/_';
+                }
+                $url .= self::FIXTURES[$selectId];
+            }
+        } else {
+            $url = $this->getRequest()->getQuery('url');
+        }
         if (!$url) {
             return false;
         }
@@ -200,28 +236,16 @@ class SchedulesController extends AppController
         return $fixtures;
     }
 
-//    public function summary()
-//    {
-//        $url = $this->getRequest()->getQuery('url');
-//        if (!$url) {
-//            return false;
-//        }
-//        $html = \Pharse::file_get_dom($url);
-//
-//        $summary = [
-//            'stories' => isset($html('#gamepackage-top-stories')[0]) ? $html('#gamepackage-top-stories')[0]->html() : '',
-//            'timeline' => isset($html('#gamepackage-soccer-timeline')[0]) ? $html('#gamepackage-soccer-timeline')[0]->html() : '',
-//            'commentary' => isset($html('#gamepackage-soccer-commentary')[0]) ? $html('#gamepackage-soccer-commentary')[0]->html() : '',
-//            'stats' => isset($html('#gamepackage-soccer-match-stats')[0]) ? $html('#gamepackage-soccer-match-stats')[0]->html() : '',
-//        ];
-//
-//        $this->response->withStringBody(json_encode($summary))->withStatus(200)->send();
-//        die;
-//    }
-
-    public function chart()
+    public function chart($os = '', $selectId = 0, $year = '')
     {
-        $url = $this->getRequest()->getQuery('url');
+        if ($os == 'ios') {
+            $url = self::CHARTS[$selectId] ?? "";
+            if ($url && $year) {
+                $url .= '/season/' . $year;
+            }
+        } else {
+            $url = $this->getRequest()->getQuery('url');
+        }
         if (!$url) {
             return false;
         }
@@ -231,23 +255,23 @@ class SchedulesController extends AppController
         $charts = [];
         $i      = 1;
 
-        $left = $table('.v-top')[0];
+        $left  = $table('.v-top')[0];
         $right = $table('.v-top')[1];
 
-        $teams = $left('.team-link');
+        $teams  = $left('.team-link');
         $points = $right('.Table2__tbody tr');
 
         foreach ($points as $k => $point) {
             if (preg_match('/header/',
-                $point->getAttribute('class'))){
+                $point->getAttribute('class'))) {
                 unset($points[$k]);
             }
         }
         $points = array_values($points);
         foreach ($teams as $k => $team) {
             $img      = htmlspecialchars_decode($team('img')[0]->getAttribute('src'));
-            $img = preg_replace('/h=\d+/', 'h=50', $img);
-            $img = preg_replace('/w=\d+/', 'w=50', $img);
+            $img      = preg_replace('/h=\d+/', 'h=50', $img);
+            $img      = preg_replace('/w=\d+/', 'w=50', $img);
             $charts[] = [
                 'stt'  => $i++,
                 'logo' => $img,
@@ -285,8 +309,8 @@ class SchedulesController extends AppController
     public function summary($gameId)
     {
         $server_output = $this->_curl(self::SUMMARY . $gameId);
-        $html   = \Pharse::str_get_dom($server_output, true);
-        $style  = '
+        $html          = \Pharse::str_get_dom($server_output, true);
+        $style         = '
             <style>
                 #gamepackage-column-wrap .col-one, #header-wrapper , #custom-nav, 
                 .ad-banner-wrapper, #gamepackage-outbrain, #gamepackage-conversation,
@@ -305,7 +329,7 @@ class SchedulesController extends AppController
                 }
             </style>
         ';
-        $script = '
+        $script        = '
             <script>
                 $(function(){
                     $("a").click(function() { 
@@ -381,7 +405,7 @@ class SchedulesController extends AppController
             $gameId = $this->getRequest()->getQuery('gameId');
         }
         $server_output = $this->_curl(self::COMMENTARY . $gameId);
-        $html = \Pharse::str_get_dom($server_output);
+        $html          = \Pharse::str_get_dom($server_output);
         $html('#header-wrapper')[0]->delete();
         $html('#custom-nav')[0]->delete();
         $html('.ad-banner-wrapper')[0]->delete();
