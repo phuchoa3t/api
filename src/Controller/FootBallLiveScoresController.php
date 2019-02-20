@@ -12,6 +12,7 @@ class FootBallLiveScoresController extends AppController
     const NEWS_URL = [
         'https://www.goal.com/en/news/{PAGE}',
         'https://www.goal.com/en/team/manchester-united/{PAGE}/6eqit8ye8aomdsrrq0hk3v7gh',
+        'https://www.goal.com/en/transfer-news'
     ];
 
     public function listNews($selectID = 0, $page = 1)
