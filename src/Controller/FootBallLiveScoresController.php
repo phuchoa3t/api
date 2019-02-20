@@ -8,7 +8,7 @@ require ROOT . "/vendor/ressio/pharse/pharse.php";
 
 class FootBallLiveScoresController extends AppController
 {
-    const VIDEO = "https://hoofoot.com";
+    const VIDEO    = "https://hoofoot.com";
     const NEWS_URL = [
         'https://www.goal.com/en/news/{PAGE}',
         'https://www.goal.com/en/team/manchester-united/{PAGE}/6eqit8ye8aomdsrrq0hk3v7gh',
@@ -29,43 +29,43 @@ class FootBallLiveScoresController extends AppController
         $response['List_All'] = [];
 
         $currentDate = null;
-        $item = [];
+        $item        = [];
         foreach ($news as $k => $new) {
             $date = $new('time')[0]->getAttribute('datetime');
-            $dt = new \DateTime($date);
-            $tz = new \DateTimeZone('Asia/Bangkok');
+            $dt   = new \DateTime($date);
+            $tz   = new \DateTimeZone('Asia/Bangkok');
             $dt->setTimezone($tz);
             $date = $dt->format('Y/m/d');
 
             if ($currentDate != $date) {
                 if ($currentDate != null) {
                     $response['List_All'][] = [
-                        'title' => $currentDate,
+                        'title'      => $currentDate,
                         'SubCatgory' => $item
                     ];
-                    $item = [];
+                    $item                   = [];
                 }
                 $currentDate = $date;
             }
-            $img = $new('img')[1]->getAttribute('src');
-            $img = preg_replace('/quality=\d+/', 'quality=100', $img);
-            $img = preg_replace('/h=\d+/', 'h=50', $img);
-            $img .= '&w=50';
+            $img    = $new('img')[1]->getAttribute('src');
+            $img    = preg_replace('/quality=\d+/', 'quality=100', $img);
+            $img    = preg_replace('/h=\d+/', 'h=50', $img);
+            $img    .= '&w=50';
             $item[] = [
-                'image' => $img,
-                'title' => $new('.title-wrapper')[0]('h3')[0]->getPlainText(),
-                'time' => $dt->format('H:i'),
+                'image'      => $img,
+                'title'      => $new('.title-wrapper')[0]('h3')[0]->getPlainText(),
+                'time'       => $dt->format('H:i'),
                 'new-detail' => Router::url([
                     'action' => 'newDetail',
-                    'url' => "https://www.goal.com" . $new('a')[0]->getAttribute('href')
+                    'url'    => "https://www.goal.com" . $new('a')[0]->getAttribute('href')
                 ], true)
             ];
         }
         $response['List_All'][] = [
-            'title' => $currentDate,
+            'title'      => $currentDate,
             'SubCatgory' => $item
         ];
-        $response['loadmore'] = Router::url([
+        $response['loadmore']   = Router::url([
             'action' => 'listNews',
             $selectID,
             $page + 1
@@ -77,11 +77,11 @@ class FootBallLiveScoresController extends AppController
 
     public function newDetail()
     {
-        $url = $this->getRequest()->getQuery('url');
-        $url = urldecode($url);
-        $url = urldecode($url);
-        $url = urldecode($url);
-        $url = preg_replace('/\s/', '+', $url);
+        $url  = $this->getRequest()->getQuery('url');
+        $url  = urldecode($url);
+        $url  = urldecode($url);
+        $url  = urldecode($url);
+        $url  = preg_replace('/\s/', '+', $url);
         $html = $this->_curl($url);
         $html = \Pharse::str_get_dom($html);
         foreach ($html('head')[0]('script') as $script) {
@@ -90,7 +90,7 @@ class FootBallLiveScoresController extends AppController
             }
         }
         $custom = "<base href ='https://www.goal.com'>";
-        $style = "
+        $style  = "
             <style>
                 .widget-header,
                  .layout-article .scroll-group .article-content aside,
@@ -106,46 +106,50 @@ class FootBallLiveScoresController extends AppController
                 }
             </style>
         ";
-        $html = $html->toString();
+        $html   = $html->toString();
 
         echo $custom . $style . $html;
         die;
     }
 
-    public function videos()
+    public function videos($page = 1)
     {
-        $html = $this->_curl(self::VIDEO);
+        $html = $this->_curl(self::VIDEO . '?page=' . $page);
         $html = \Pharse::str_get_dom($html);
 
         $response = ['List_All' => []];
         foreach ($html('#port') as $video) {
-            $detailUrl = $video('#gggg')[0]('a')[0]->getAttribute('href');
-            $detailUrl = self::VIDEO . preg_replace('/.\//', '/', $detailUrl);
+            $detailUrl              = $video('#gggg')[0]('a')[0]->getAttribute('href');
+            $detailUrl              = self::VIDEO . preg_replace('/.\//', '/', $detailUrl);
             $response['List_All'][] = [
-                'title' => $video('#gggg')[0]('h2')[0]->getPlainText(),
+                'title'  => $video('#gggg')[0]('h2')[0]->getPlainText(),
                 'image1' => $video('#cocog')[0]('img')[0]->getAttribute('src'),
                 'image2' => $video('#cocog')[0]('img')[1]->getAttribute('src'),
-                'time' => $video('#cocog')[0]('font')[0]->getPlainText(),
-                'link' => Router::url([
+                'time'   => $video('#cocog')[0]('font')[0]->getPlainText(),
+                'link'   => Router::url([
                     'action' => 'getVideoUrl',
-                    'url' => $detailUrl
+                    'url'    => $detailUrl
                 ], true)
             ];
         }
+        $response['loadmore'] = Router::url([
+            'action' => 'videos',
+            $page + 1
+        ], true);
         $this->response->withStringBody(json_encode($response))->withStatus(200)->send();
         die;
     }
 
     public function getVideoUrl()
     {
-        $url = $this->getRequest()->getQuery('url');
-        $url = urldecode($url);
-        $url = urldecode($url);
-        $url = urldecode($url);
-        $url = preg_replace('/\s/', '+', $url);
+        $url    = $this->getRequest()->getQuery('url');
+        $url    = urldecode($url);
+        $url    = urldecode($url);
+        $url    = urldecode($url);
+        $url    = preg_replace('/\s/', '+', $url);
         $detail = $this->_curl($url);
         $detail = \Pharse::str_get_dom($detail);
-        $link = 'https:' . $detail('#videoz')[0]('iframe')[0]->getAttribute('src');
+        $link   = 'https:' . $detail('#videoz')[0]('iframe')[0]->getAttribute('src');
         $this->response->withStringBody(json_encode(['link' => $link]))->withStatus(200)->send();
         die;
     }
@@ -153,16 +157,16 @@ class FootBallLiveScoresController extends AppController
 
     public function loadMore()
     {
-        $more = $this->getRequest()->getQuery('more');
-        $data = json_decode(file_get_contents(self::BASE_URL . '/ajax/more?more=' . $more), true);
-        $more = Router::url([
+        $more     = $this->getRequest()->getQuery('more');
+        $data     = json_decode(file_get_contents(self::BASE_URL . '/ajax/more?more=' . $more), true);
+        $more     = Router::url([
             'controller' => 'News',
-            'action' => 'loadMore',
-            'more' => urlencode($data['content']['more'])
+            'action'     => 'loadMore',
+            'more'       => urlencode($data['content']['more'])
         ], true);
-        $stream = join("", $data['stream']);
-        $html = $this->_deobfuscate($stream);
-        $html = \Pharse::str_get_dom($html);
+        $stream   = join("", $data['stream']);
+        $html     = $this->_deobfuscate($stream);
+        $html     = \Pharse::str_get_dom($html);
         $listNews = $this->_convertNewsHtmlToArray($html, $more);
         $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
         die;
@@ -170,13 +174,13 @@ class FootBallLiveScoresController extends AppController
 
     public function _convertNewsHtmlToArray($html, $more = null)
     {
-        $divs = $html(".hl_time");
+        $divs                 = $html(".hl_time");
         $listNews['List_All'] = [];
         foreach ($divs as $div) {
             $next = $div->getNextSibling();
 
             $item = [
-                'title' => $div->getPlainText(),
+                'title'      => $div->getPlainText(),
                 'SubCatgory' => []
             ];
 
@@ -185,13 +189,13 @@ class FootBallLiveScoresController extends AppController
                     $aTag = $next('.hll')[0];
 
                     $item['SubCatgory'][] = [
-                        'title' => $aTag->getPlainText(),
-                        'url' => Router::url([
+                        'title'  => $aTag->getPlainText(),
+                        'url'    => Router::url([
                             'controller' => 'News',
-                            'action' => 'detail',
-                            'url' => $aTag->getAttribute('href')
+                            'action'     => 'detail',
+                            'url'        => $aTag->getAttribute('href')
                         ], true),
-                        'time' => $next('.time')[0]->getAttribute('data-time'),
+                        'time'   => $next('.time')[0]->getAttribute('data-time'),
                         'chanel' => $next('.src-part')[0]->getPlainText()
                     ];
                 }
@@ -201,8 +205,8 @@ class FootBallLiveScoresController extends AppController
         }
         $listNews['loadmore'] = $more ? $more : Router::url([
             'controller' => 'News',
-            'action' => 'loadMore',
-            'more' => urlencode($html->getAttribute('data-more'))
+            'action'     => 'loadMore',
+            'more'       => urlencode($html->getAttribute('data-more'))
         ], true);
         return $listNews;
     }
@@ -210,8 +214,8 @@ class FootBallLiveScoresController extends AppController
     public function detail()
     {
 
-        $url = urldecode($this->getRequest()->getQuery('url'));
-        $content = file_get_contents($url);
+        $url            = urldecode($this->getRequest()->getQuery('url'));
+        $content        = file_get_contents($url);
         $destinationUrl = \Pharse::str_get_dom($content);
         $destinationUrl = $destinationUrl('#retrieval-msg strong a');
         $destinationUrl = $destinationUrl[0]->getAttribute('href');
@@ -224,9 +228,9 @@ class FootBallLiveScoresController extends AppController
             $this->response->withStringBody(file_get_contents($destinationUrl))->withStatus(200)->send();
             die;
         }
-        $item = $thirdPartyContent('rss channel item')[0];
+        $item    = $thirdPartyContent('rss channel item')[0];
         $content = $item('description')[0]->getPlainText();
-        $title = "<h2>" . $item('title')[0]->getPlainText() . "</h2>";
+        $title   = "<h2>" . $item('title')[0]->getPlainText() . "</h2>";
 
         $content = str_replace('<strong><a href="https://blockads.fivefilters.org">Let\'s block ads!</a></strong> <a href="https://blockads.fivefilters.org/acceptable.html">(Why?)</a></p>', '', $content);
         $this->response->withStringBody($title . $content)->withStatus(200)->send();
@@ -240,7 +244,7 @@ class FootBallLiveScoresController extends AppController
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         $rqheaders = getallheaders();
-        $headers = [];
+        $headers   = [];
         foreach ($rqheaders as $key => $val) {
             if (strpos($val, ":") != false
                 || preg_match('/host|Host|Accept\-Encoding/', $key)
