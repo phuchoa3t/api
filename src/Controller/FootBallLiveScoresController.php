@@ -34,43 +34,24 @@ class FootBallLiveScoresController extends AppController
 
         $response['List_All'] = [];
 
-        $currentDate = null;
-        $item        = [];
         foreach ($news as $k => $new) {
             $date = $new('time')[0]->getAttribute('datetime');
-            $dt   = new \DateTime($date);
-            $tz   = new \DateTimeZone('Asia/Bangkok');
-            $dt->setTimezone($tz);
-            $date = $dt->format('Y/m/d');
 
-            if ($currentDate != $date) {
-                if ($currentDate != null) {
-                    $response['List_All'][] = [
-                        'title'      => $currentDate,
-                        'SubCatgory' => $item
-                    ];
-                    $item                   = [];
-                }
-                $currentDate = $date;
-            }
             $img    = $new('img')[1]->getAttribute('src');
             $img    = preg_replace('/quality=\d+/', 'quality=100', $img);
             $img    = preg_replace('/h=\d+/', 'h=50', $img);
             $img    .= '&w=50';
-            $item[] = [
+            $response['List_All'][] = [
                 'image'      => $img,
                 'title'      => $new('.title-wrapper')[0]('h3')[0]->getPlainText(),
-                'time'       => $dt->format('H:i'),
+                'time'       => $date,
                 'new-detail' => Router::url([
                     'action' => 'newDetail',
                     'url'    => "https://www.goal.com" . $new('a')[0]->getAttribute('href')
                 ], true)
             ];
         }
-        $response['List_All'][] = [
-            'title'      => $currentDate,
-            'SubCatgory' => $item
-        ];
+
         $response['loadmore']   = Router::url([
             'action' => 'listNews',
             $selectID,
