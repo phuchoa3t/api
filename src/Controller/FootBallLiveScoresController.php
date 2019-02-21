@@ -112,10 +112,7 @@ class FootBallLiveScoresController extends AppController
                 'image1' => $video('#cocog')[0]('img')[0]->getAttribute('src'),
                 'image2' => $video('#cocog')[0]('img')[1]->getAttribute('src'),
                 'time'   => $video('#cocog')[0]('font')[0]->getPlainText(),
-                'link'   => Router::url([
-                    'action' => 'getVideoUrl',
-                    'url'    => $detailUrl
-                ], true)
+                'link'   => $detailUrl
             ];
         }
         $response['loadmore'] = Router::url([
