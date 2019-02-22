@@ -97,6 +97,7 @@ class FootBallLiveScoresController extends AppController
             </style>
         ";
         $html   = $html->toString();
+        $html  = preg_replace('/\<\~root\~\>/', '', $html);
         $script        = '
             <script>
                 var aTags = document.getElementsByTagName("a"),
