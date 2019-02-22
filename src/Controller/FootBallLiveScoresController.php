@@ -98,15 +98,13 @@ class FootBallLiveScoresController extends AppController
         $html   = $html->toString();
         $script        = '
             <script>
-                $(function(){
-                    var aTags = document.getElementsByTagName("a"),
-                        atl = aTags.length,
-                        i;
-                
-                    for (i = 0; i < atl; i++) {
-                        aTags[i].href="javascript:void(0)"
-                    }
-                })
+                var aTags = document.getElementsByTagName("a"),
+                    atl = aTags.length,
+                    i;
+            
+                for (i = 0; i < atl; i++) {
+                    aTags[i].href="javascript:void(0)"
+                }
             </script>
         ';
 
