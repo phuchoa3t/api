@@ -493,7 +493,22 @@ class SchedulesController extends AppController
             </style>
         ';
 
-        $this->response->withStringBody(self::COMMON_STYLE . $style . $html)->withStatus(200)->send();
+        $script        = '
+            <script>
+                $(function(){
+                    $("a").click(function() { 
+                        if ($(this).attr("href") && $(this).attr("href").indexOf("' . BASEURL . '") != -1
+                            || $(this).hasClass("button-filter-alt")
+                        ) {
+                            return true;        
+                        }
+                        
+                        return false; 
+                    });
+                })
+            </script>
+        ';
+        $this->response->withStringBody(self::COMMON_STYLE . $style . $html . $script)->withStatus(200)->send();
         die;
     }
 
