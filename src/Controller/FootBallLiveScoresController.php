@@ -83,7 +83,9 @@ class FootBallLiveScoresController extends AppController
                  .widget-taboola,
                  .widget-article .social-container,
                  footer,
-                 pre
+                 pre,
+                 .widget-inline-editors-picks,
+                 .tags-list
                  {
                     display: none !important;
                 }
@@ -93,8 +95,23 @@ class FootBallLiveScoresController extends AppController
             </style>
         ";
         $html   = $html->toString();
+        $script        = '
+            <script>
+                $(function(){
+                    $("a").click(function() { 
+                        if ($(this).attr("href") && $(this).attr("href").indexOf("' . BASEURL . '") != -1
+                            || $(this).hasClass("button-filter-alt")
+                        ) {
+                            return true;        
+                        }
+                        
+                        return false; 
+                    });
+                })
+            </script>
+        ';
 
-        echo $custom . $style . $html;
+        echo $custom . $style . $html . $script;
         die;
     }
 
