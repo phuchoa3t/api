@@ -99,15 +99,13 @@ class FootBallLiveScoresController extends AppController
         $script        = '
             <script>
                 $(function(){
-                    $("a").click(function() { 
-                        if ($(this).attr("href") && $(this).attr("href").indexOf("' . BASEURL . '") != -1
-                            || $(this).hasClass("button-filter-alt")
-                        ) {
-                            return true;        
-                        }
-                        
-                        return false; 
-                    });
+                    var aTags = document.getElementsByTagName("a"),
+                        atl = aTags.length,
+                        i;
+                
+                    for (i = 0; i < atl; i++) {
+                        aTags[i].href="javascript:void(0)"
+                    }
                 })
             </script>
         ';
