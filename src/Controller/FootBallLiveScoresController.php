@@ -29,7 +29,9 @@ class FootBallLiveScoresController extends AppController
         if (!$url) {
             die;
         }
-        $html = \Pharse::file_get_dom($url);
+        $html = shell_exec('curl ' . $url);
+
+        $html = \Pharse::str_get_dom($html);
         $news = $html("article");
 
         $response['List_All'] = [];
