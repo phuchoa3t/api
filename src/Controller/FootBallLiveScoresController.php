@@ -240,6 +240,7 @@ class FootBallLiveScoresController extends AppController
 
     private function _curl($url)
     {
+        return shell_exec('curl ' . $url);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
