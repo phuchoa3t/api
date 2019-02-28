@@ -89,7 +89,9 @@ class FootBallLiveScoresController extends AppController
                  .widget-inline-editors-picks,
                  .tags-list,
                  .actions-bar,
-                 .widget-smart-banner
+                 .widget-smart-banner,
+                 aside,
+                 .social-container
                  {
                     display: none !important;
                 }
