@@ -55,7 +55,7 @@ class SchedulesController extends AppController
         </style>
     ';
 
-    const FIXTURES = [
+    const FIXTURES      = [
         "http://global.espn.com/football/fixtures",
         "/league/uefa.champions",
         "/league/eng.1",
@@ -65,6 +65,20 @@ class SchedulesController extends AppController
         "/league/fra.1",
         "/league/uefa.europa"
     ];
+    const FIXTURES_TEAM = [
+        "http://global.espn.com/football/team/fixtures/_/id/83/barcelona",
+        "http://global.espn.com/soccer/team/results/_/id/83/barcelona",
+        "http://global.espn.com/football/team/fixtures/_/id/86/real-madrid",
+        "http://www.espn.com/soccer/team/results/_/id/86/real%20madrid",
+        "http://global.espn.com/football/team/fixtures/_/id/360/manchester-united",
+        "http://global.espn.com/soccer/team/results/_/id/360/manchester%20united",
+        "http://global.espn.com/football/team/fixtures/_/id/363/chelsea",
+        "http://global.espn.com/soccer/team/results/_/id/363/chelsea",
+        "http://global.espn.com/football/team/fixtures/_/id/359/arsenal",
+        "http://global.espn.com/soccer/team/results/_/id/359/arsenal",
+        "http://global.espn.com/football/team/fixtures/_/id/364/liverpool",
+        "http://global.espn.com/soccer/team/results/_/id/364/liverpool"
+    ];
 
     const CHARTS = [
         "http://global.espn.com/football/table/_/league/uefa.champions",
@@ -73,8 +87,27 @@ class SchedulesController extends AppController
         "http://global.espn.com/football/table/_/league/ger.1",
         "http://global.espn.com/football/table/_/league/ita.1",
         "http://global.espn.com/football/table/_/league/fra.1",
-        "http://global.espn.com/soccer/table/_/league/uefa.europa"
+        "http://global.espn.com/soccer/table/_/league/uefa.europa",
     ];
+
+    public function fixturesTeam($selectId = 0, $league = '', $season = '')
+    {
+        $url = self::FIXTURES_TEAM[$selectId];
+        if ($league || $season) {
+            $url = substr($url, 0, strrpos($url, '/'));
+            if ($league) {
+                $url .= '/league/' . $league;
+            }
+            if ($season) {
+                $url .= '/season/' . $season;
+            }
+        }
+
+        $html = \Pharse::file_get_dom($url);
+        $fixtures = $this->_convertFixturesHtmlToArray($html);
+        $this->response->withStringBody(json_encode($fixtures))->withStatus(200)->send();
+        die;
+    }
 
     public function fixtures($os = '', $selectId = 0, $date = '')
     {
@@ -493,7 +526,7 @@ class SchedulesController extends AppController
             </style>
         ';
 
-        $script        = '
+        $script = '
             <script>
                 $(function(){
                     $("a").click(function() { 

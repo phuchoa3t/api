@@ -18,7 +18,13 @@ class FootBallLiveScoresController extends AppController
         "https://www.goal.com/en/bundesliga/{PAGE}/6by3h89i2eykc341oz7lv1ddd",
         "https://www.goal.com/en/ligue-1/{PAGE}/dm5ka0os1e3dxcp3vh05kmp33",
         "https://www.goal.com/en/uefa-europa-league/{PAGE}/4c1nfi2j1m731hcay25fcgndq",
-        "https://www.goal.com/en/transfer-news/{PAGE}"
+        "https://www.goal.com/en/transfer-news/{PAGE}",
+        "https://www.goal.com/en/team/manchester-united/{PAGE}/6eqit8ye8aomdsrrq0hk3v7gh",
+        "https://www.goal.com/en/team/chelsea/{PAGE}/9q0arba2kbnywth8bkxlhgmdr",
+        "https://www.goal.com/en/team/arsenal/{PAGE}/4dsgumo7d4zupm2ugsvm4zm4d",
+        "https://www.goal.com/en/team/liverpool/{PAGE}/c8h9bw1l82s06h77xxrelzhur",
+        "https://www.goal.com/en/team/barcelona/{PAGE}/agh9ifb2mw3ivjusgedj7c3fe",
+        "https://www.goal.com/en/team/real-madrid/{PAGE}/3kq9cckrnlogidldtdie2fkbl"
     ];
 
     public function listNews($selectID = 0, $page = 1)
@@ -39,9 +45,9 @@ class FootBallLiveScoresController extends AppController
         foreach ($news as $k => $new) {
             $date = $new('time')[0]->getAttribute('datetime');
 
-            $img    = $new('img')[1]->getAttribute('src');
-            $img    = preg_replace('/quality=\d+/', 'quality=100', $img);
-            $img    = preg_replace('/h=\d+/', 'h=100', $img);
+            $img                    = $new('img')[1]->getAttribute('src');
+            $img                    = preg_replace('/quality=\d+/', 'quality=100', $img);
+            $img                    = preg_replace('/h=\d+/', 'h=100', $img);
             $response['List_All'][] = [
                 'image'      => $img,
                 'title'      => $new('.title-wrapper')[0]('h3')[0]->getPlainText(),
@@ -53,7 +59,7 @@ class FootBallLiveScoresController extends AppController
             ];
         }
 
-        $response['loadmore']   = Router::url([
+        $response['loadmore'] = Router::url([
             'action' => 'listNews',
             $selectID,
             $page + 1
@@ -101,8 +107,8 @@ class FootBallLiveScoresController extends AppController
             </style>
         ";
         $html   = $html->toString();
-        $html  = preg_replace('/\<\~root\~\>/', '', $html);
-        $script        = '
+        $html   = preg_replace('/\<\~root\~\>/', '', $html);
+        $script = '
             <script>
                 var aTags = document.getElementsByTagName("a"),
                     atl = aTags.length,
@@ -120,7 +126,7 @@ class FootBallLiveScoresController extends AppController
 
     public function videos($page = 1)
     {
-        $html = $this->_curl(self::VIDEO . '?page=' . $page);
+        $html = $this->_curl(self::VIDEO . '?page=' . $page, false);
         $html = \Pharse::str_get_dom($html);
 
         $response = ['List_All' => []];
@@ -240,9 +246,11 @@ class FootBallLiveScoresController extends AppController
         die;
     }
 
-    private function _curl($url)
+    private function _curl($url, $useShell = true)
     {
-        return shell_exec('curl ' . $url);
+        if ($useShell) {
+            return shell_exec('curl ' . $url);
+        }
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

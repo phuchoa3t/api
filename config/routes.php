@@ -63,8 +63,9 @@ Router::scope('/', function (RouteBuilder $routes) {
     /** ==================================================================================================
      * Football
      */
-    $routes->connect('/list-news', ['controller' => 'News', 'action' => 'listNews']);
+    $routes->connect('/list-news/*', ['controller' => 'News', 'action' => 'listNews']);
     $routes->connect('/fixtures/*', ['controller' => 'Schedules', 'action' => 'fixtures']);
+    $routes->connect('/fixtures-team/*', ['controller' => 'Schedules', 'action' => 'fixturesTeam']);
     $routes->connect('/summary/*', ['controller' => 'Schedules', 'action' => 'summary']);
     $routes->connect('/report/*', ['controller' => 'Schedules', 'action' => 'report']);
     $routes->connect('/commentary/*', ['controller' => 'Schedules', 'action' => 'commentary']);
