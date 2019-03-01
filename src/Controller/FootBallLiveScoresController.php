@@ -156,7 +156,7 @@ class FootBallLiveScoresController extends AppController
         $url    = urldecode($url);
         $url    = urldecode($url);
         $url    = preg_replace('/\s/', '+', $url);
-        $detail = $this->_curl($url);
+        $detail = $this->_curl($url, false);
         $detail = \Pharse::str_get_dom($detail);
         $link   = 'https:' . $detail('#videoz')[0]('iframe')[0]->getAttribute('src');
         $this->response->withStringBody(json_encode(['link' => $link]))->withStatus(200)->send();
