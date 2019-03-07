@@ -31,6 +31,11 @@ class FootBallLiveScoresController extends AppController
     {
         $response['List_All'] = [];
 
+        if ($page > 1) {
+            $this->response->withStringBody(json_encode($response))->withStatus(200)->send();
+            die;
+        }
+
         $imgs = [
             0 => 'https://images.performgroup.com/di/library/GOAL/22/cc/justin-kluivert-roma_kltwl4dlf0c716oufpfp0n6j6.jpg?t=1314052441&amp;quality=100&amp;h=100',
             1 => 'https://images.performgroup.com/di/library/GOAL/c/9b/victor-lindelof-manchester-united-2018-19_27zeze5x5tlb13fyexbcv0gii.jpg?t=-1114199624&amp;quality=100&amp;h=100',
