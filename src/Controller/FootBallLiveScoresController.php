@@ -63,18 +63,19 @@ class FootBallLiveScoresController extends AppController
             9 => 'A Gallowgate End-sized banner\': Wor Flags\' most-ambitious NUFC project revealed - and how to&#133;',
             10 => 'Laughable Peter Kenyon Millionaire club plan to buy Newcastle United crops up again in new report',
         ];
+        
         $times = [
-            '2019-03-07T09:00:09+00:00',
-            '2019-03-07T09:00:10+00:00',
-            '2019-03-07T09:00:10+10:00',
-            '2019-03-07T09:00:11+00:00',
-            '2019-03-07T09:00:11+20:00',
-            '2019-03-07T09:00:12+00:00',
-            '2019-03-07T09:00:13+00:00',
-            '2019-03-07T09:00:13+20:00',
-            '2019-03-07T09:00:14+00:00',
-            '2019-03-07T09:00:15+00:00',
-            '2019-03-07T09:00:18+00:00',
+            date('Y-m-d'). 'T09:00:09+00:00',
+            date('Y-m-d'). 'T09:00:10+00:00',
+            date('Y-m-d'). 'T09:00:10+10:00',
+            date('Y-m-d'). 'T09:00:11+00:00',
+            date('Y-m-d'). 'T09:00:11+20:00',
+            date('Y-m-d'). 'T09:00:12+00:00',
+            date('Y-m-d'). 'T09:00:13+00:00',
+            date('Y-m-d'). 'T09:00:13+20:00',
+            date('Y-m-d'). 'T09:00:14+00:00',
+            date('Y-m-d'). 'T09:00:15+00:00',
+            date('Y-m-d'). 'T09:00:18+00:00',
         ];
         for ($i = 0; $i <= 10; $i++) {
             $response['List_All'][] = [
