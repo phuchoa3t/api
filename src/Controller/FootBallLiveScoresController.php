@@ -159,6 +159,7 @@ class FootBallLiveScoresController extends AppController
                 body, .layout-master .page-container-bg {
                     background: white !important;
                 }
+                body { text-align: justify;} img { max-width: 100%; height:auto !important;} video {max-width: 100%; height:auto !important;}
             </style>
         ";
 
