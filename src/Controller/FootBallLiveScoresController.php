@@ -177,7 +177,7 @@ class FootBallLiveScoresController extends AppController
         ';
         $id  = $this->getRequest()->getQuery('id');
         $detail = $this->render('detail' . $id, false);
-        echo $custom. $detail . $script;die;
+        echo $custom. $style. $detail . $script;die;
         echo $id;die;
 
 
