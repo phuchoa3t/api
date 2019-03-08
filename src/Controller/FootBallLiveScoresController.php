@@ -66,17 +66,17 @@ class FootBallLiveScoresController extends AppController
 
         $date = new \DateTime();
         $times = [
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
-            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-30minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
+            $date->format('Y-m-d'). 'T'.$date->modify('-1hour')->modify('-10minute')->format('h').':'.$date->format('i').':18+00:00',
         ];
         for ($i = 0; $i <= 10; $i++) {
             $response['List_All'][] = [
