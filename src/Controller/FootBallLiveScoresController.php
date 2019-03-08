@@ -87,6 +87,11 @@ class FootBallLiveScoresController extends AppController
                 ], true)
             ];
         }
+        $response['loadmore'] = Router::url([
+            'action' => 'listNews',
+            $selectID,
+            $page + 1
+        ], true);
 
         $this->response->withStringBody(json_encode($response))->withStatus(200)->send();
         die;
