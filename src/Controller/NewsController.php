@@ -130,6 +130,23 @@ class NewsController extends AppController
         die;
     }
 
+    public function iosLoadMore()
+    {
+        $more = $this->getRequest()->getQuery('more');
+        $data = json_decode(file_get_contents(self::BASE_URL . '/ajax/more?more=' . $more), true);
+        $more = Router::url([
+            'controller' => 'News',
+            'action' => 'iosLoadMore',
+            'more' => urlencode($data['content']['more'])
+        ], true);
+        $stream = join("", $data['stream']);
+        $html = $this->_deobfuscate($stream);
+        $html = \Pharse::str_get_dom($html);
+        $listNews = $this->_convertIosNewsHtmlToArray($html, $more);
+        $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
+        die;
+    }
+
     public function _convertNewsHtmlToArray($html, $more = null)
     {
         $divs = $html(".hl_time");
@@ -188,8 +205,8 @@ class NewsController extends AppController
                         'title' => $aTag->getPlainText(),
                         'url' => Router::url([
                             'controller' => 'News',
-                            'action' => 'detail',
-                            'url' => $aTag->getAttribute('href')
+                            'action' => 'iosDetail',
+                            'url' => base64_encode($aTag->getAttribute('href'))
                         ], true),
                         'time' => $next('.time')[0]->getAttribute('data-time'),
                         'chanel' => $next('.src-part')[0]->getPlainText()
@@ -201,7 +218,7 @@ class NewsController extends AppController
         }
         $listNews['loadmore'] = $more ? $more : Router::url([
             'controller' => 'News',
-            'action' => 'loadMore',
+            'action' => 'iosLoadMore',
             'more' => urlencode($html->getAttribute('data-more'))
         ], true);
         return $listNews;
@@ -211,6 +228,31 @@ class NewsController extends AppController
     {
 
         $url = urldecode($this->getRequest()->getQuery('url'));
+        $content = file_get_contents($url);
+        $destinationUrl = \Pharse::str_get_dom($content);
+        $destinationUrl = $destinationUrl('#retrieval-msg strong a');
+        $destinationUrl = $destinationUrl[0]->getAttribute('href');
+
+        $thirdPartyContent = \Pharse::file_get_dom(self::WEBSITE_CONVERT . $destinationUrl);
+
+        if (strpos($thirdPartyContent->getPlainText(), 'URL blocked - Why') !== false
+            || strlen($thirdPartyContent->getPlainText()) <= 20
+        ) {
+            $this->response->withStringBody(file_get_contents($destinationUrl))->withStatus(200)->send();
+            die;
+        }
+        $item = $thirdPartyContent('rss channel item')[0];
+        $content = $item('description')[0]->getPlainText();
+        $title = "<h2>" . $item('title')[0]->getPlainText() . "</h2>";
+
+        $content = str_replace('<strong><a href="https://blockads.fivefilters.org">Let\'s block ads!</a></strong> <a href="https://blockads.fivefilters.org/acceptable.html">(Why?)</a></p>', '', $content);
+        $this->response->withStringBody($title . $content)->withStatus(200)->send();
+        die;
+    }
+
+    public function iosDetail()
+    {
+        $url = base64_decode($this->getRequest()->getQuery('url'));
         $content = file_get_contents($url);
         $destinationUrl = \Pharse::str_get_dom($content);
         $destinationUrl = $destinationUrl('#retrieval-msg strong a');
