@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Cake\Routing\Router;
 
-require ROOT . "/vendor/ressio/pharse/pharse.php";
+require_once ROOT . "/vendor/ressio/pharse/pharse.php";
 
 class FootBallLiveScoresController extends AppController
 {
@@ -26,6 +26,35 @@ class FootBallLiveScoresController extends AppController
         "https://www.goal.com/en/team/barcelona/{PAGE}/agh9ifb2mw3ivjusgedj7c3fe",
         "https://www.goal.com/en/team/real-madrid/{PAGE}/3kq9cckrnlogidldtdie2fkbl"
     ];
+    const IOS_NEWS = [
+        "https://www.newsnow.co.uk/h/Sport/Football?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Europe/UEFA+Champions+League?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Premier+League?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/La+Liga?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Serie+A?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Bundesliga?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Ligue+1?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Europe/UEFA+Europa+League?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Transfer+Talk?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Premier+League/Manchester+United?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Premier+League/Chelsea?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/Premier+League/Liverpool?type=ln",
+        "https://www.newsnow.co.uk/h/Sport/Football/La+Liga/Barcelona?type=ln"
+    ];
+
+    public function iosNews($selectID = 0)
+    {
+        $this->request->withQueryParams(['url' => 'a']);
+        $this->requestAction([
+            'controller' => 'News',
+            'action' => 'iosNews',
+        ], [
+            'query' => [
+                'url' => self::IOS_NEWS[$selectID]
+            ]
+        ]);
+        die;
+    }
 
     public function listNews($selectID = 0, $page = 1)
     {
@@ -181,7 +210,6 @@ class FootBallLiveScoresController extends AppController
 //        $detail = $this->render('detail' . $id, false);
 //        echo $custom. $style. $detail . $script;die;
 //        echo $id;die;
-
 
 
         $url  = $this->getRequest()->getQuery('url');

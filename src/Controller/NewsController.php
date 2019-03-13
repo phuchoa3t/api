@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Cake\Routing\Router;
 
-require ROOT . "/vendor/ressio/pharse/pharse.php";
+require_once ROOT . "/vendor/ressio/pharse/pharse.php";
 
 class NewsController extends AppController
 {
@@ -93,6 +93,26 @@ class NewsController extends AppController
         die;
     }
 
+
+    public function iosNews()
+    {
+        $url = $this->getRequest()->getQuery('url');
+        $url = urldecode($url);
+        $url = urldecode($url);
+        $url = urldecode($url);
+        $url = preg_replace('/\s/', '+', $url);
+        if (!$url) {
+            return false;
+        }
+        $html = \Pharse::file_get_dom($url);
+        $newsfeed = $html("#content .newsmain_wrap.central_ln_wrap");
+        $newsfeed = $newsfeed[0](".newsfeed")[0];
+
+        $listNews = $this->_convertIosNewsHtmlToArray($newsfeed);
+        $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
+        die;
+    }
+
     public function loadMore()
     {
         $more = $this->getRequest()->getQuery('more');
@@ -111,6 +131,44 @@ class NewsController extends AppController
     }
 
     public function _convertNewsHtmlToArray($html, $more = null)
+    {
+        $divs = $html(".hl_time");
+        $listNews['List_All'] = [];
+        foreach ($divs as $div) {
+            $next = $div->getNextSibling();
+
+            $item = [
+                'title' => $div->getPlainText(),
+                'SubCatgory' => []
+            ];
+
+            while ($next != null && trim($next->getAttribute('class')) != 'hl_time') {
+                if (preg_match('/^hl([^a-z])*$/', trim($next->getAttribute('class')))) {
+                    $aTag = $next('.hll')[0];
+
+                    $item['SubCatgory'][] = [
+                        'title' => $aTag->getPlainText(),
+                        'url' => Router::url([
+                            'controller' => 'News',
+                            'action' => 'detail',
+                            'url' => $aTag->getAttribute('href')
+                        ], true),
+                        'time' => $next('.time')[0]->getAttribute('data-time'),
+                        'chanel' => $next('.src-part')[0]->getPlainText()
+                    ];
+                }
+                $next = $next->getNextSibling();
+            }
+            $listNews['List_All'][] = $item;
+        }
+        $listNews['loadmore'] = $more ? $more : Router::url([
+            'controller' => 'News',
+            'action' => 'loadMore',
+            'more' => urlencode($html->getAttribute('data-more'))
+        ], true);
+        return $listNews;
+    }
+    public function _convertIosNewsHtmlToArray($html, $more = null)
     {
         $divs = $html(".hl_time");
         $listNews['List_All'] = [];
