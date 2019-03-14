@@ -245,6 +245,11 @@ class NewsController extends AppController
 
     public function iosDetail()
     {
+        $style = '
+            <style>
+            body { text-align: justify;} img { max-width: 100%; height:auto !important;} video {max-width: 100%; height:auto !important;}
+            </style>
+        ';
         $url = base64_decode($this->getRequest()->getQuery('url'));
         $content = file_get_contents($url);
         $destinationUrl = \Pharse::str_get_dom($content);
@@ -271,7 +276,7 @@ class NewsController extends AppController
         $this->response->withStringBody(json_encode([
             'success' => 1,
             'originUrl' => $destinationUrl,
-            'content' => $title . $content
+            'content' => $style . $title . $content
         ]))->withStatus(200)->send();
         die;
     }
