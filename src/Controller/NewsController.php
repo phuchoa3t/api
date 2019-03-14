@@ -134,11 +134,7 @@ class NewsController extends AppController
     {
         $more = $this->getRequest()->getQuery('more');
         $data = json_decode(file_get_contents(self::BASE_URL . '/ajax/more?more=' . $more), true);
-        $more = Router::url([
-            'controller' => 'News',
-            'action' => 'iosLoadMore',
-            'more' => urlencode($data['content']['more'])
-        ], true);
+        $more = urlencode(urlencode($data['content']['more']));
         $stream = join("", $data['stream']);
         $html = $this->_deobfuscate($stream);
         $html = \Pharse::str_get_dom($html);
@@ -211,11 +207,7 @@ class NewsController extends AppController
             }
         }
         $listNews['List_All'] = $item;
-        $listNews['loadmore'] = $more ? $more : Router::url([
-            'controller' => 'News',
-            'action' => 'iosLoadMore',
-            'more' => urlencode($html->getAttribute('data-more'))
-        ], true);
+        $listNews['more'] = $more ? $more : urlencode(urlencode($html->getAttribute('data-more')));
         return $listNews;
     }
 
