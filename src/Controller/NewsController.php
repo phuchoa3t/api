@@ -192,30 +192,25 @@ class NewsController extends AppController
         foreach ($divs as $div) {
             $next = $div->getNextSibling();
 
-            $item = [
-                'title' => $div->getPlainText(),
-                'SubCatgory' => []
-            ];
+            $item = [];
 
             while ($next != null && trim($next->getAttribute('class')) != 'hl_time') {
                 if (preg_match('/^hl([^a-z])*$/', trim($next->getAttribute('class')))) {
                     $aTag = $next('.hll')[0];
 
-                    $item['SubCatgory'][] = [
+                    $item[] = [
                         'title' => $aTag->getPlainText(),
-                        'url' => Router::url([
+                        'new-detail' => Router::url([
                             'controller' => 'News',
                             'action' => 'iosDetail',
                             'url' => base64_encode($aTag->getAttribute('href'))
                         ], true),
-                        'time' => $next('.time')[0]->getAttribute('data-time'),
-                        'chanel' => $next('.src-part')[0]->getPlainText()
                     ];
                 }
                 $next = $next->getNextSibling();
             }
-            $listNews['List_All'][] = $item;
         }
+        $listNews['List_All'][] = $item;
         $listNews['loadmore'] = $more ? $more : Router::url([
             'controller' => 'News',
             'action' => 'iosLoadMore',
