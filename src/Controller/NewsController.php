@@ -210,7 +210,7 @@ class NewsController extends AppController
                 $next = $next->getNextSibling();
             }
         }
-        $listNews['List_All'][] = $item;
+        $listNews['List_All'] = $item;
         $listNews['loadmore'] = $more ? $more : Router::url([
             'controller' => 'News',
             'action' => 'iosLoadMore',
