@@ -196,6 +196,7 @@ class NewsController extends AppController
 
                     $item[] = [
                         'title' => $aTag->getPlainText(),
+                        'time' => $next('.time')[0]->getAttribute('data-time'),
                         'new-detail' => Router::url([
                             'controller' => 'News',
                             'action' => 'iosDetail',
