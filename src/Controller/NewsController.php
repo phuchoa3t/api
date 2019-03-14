@@ -133,6 +133,8 @@ class NewsController extends AppController
     public function iosLoadMore()
     {
         $more = $this->getRequest()->getQuery('more');
+        $more = urlencode($more);
+        $more = preg_replace('/\s/', '+', $more);
         $data = json_decode(file_get_contents(self::BASE_URL . '/ajax/more?more=' . $more), true);
         $more = urlencode(urlencode($data['content']['more']));
         $stream = join("", $data['stream']);
@@ -185,13 +187,16 @@ class NewsController extends AppController
     {
         $divs = $html(".hl_time");
         $listNews['List_All'] = [];
+        $item = [];
         foreach ($divs as $div) {
             $next = $div->getNextSibling();
 
-            $item = [];
-
             while ($next != null && trim($next->getAttribute('class')) != 'hl_time') {
-                if (preg_match('/^hl([^a-z])*$/', trim($next->getAttribute('class')))) {
+                if (preg_match('/^hl/', trim($next->getAttribute('class')))) {
+                    if (!isset($next('.hll')[0])) {
+                        $next = $next->getNextSibling();
+                        continue;
+                    }
                     $aTag = $next('.hll')[0];
 
                     $item[] = [
@@ -208,7 +213,7 @@ class NewsController extends AppController
             }
         }
         $listNews['List_All'] = $item;
-        $listNews['more'] = $more ? $more : urlencode(urlencode($html->getAttribute('data-more')));
+        $listNews['more'] = $more ? $more : ($html->getAttribute('data-more'));
         return $listNews;
     }
 
@@ -251,7 +256,11 @@ class NewsController extends AppController
         if (strpos($thirdPartyContent->getPlainText(), 'URL blocked - Why') !== false
             || strlen($thirdPartyContent->getPlainText()) <= 20
         ) {
-            $this->response->withStringBody(file_get_contents($destinationUrl))->withStatus(200)->send();
+            $this->response->withStringBody(json_encode([
+                'success' => 0,
+                'originUrl' => $destinationUrl,
+                'content' => ''
+            ]))->withStatus(200)->send();
             die;
         }
         $item = $thirdPartyContent('rss channel item')[0];
@@ -259,7 +268,11 @@ class NewsController extends AppController
         $title = "<h2>" . $item('title')[0]->getPlainText() . "</h2>";
 
         $content = str_replace('<strong><a href="https://blockads.fivefilters.org">Let\'s block ads!</a></strong> <a href="https://blockads.fivefilters.org/acceptable.html">(Why?)</a></p>', '', $content);
-        $this->response->withStringBody($title . $content)->withStatus(200)->send();
+        $this->response->withStringBody(json_encode([
+            'success' => 1,
+            'originUrl' => $destinationUrl,
+            'content' => $title . $content
+        ]))->withStatus(200)->send();
         die;
     }
 }

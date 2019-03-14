@@ -44,7 +44,6 @@ class FootBallLiveScoresController extends AppController
 
     public function iosNews($selectID = 0)
     {
-        $this->request->withQueryParams(['url' => 'a']);
         $this->requestAction([
             'controller' => 'News',
             'action' => 'iosNews',
