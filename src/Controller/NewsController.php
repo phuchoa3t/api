@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Cake\Routing\Router;
 
-require ROOT . "/vendor/ressio/pharse/pharse.php";
+require_once ROOT . "/vendor/ressio/pharse/pharse.php";
 
 class NewsController extends AppController
 {
@@ -93,6 +93,26 @@ class NewsController extends AppController
         die;
     }
 
+
+    public function iosNews()
+    {
+        $url = $this->getRequest()->getQuery('url');
+        $url = urldecode($url);
+        $url = urldecode($url);
+        $url = urldecode($url);
+        $url = preg_replace('/\s/', '+', $url);
+        if (!$url) {
+            return false;
+        }
+        $html = \Pharse::file_get_dom($url);
+        $newsfeed = $html("#content .newsmain_wrap.central_ln_wrap");
+        $newsfeed = $newsfeed[0](".newsfeed")[0];
+
+        $listNews = $this->_convertIosNewsHtmlToArray($newsfeed);
+        $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
+        die;
+    }
+
     public function loadMore()
     {
         $more = $this->getRequest()->getQuery('more');
@@ -106,6 +126,21 @@ class NewsController extends AppController
         $html = $this->_deobfuscate($stream);
         $html = \Pharse::str_get_dom($html);
         $listNews = $this->_convertNewsHtmlToArray($html, $more);
+        $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
+        die;
+    }
+
+    public function iosLoadMore()
+    {
+        $more = $this->getRequest()->getQuery('more');
+        $more = urlencode($more);
+        $more = preg_replace('/\s/', '+', $more);
+        $data = json_decode(file_get_contents(self::BASE_URL . '/ajax/more?more=' . $more), true);
+        $more = urlencode(urlencode($data['content']['more']));
+        $stream = join("", $data['stream']);
+        $html = $this->_deobfuscate($stream);
+        $html = \Pharse::str_get_dom($html);
+        $listNews = $this->_convertIosNewsHtmlToArray($html, $more);
         $this->response->withStringBody(json_encode($listNews))->withStatus(200)->send();
         die;
     }
@@ -148,6 +183,39 @@ class NewsController extends AppController
         ], true);
         return $listNews;
     }
+    public function _convertIosNewsHtmlToArray($html, $more = null)
+    {
+        $divs = $html(".hl_time");
+        $listNews['List_All'] = [];
+        $item = [];
+        foreach ($divs as $div) {
+            $next = $div->getNextSibling();
+
+            while ($next != null && trim($next->getAttribute('class')) != 'hl_time') {
+                if (preg_match('/^hl/', trim($next->getAttribute('class')))) {
+                    if (!isset($next('.hll')[0])) {
+                        $next = $next->getNextSibling();
+                        continue;
+                    }
+                    $aTag = $next('.hll')[0];
+
+                    $item[] = [
+                        'title' => $aTag->getPlainText(),
+                        'time' => $next('.time')[0]->getAttribute('data-time'),
+                        'new-detail' => Router::url([
+                            'controller' => 'News',
+                            'action' => 'iosDetail',
+                            'url' => base64_encode($aTag->getAttribute('href'))
+                        ], true),
+                    ];
+                }
+                $next = $next->getNextSibling();
+            }
+        }
+        $listNews['List_All'] = $item;
+        $listNews['more'] = $more ? $more : ($html->getAttribute('data-more'));
+        return $listNews;
+    }
 
     public function detail()
     {
@@ -172,6 +240,44 @@ class NewsController extends AppController
 
         $content = str_replace('<strong><a href="https://blockads.fivefilters.org">Let\'s block ads!</a></strong> <a href="https://blockads.fivefilters.org/acceptable.html">(Why?)</a></p>', '', $content);
         $this->response->withStringBody($title . $content)->withStatus(200)->send();
+        die;
+    }
+
+    public function iosDetail()
+    {
+        $style = '
+            <style>
+            body { text-align: justify;} img { max-width: 100%; height:auto !important;} video {max-width: 100%; height:auto !important;}
+            </style>
+        ';
+        $url = base64_decode($this->getRequest()->getQuery('url'));
+        $content = file_get_contents($url);
+        $destinationUrl = \Pharse::str_get_dom($content);
+        $destinationUrl = $destinationUrl('#retrieval-msg strong a');
+        $destinationUrl = $destinationUrl[0]->getAttribute('href');
+
+        $thirdPartyContent = \Pharse::file_get_dom(self::WEBSITE_CONVERT . $destinationUrl);
+
+        if (strpos($thirdPartyContent->getPlainText(), 'URL blocked - Why') !== false
+            || strlen($thirdPartyContent->getPlainText()) <= 20
+        ) {
+            $this->response->withStringBody(json_encode([
+                'success' => 0,
+                'originUrl' => $destinationUrl,
+                'content' => ''
+            ]))->withStatus(200)->send();
+            die;
+        }
+        $item = $thirdPartyContent('rss channel item')[0];
+        $content = $item('description')[0]->getPlainText();
+        $title = "<h2>" . $item('title')[0]->getPlainText() . "</h2>";
+
+        $content = str_replace('<strong><a href="https://blockads.fivefilters.org">Let\'s block ads!</a></strong> <a href="https://blockads.fivefilters.org/acceptable.html">(Why?)</a></p>', '', $content);
+        $this->response->withStringBody(json_encode([
+            'success' => 1,
+            'originUrl' => $destinationUrl,
+            'content' => $style . $title . $content
+        ]))->withStatus(200)->send();
         die;
     }
 }

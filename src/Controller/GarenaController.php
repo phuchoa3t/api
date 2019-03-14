@@ -517,6 +517,7 @@ class GarenaController extends AppController
                 img {
                     max-width: 100%!important;
                 }
+                body { text-align: justify;} img { max-width: 100%; height:auto !important;} video {max-width: 100%; height:auto !important;}
                 </style>
             ';
             $content .= isset($html('.videoWrapper')[0]) ? $html('.videoWrapper')[0]->html() : '';
