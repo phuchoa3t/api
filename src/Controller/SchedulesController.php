@@ -468,12 +468,28 @@ class SchedulesController extends AppController
             $gameId = $this->getRequest()->getQuery('gameId');
         }
         $html = \Pharse::file_get_dom(self::MATCHSTATS . $gameId);
-        $html('#header-wrapper')[0]->delete();
-        $html('#custom-nav')[0]->delete();
-        $html('.ad-banner-wrapper')[0]->delete();
 
-        $html('.col-c')[0]->delete();
-        $html('#gamepackage-outbrain')[0]->delete();
+        if (isset($html('#header-wrapper')[0])) {
+
+            $html('#header-wrapper')[0]->delete();
+        }
+        if (isset($html('#custom-nav')[0])) {
+
+            $html('#custom-nav')[0]->delete();
+        }
+        if (isset($html('.ad-banner-wrapper')[0])) {
+
+            $html('.ad-banner-wrapper')[0]->delete();
+        }
+        if (isset($html('.col-c')[0])) {
+
+            $html('.col-c')[0]->delete();
+        }
+        if (isset($html('#gamepackage-outbrain')[0])) {
+
+            $html('#gamepackage-outbrain')[0]->delete();
+        }
+
         $style = '
             <style>
                 #gamepackage-column-wrap .col-one {
