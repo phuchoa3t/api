@@ -42,6 +42,7 @@ class SchedulesController extends AppController
     const RESULT                 = self::GLOBAL_ESPN_URL . "/football/team/results/_/id/111/juventus";
     const SUMMARY                = self::GLOBAL_ESPN_URL . "/football/match?gameId=";
     const REPORT                 = self::GLOBAL_ESPN_URL . "/football/report?gameId=";
+    const PREVIEW                 = self::GLOBAL_ESPN_URL . "/football/preview?gameId=";
     const COMMENTARY             = self::GLOBAL_ESPN_URL . "/football/commentary?gameId=";
     const MATCHSTATS             = self::GLOBAL_ESPN_URL . "/football/matchstats?gameId=";
     const LINEUPS                = self::GLOBAL_ESPN_URL . "/football/lineups?gameId=";
@@ -376,6 +377,35 @@ class SchedulesController extends AppController
             $gameId = $this->getRequest()->getQuery('gameId');
         }
         $server_output = $this->_curl(self::REPORT . $gameId);
+
+        $html = \Pharse::str_get_dom($server_output);
+
+
+        $style = '
+            <style>
+                #article-feed .article .article-body aside.inline-photo {
+                    height: auto!important
+                }
+                #pane-main, #main-container {
+                    padding-top: 0px!important;
+                }
+                #article-feed .article .article-social, .article-meta .authors>li .author, .ad-300, 
+                .article-footer, .col-c, .ad-banner-wrapper, #custom-nav,#header-wrapper{
+                    display: none!important;
+                }
+            </style>
+        ';
+
+        $this->response->withStringBody(self::COMMON_STYLE . $style . $html)->withStatus(200)->send();
+        die;
+    }
+
+    public function preview($gameId = null)
+    {
+        if (!$gameId) {
+            $gameId = $this->getRequest()->getQuery('gameId');
+        }
+        $server_output = $this->_curl(self::PREVIEW . $gameId);
 
         $html = \Pharse::str_get_dom($server_output);
 
