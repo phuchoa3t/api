@@ -110,6 +110,12 @@ Router::scope('/', function (RouteBuilder $routes) {
      * End Lien quan
      *====================================================================================================*/
 
+    /**
+     * Tu vi
+     */
+
+    $routes->connect('/XemTuVi/AndroidData/*', ['controller' => 'Tuvi', 'action' => "index"]);
+
 
     /**
      * Connect catchall routes for all controllers.
