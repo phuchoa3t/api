@@ -31,6 +31,17 @@ class TuviController extends AppController
                     }
             </style>
         ';
+        $script = '
+            <script>
+                var aTags = document.getElementsByTagName("a"),
+                    atl = aTags.length,
+                    i;
+            
+                for (i = 0; i < atl; i++) {
+                    aTags[i].href="javascript:void(0)"
+                }
+            </script>
+        ';
         $content = '';
         $url = self::SELECT[$selectId];
         switch ($selectId) {
@@ -73,7 +84,8 @@ class TuviController extends AppController
                     .newspaper-post-like.d-flex.align-items-center.justify-content-between,
                     .comment_area,.footer-area,
                     .addthis-smartlayers,
-                    .addthis-smartlayers-desktop
+                    .addthis-smartlayers-desktop,
+                    .mcwidget-overlay
                      {
                         display: none !important;
                     }
@@ -92,7 +104,7 @@ class TuviController extends AppController
                     'form_id' => 'tracnghiem_xem_boi_ngay_sinh_form'
                 ]);
 
-                $response = str_replace('<center><span>Ngày sinh của bạn: </span>//</center>', '<center><span>Ngày sinh của bạn: </span>' . $date->format('d') . '/' . $date->format('m') . '/' . $date->format('Y') . '</center>', $response);
+//                $response = str_replace('<center><span>Ngày sinh của bạn: </span>//</center>', '<center><span>Ngày sinh của bạn: </span>' . $date->format('d') . '/' . $date->format('m') . '/' . $date->format('Y') . '</center>', $response);
 
                 $style = '
                     <style>
@@ -144,7 +156,13 @@ class TuviController extends AppController
                      {
                         display: none !important;
                     }
-                    
+                    .lvn-main {
+                        margin-top: 0px !important;
+                    }
+                    .col-md-9 div:nth-child(2) {
+                        padding: 0px !important;
+                    }
+
                     </style>
                 ';
                 $content = $style . file_get_contents($url);
@@ -180,7 +198,7 @@ class TuviController extends AppController
                      #section-header,
                      .trac-nghiem-list,
                      .danh-muc-trac-nghiem-panel,
-                     .pane-block-105    
+                     .pane-block-105
                      {
                         display: none;
                     }
@@ -271,23 +289,36 @@ class TuviController extends AppController
 
                 $response = $this->_curl($url, true, [
                     'hoten' => $name,
+                    'xemboiaicap' => '',
                 ], true);
-
-
-                var_dump($response);
-                die;
-
 
                 $style = '
                     <style>
-                    
-                     .trac-nghiem-thu-vien
-                     {
-                        display: none !important;
-                    }
+                        #ccr-header,
+                         .ccr-last-update,
+                         #ccr-world-news table:first-child,
+                         #ccr-right-section,
+                         #ccr-world-news table:last-child tr:not(:first-child),
+                         .fb-comments,
+                         #ccr-world-news:last-child,
+                         #ccr-footer-sidebar,
+                         #ccr-footer,
+                         #scrollUp
+                         {
+                            display: none !important;
+                         }
+                         #ccr-left-section {
+                            border-right: none !important;
+                         }
+                         #ccr-left-section.col-md-8 {
+                            width: 100%;
+                         }
                     </style>
                 ';
-                $content = $style . $response;
+
+                $baseURL = '<base href="https://huyenbi.net" />';
+
+                $content = $baseURL . $style . $response;
                 break;
             case 8 :
                 $url = 'https://www.blogphongthuy.com/dataphongthuy/tuoixaynha.php';
@@ -301,7 +332,7 @@ class TuviController extends AppController
 
                 $style = '
                     <style>
-                    
+
                      .trac-nghiem-thu-vien
                      {
                         display: none !important;
@@ -311,6 +342,12 @@ class TuviController extends AppController
                 $content = $style . $response;
                 break;
             case 9 :
+
+                $response = file_get_contents($url);
+
+                preg_match('/name=\"form_build_id\" value="(.*)"/', $response, $match);
+                $form_build_id = $match[1];
+
                 $url = 'http://vansu.net/system/ajax';
                 $date = $params[0];
                 $date = date_create_from_format('dmY', $date);
@@ -325,59 +362,118 @@ class TuviController extends AppController
                     'thang' => $thang,
                     'namsinh' => $nam,
                     'gioitinh' => $gioitinh,
-                    'form_build_id' => 'form-qssNbLOcOKwUokLgltZhYJlZqBbJypbgXkHRMioL5mo',
+                    'form_build_id' => $form_build_id,
                     'form_id' => 'xemtuoi_thoi_trang_phong_thuy_form',
                 ]);
 
-
-                var_dump(json_decode(stripslashes($response)));die;
+                $response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response), true);
+                $response = $response[1]['data'] ?? '';
 
                 $style = '
                     <style>
-                    
+
                      .trac-nghiem-thu-vien
                      {
                         display: none !important;
+                    }
+                    .kqua {
+                        text-align: center;
+                        padding: 20px 20px 0px 20px;
                     }
                     </style>
                 ';
                 $content = $style . $response;
                 break;
             case 10:
+                $response = file_get_contents($url);
+
+                preg_match('/name=\"form_build_id\" value="(.*)"/', $response, $match);
+                $form_build_id = $match[1];
+
                 $year = $params[0];
                 $gioitinh = $params[1];
-
-//                $url = 'http://vansu.net/tu-vi-canh-ngo-2019-'.$gioitinh.'-mang-'.$year.'.html';
-//                echo $url;die;
+                $url = 'http://vansu.net';
 
                 $response = $this->_curl($url, true, [
                     'namsinh' => $year,
                     'gioitinh' => $gioitinh,
                     'form_id' => 'tuvi_2017_form',
-//                    'form_build_id' => 'form-rfhcZIU4sCKdSlT9OAxCNU7t0evYAtiV4ZmyEQe9IDU'
+                    'form_build_id' => $form_build_id,
+                    'op' => 'Xem kết quả'
                 ]);
-
-                $response = str_replace('<font color="red">Xem năm khác</font>', '', $response);
-
-//                $response = str_replace('<center><span>Ngày sinh của bạn: </span>//</center>', '<center><span>Ngày sinh của bạn: </span>'.$date->format('d'). '/'.$date->format('m').'/'.$date->format('Y').'</center>', $response);
 
                 $style = '
                     <style>
-                    .zone-branding-wrapper,
-                     .block-description-function.month-calendar,
-                     #block-system-main-menu, .block-lich,
-                     .block-block,
-                     .block-views,
-                     footer,
-                     .trac-nghiem-thu-vien,
-                     .view-thu-vien,
-                     .body-trac-nghiem-node .pane-title,
-                     #section-header,
-                     .trac-nghiem-list,
-                     .danh-muc-trac-nghiem-panel,
-                     .pane-block-105,
+                    header,nav,.lvn-hnavbar-bottom,
+                    #boxAlert,.lvn-xemtv-form,.lvn-breadcrumbs,
+                    #fb-root,
+                    iframe,
+                    .alert-box,.lvn-main-title,
+                    .lvn-comment-fb,
+                    .col-md-9 .row,
+                    .lvn-sub-abouttab,
+                    .lvn-dnews-some,
+                    .lvn-library,
+                    footer,
+                    .lvn-backtotop  ,
+                    .lvn-main-title + .lvn-main-subnews,
+                    .trac-nghiem-list,
+                    #block-block-38,
+                    .trac-nghiem-thu-vien,
+                    #block-block-105,
+                    .class-block-thuvien
+                     {
+                        display: none !important;
+                    }
+                    body {
+                        background: none !important;
+                    }
+                    .lvn-main {
+                        margin-top: 0px !important;
+                    }
+                    .col-md-9 div:nth-child(2) {
+                        padding: 0px !important;
+                    }
+
+                    </style>
+                ';
+                $baseURL = '<base href="http://vansu.net"/>';
+                $content = $baseURL . $style . $response . $script  ;
+                break;
+            case 11:
+                $response = file_get_contents($url);
+
+                preg_match('/name=\"form_build_id\" value="(.*)"/', $response, $match);
+                $form_build_id = $match[1];
+
+                $url = 'http://vansu.net/system/ajax';
+                $sdt = $params[0];
+                $year = $params[1];
+
+                $gioitinh = $params[2];
+
+
+                $response = $this->_curl($url, true, [
+                    'sdt' => $sdt,
+                    'nam' => $year,
+                    'gioitinh' => $gioitinh,
+                    'form_build_id' => $form_build_id,
+                    'form_id' => 'lich_sim_phong_thuy_form',
+                ]);
+
+                $response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response), true);
+                $response = $response[1]['data'] ?? '';
+
+                $style = '
+                    <style>
+
                      .trac-nghiem-thu-vien
                      {
+                        display: none !important;
+                    }
+                    .kqua {
+                        text-align: center;
+                        padding: 20px 20px 0px 20px;
                     }
                     </style>
                 ';
@@ -387,7 +483,6 @@ class TuviController extends AppController
             default:
                 break;
         }
-
 
         $this->response->withStringBody($commonStyle . $content)->withStatus(200)->send();
         die;
@@ -399,7 +494,13 @@ class TuviController extends AppController
     private function _curl($url, $post = false, $params = [], $useShell = false)
     {
         if ($useShell) {
-            return shell_exec('curl --data "hoten=hoa" ' . $url);
+            $shell = 'curl';
+            $shell .= ' -X ' . ($post ? 'POST' : 'GET');
+            foreach ($params as $key => $val) {
+                $shell .= ' -F "' . $key . '=' . $val . '"';
+            }
+
+            return shell_exec($shell . ' ' . $url);
         }
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
