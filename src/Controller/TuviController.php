@@ -4,29 +4,30 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+require_once ROOT . "/vendor/ressio/pharse/pharse.php";
+
 class TuviController extends AppController
 {
 
     const SELECT = [
-        "http://vansu.net/content/{DMY}",
+        "https://huyenbi.net/Xem-ngay-tot-xau.html",
         "https://tuvivannien.com/tinh-viec-dai-su/ngay-{DMY}-cong-viec-{POS}.html",
-        "http://vansu.net/xem-boi-ngay-sinh.html",
+        "https://huyenbi.net/Tu-vi-theo-ngay-sinh.html",
         "https://lichvannien365.com/boi-tinh-yeu",
-        "http://vansu.net/xem-tuoi-sinh-con.html",
-        "http://vansu.net/xem-huong-nha.html",
-        "http://vansu.net/xem-tuoi-vo-chong.html",
+        "https://huyenbi.net/Chon-nam-sinh-con.html",
+        "https://huyenbi.net/Xem-huong-nha-theo-tuoi.html",
+        "https://huyenbi.net/Xem-tuoi-vo-chong.html",
         "https://huyenbi.net/Xem-boi-Ai-cap.html",
         "https://www.blogphongthuy.com/xem-tuoi-xay-nha-chon-nam-xay-nha-theo-nam-sinh-hop-tuoi.html",
-        "http://vansu.net/thoi-trang-theo-phong-thuy.html",
-        "http://vansu.net/xem-sao-chieu-menh.html",
-        "http://vansu.net/sim-phong-thuy.html"
+        "https://huyenbi.net/Con-so-may-man-ngay-hom-nay.html",
+        "https://huyenbi.net/Chon-so-dep-theo-phong-thuy.html",
     ];
 
     public function index($selectId, ...$params)
     {
         $commonStyle = '
             <style>
-                    .adsbygoogle {
+                    .adsbygoogle, .fb-comments{
                         display: none !important;
                     }
             </style>
@@ -36,7 +37,7 @@ class TuviController extends AppController
                 var aTags = document.getElementsByTagName("a"),
                     atl = aTags.length,
                     i;
-            
+
                 for (i = 0; i < atl; i++) {
                     aTags[i].href="javascript:void(0)"
                 }
@@ -48,25 +49,71 @@ class TuviController extends AppController
             case 0:
                 $date = $params[0] ?? "";
                 if (!$date) {
-                    $date = date('dmY');
+                    $date = date('d-m-Y');
+                } else {
+                    $date = date_create_from_format('dmY', $date);
+                    $date = $date->format('d-m-Y');
                 }
-                $url = preg_replace('/{DMY}/', $date, $url);
 
+
+                $response = $this->_curl($url, true, [
+                    'today' => $date,
+                    'xemngay' => '',
+                ], true);
 
                 $style = '
                     <style>
-                    .zone-branding-wrapper,
-                     .block-description-function.month-calendar,
-                     #block-system-main-menu, .block-lich,
-                     .block-block,
-                     .block-views,
-                     footer
-                     {
-                        display: none !important;
-                    }
+                         #ccr-right-section,
+                         #ccr-header,
+                         .ccr-last-update,
+                         #calemdar tbody tr:first-child,
+                         .bottom-border,
+                         #ccr-footer-sidebar,
+                         footer,
+                         #scrollUp
+                         {
+                            display: none !important;
+                         }
+                         #ccr-left-section {
+                            border-right: none !important;
+                         }
+                         #ccr-left-section.col-md-8 {
+                            width: 100%;
+                         }
+                         #ccr-left-section  section:nth-child(1) {
+                            display: block !important;
+                         }
                     </style>
                 ';
-                $content = $style . file_get_contents($url);
+
+                $script .= '
+                    <script>
+                        $(function() {
+                          $("#calemdar tr").each(function() {
+                                if (
+                                    $(this).html().includes("Xem tiếp các bài")
+                                     || $(this).html().includes("<center>")
+                                     || $(this).html().includes("fb-like")
+                                ) {
+                                    $(this).remove();
+                                }
+                          });
+                          
+                          $("#ccr-left-section section").each(function() {
+                            if (
+                                $(this).html().includes("Tin bài liên quan")
+                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                          })
+                        })
+                    </script>
+                ';
+
+                $baseURL = '<base href="https://huyenbi.net" />';
+
+                $content = $baseURL . $style . $response . $script;
                 break;
             case 1:
                 $pos = $params[0];
@@ -95,35 +142,92 @@ class TuviController extends AppController
                 break;
 
             case 2 :
-                $date = $params[0];
-                $date = date_create_from_format('dmY', $date);
-                $response = $this->_curl($url, true, [
-                    'ngay' => $date->format('d'),
-                    'thang' => $date->format('m'),
-                    'namsinh' => $date->format('Y'),
-                    'form_id' => 'tracnghiem_xem_boi_ngay_sinh_form'
-                ]);
 
-//                $response = str_replace('<center><span>Ngày sinh của bạn: </span>//</center>', '<center><span>Ngày sinh của bạn: </span>' . $date->format('d') . '/' . $date->format('m') . '/' . $date->format('Y') . '</center>', $response);
+
+                $date = $params[0] ?? "";
+                if (!$date) {
+                    $date = date('dmY');
+                }
+                $date = date_create_from_format('dmY', $date);
+
+                $response = $this->_curl($url, true, [
+                    'ngay' => (int)$date->format('d'),
+                    'thang' => (int)$date->format('m'),
+                    'nam' => (int)$date->format('Y'),
+                    'namsinh' => '',
+                ], true);
 
                 $style = '
                     <style>
-                    .zone-branding-wrapper,
-                     .block-description-function.month-calendar,
-                     #block-system-main-menu, .block-lich,
-                     .block-block,
-                     .block-views,
-                     footer,
-                     .trac-nghiem-thu-vien,
-                     .view-thu-vien,
-                     .body-trac-nghiem-node .pane-title,
-                     #section-header
-                     {
-                        display: none !important;
-                    }
+                         #ccr-right-section,
+                         #ccr-header,
+                         .ccr-last-update,
+                         #calemdar tbody tr:first-child,
+                         .bottom-border,
+                         #ccr-footer-sidebar,
+                         footer,
+                         #scrollUp,
+                         #calendar form
+                         {
+                            display: none !important;
+                         }
+                         #ccr-left-section {
+                            border-right: none !important;
+                         }
+                         #ccr-left-section.col-md-8 {
+                            width: 100%;
+                         }
+                         #ccr-left-section  section:nth-child(1) {
+                            display: block !important;
+                         }
                     </style>
                 ';
-                $content = $style . $response;
+
+                $script .= '
+                    <script>
+                        $(function() {
+                            
+                          
+                          $(".fb-like").each(function() {
+                                $(this).closest("tr").remove();
+                          });
+                          
+                          
+                          
+                          $("#ccr-left-section section").each(function() {
+                            if (
+                                $(this).html().includes("Tin bài liên quan")
+                                || $(this).html().includes("Bài liên quan")
+                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                          })
+                          $("#ccr-left-section table").each(function() {
+                            if (
+                                $(this).html().includes("Xem tử vi theo ngày sinh")
+//                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                            
+                            $(this).find("tr").each(function() {
+                                if (
+                                    $(this).html().includes("Xem tiếp các bài")
+//                                     || $(this).html().includes("<center>")
+//                                     || $(this).html().includes("fb-like")
+                                ) {
+                                    $(this).remove();
+                                }
+                          });
+                          })
+                        })
+                    </script>
+                ';
+
+                $baseURL = '<base href="https://huyenbi.net" />';
+
+                $content = $baseURL . $style . $response . $script;
                 break;
             case 3 :
                 $url = 'https://lichvannien365.com/boi-tinh-yeu-cho-{DMY1}-va-{DMY2}';
@@ -172,117 +276,265 @@ class TuviController extends AppController
                 $date1 = $params[0];
                 $date2 = $params[1];
                 $date3 = $params[2];
-//                $date = date_create_from_format('dmY', $date);
+                $gt = $params[3];
+
                 $response = $this->_curl($url, true, [
-                    'tuoi_bo' => $date1,
-                    'tuoi_me' => $date2,
-                    'tuoi_con' => $date3,
-                    'form_id' => 'lich_xem_tuoi_sinh_con_form'
-                ]);
+                    'tuoiban' => (int)$date1,
+                    'tuoikhac' => (int)$date2,
+                    'tuoicon' => (int)$date3,
+                    'r1' => (int)$gt,
+                    'xemtuoi' => ''
+                ], true);
 
-                $response = str_replace('<font color="red">Xem năm khác</font>', '', $response);
-
-//                $response = str_replace('<center><span>Ngày sinh của bạn: </span>//</center>', '<center><span>Ngày sinh của bạn: </span>'.$date->format('d'). '/'.$date->format('m').'/'.$date->format('Y').'</center>', $response);
 
                 $style = '
                     <style>
-                    .zone-branding-wrapper,
-                     .block-description-function.month-calendar,
-                     #block-system-main-menu, .block-lich,
-                     .block-block,
-                     .block-views,
-                     footer,
-                     .trac-nghiem-thu-vien,
-                     .view-thu-vien,
-                     .body-trac-nghiem-node .pane-title,
-                     #section-header,
-                     .trac-nghiem-list,
-                     .danh-muc-trac-nghiem-panel,
-                     .pane-block-105
-                     {
-                        display: none;
-                    }
+                         #ccr-right-section,
+                         #ccr-header,
+                         .ccr-last-update,
+                         #calemdar tbody tr:first-child,
+                         .bottom-border,
+                         #ccr-footer-sidebar,
+                         footer,
+                         #scrollUp,
+                         #calendar form
+                         {
+                            display: none !important;
+                         }
+                         #ccr-left-section {
+                            border-right: none !important;
+                         }
+                         #ccr-left-section.col-md-8 {
+                            width: 100%;
+                         }
+                         #ccr-left-section  section:nth-child(1) {
+                            display: block !important;
+                         }
                     </style>
                 ';
-                $content = $style . $response;
+
+                $script .= '
+                    <script>
+                        $(function() {
+                            
+                          
+                          $(".fb-like").each(function() {
+                                $(this).closest("tr").remove();
+                          });
+                          
+                          $(".form-group").closest("tr").remove();
+                          $(".adsbygoogle").closest("tr").remove();
+                          
+                          
+                          
+                          $("#ccr-left-section section").each(function() {
+                            if (
+                                $(this).html().includes("Tin bài liên quan")
+                                || $(this).html().includes("Bài liên quan")
+                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                          })
+                          $("#ccr-left-section table").each(function() {
+                            if (
+                                $(this).html().includes("Xem tử vi theo ngày sinh")
+//                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                            
+                            $(this).find("tr").each(function() {
+                                if (
+                                    $(this).html().includes("Xem tiếp các bài")
+//                                     || $(this).html().includes("<center>")
+//                                     || $(this).html().includes("fb-like")
+                                ) {
+                                    $(this).remove();
+                                }
+                          });
+                          })
+                        })
+                    </script>
+                ';
+
+                $baseURL = '<base href="https://huyenbi.net" />';
+
+                $content = $baseURL . $style . $response . $script;
                 break;
             case 5 :
                 $date1 = $params[0];
-                $huong = $params[1];
                 $gt = $params[2];
+
+
                 $response = $this->_curl($url, true, [
-                    'namsinh' => $date1,
-                    'huong' => $huong,
-                    'gioitinh' => $gt,
-                    'form_id' => 'phongthuy_xem_huong_nha_form'
-                ]);
+                    'tuoiban' => (int)$date1,
+                    'r1' => (int)$gt,
+                    'xemtuoi' => ''
+                ], true);
 
-                $response = str_replace('<font color="red">Xem năm khác</font>', '', $response);
-
-//                $response = str_replace('<center><span>Ngày sinh của bạn: </span>//</center>', '<center><span>Ngày sinh của bạn: </span>'.$date->format('d'). '/'.$date->format('m').'/'.$date->format('Y').'</center>', $response);
 
                 $style = '
                     <style>
-                    .zone-branding-wrapper,
-                     .block-description-function.month-calendar,
-                     #block-system-main-menu, .block-lich,
-                     .block-block,
-                     .block-views,
-                     footer,
-                     .trac-nghiem-thu-vien,
-                     .view-thu-vien,
-                     .body-trac-nghiem-node .pane-title,
-                     #section-header,
-                     .trac-nghiem-list,
-                     .danh-muc-trac-nghiem-panel,
-                     .pane-block-105,
-                     .trac-nghiem-thu-vien
-                     {
-                        display: none !important;
-                    }
+                         #ccr-right-section,
+                         #ccr-header,
+                         .ccr-last-update,
+                         #calemdar tbody tr:first-child,
+                         .bottom-border,
+                         #ccr-footer-sidebar,
+                         footer,
+                         #scrollUp,
+                         #calendar form
+                         {
+                            display: none !important;
+                         }
+                         #ccr-left-section {
+                            border-right: none !important;
+                         }
+                         #ccr-left-section.col-md-8 {
+                            width: 100%;
+                         }
+                         #ccr-left-section  section:nth-child(1) {
+                            display: block !important;
+                         }
                     </style>
                 ';
-                $content = $style . $response;
+
+                $script .= '
+                    <script>
+                        $(function() {
+                            
+                          
+                          $(".fb-like").each(function() {
+                                $(this).closest("tr").remove();
+                          });
+                          
+                          $(".form-group").closest("tr").remove();
+                          $(".adsbygoogle").closest("tr").remove();
+                          
+                          
+                          
+                          $("#ccr-left-section section").each(function() {
+                            if (
+                                $(this).html().includes("Tin bài liên quan")
+                                || $(this).html().includes("Bài liên quan")
+                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                          })
+                          $("#ccr-left-section table").each(function() {
+                            if (
+                                $(this).html().includes("Xem tử vi theo ngày sinh")
+//                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                            
+                            $(this).find("tr").each(function() {
+                                if (
+                                    $(this).html().includes("Xem tiếp các bài")
+                                     || $(this).html().includes("Xem hướng nhà theo tuổi")
+//                                     || $(this).html().includes("fb-like")
+                                ) {
+                                    $(this).remove();
+                                }
+                          });
+                          })
+                        })
+                    </script>
+                ';
+
+                $baseURL = '<base href="https://huyenbi.net" />';
+
+                $content = $baseURL . $style . $response . $script;
                 break;
             case 6 :
-                $tennam = $params[0];
-                $namnam = $params[1];
-                $tennu = $params[2];
-                $namnu = $params[3];
+                $date1 = $params[0];
+                $date2 = $params[1];
+
+
                 $response = $this->_curl($url, true, [
-                    'tennam' => $tennam,
-                    'namsinh' => $namnam,
-                    'tennu' => $tennu,
-                    'namsinh_nk' => $namnu,
-                    'form_id' => 'xemtuoi_xem_tuoi_vo_chong_form'
-                ]);
+                    'tuoiban' => (int)$date1,
+                    'tuoikhac' => (int)$date2,
+                    'xemtuoi' => ''
+                ], true);
 
-                $response = str_replace('<font color="red">Xem năm khác</font>', '', $response);
-
-//                $response = str_replace('<center><span>Ngày sinh của bạn: </span>//</center>', '<center><span>Ngày sinh của bạn: </span>'.$date->format('d'). '/'.$date->format('m').'/'.$date->format('Y').'</center>', $response);
 
                 $style = '
                     <style>
-                    .zone-branding-wrapper,
-                     .block-description-function.month-calendar,
-                     #block-system-main-menu, .block-lich,
-                     .block-block,
-                     .block-views,
-                     footer,
-                     .trac-nghiem-thu-vien,
-                     .view-thu-vien,
-                     .body-trac-nghiem-node .pane-title,
-                     #section-header,
-                     .trac-nghiem-list,
-                     .danh-muc-trac-nghiem-panel,
-                     .pane-block-105,
-                     .trac-nghiem-thu-vien
-                     {
-                        display: none !important;
-                    }
+                         #ccr-right-section,
+                         #ccr-header,
+                         .ccr-last-update,
+                         #calemdar tbody tr:first-child,
+                         .bottom-border,
+                         #ccr-footer-sidebar,
+                         footer,
+                         #scrollUp,
+                         #calendar form
+                         {
+                            display: none !important;
+                         }
+                         #ccr-left-section {
+                            border-right: none !important;
+                         }
+                         #ccr-left-section.col-md-8 {
+                            width: 100%;
+                         }
+                         #ccr-left-section  section:nth-child(1) {
+                            display: block !important;
+                         }
                     </style>
                 ';
-                $content = $style . $response;
+
+                $script .= '
+                    <script>
+                        $(function() {
+                            
+                          
+                          $(".fb-like").each(function() {
+                                $(this).closest("tr").remove();
+                          });
+                          
+                          $(".form-group").closest("tr").remove();
+                          $(".adsbygoogle").closest("tr").remove();
+                          
+                          
+                          
+                          $("#ccr-left-section section").each(function() {
+                            if (
+                                $(this).html().includes("Tin bài liên quan")
+                                || $(this).html().includes("Bài liên quan")
+                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                          })
+                          $("#ccr-left-section table").each(function() {
+                            if (
+                                $(this).html().includes("Xem tử vi theo ngày sinh")
+//                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                            
+                            $(this).find("tr").each(function() {
+                                if (
+                                    $(this).html().includes("Xem tiếp các bài")
+                                     || $(this).html().includes("Xem hợp tuổi vợ chồng")
+//                                     || $(this).html().includes("fb-like")
+                                ) {
+                                    $(this).remove();
+                                }
+                          });
+                          })
+                        })
+                    </script>
+                ';
+
+                $baseURL = '<base href="https://huyenbi.net" />';
+
+                $content = $baseURL . $style . $response . $script;
                 break;
             case 7 :
                 $name = $params[0];
@@ -333,7 +585,7 @@ class TuviController extends AppController
                 $style = '
                     <style>
 
-                     .trac-nghiem-thu-vien
+                     .trac-nghiem-thu-vien, .divBody > div:nth-child(2)
                      {
                         display: none !important;
                     }
@@ -343,102 +595,184 @@ class TuviController extends AppController
                 break;
             case 9 :
 
-                $response = file_get_contents($url);
-
-                preg_match('/name=\"form_build_id\" value="(.*)"/', $response, $match);
-                $form_build_id = $match[1];
-
-                $url = 'http://vansu.net/system/ajax';
-                $date = $params[0];
-                $date = date_create_from_format('dmY', $date);
-                $ngay = $date->format('d');
-                $thang = $date->format('m');
-                $nam = $date->format('Y');
-                $gioitinh = $params[1];
+                $date1 = $params[0];
+                $gt = $params[1];
 
 
                 $response = $this->_curl($url, true, [
-                    'ngay' => $ngay,
-                    'thang' => $thang,
-                    'namsinh' => $nam,
-                    'gioitinh' => $gioitinh,
-                    'form_build_id' => $form_build_id,
-                    'form_id' => 'xemtuoi_thoi_trang_phong_thuy_form',
-                ]);
+                    'tuoiban' => (int)$date1,
+                    'r1' => (int)$gt,
+                    'xemtuoi' => ''
+                ], true);
 
-                $response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response), true);
-                $response = $response[1]['data'] ?? '';
 
                 $style = '
                     <style>
-
-                     .trac-nghiem-thu-vien
-                     {
-                        display: none !important;
-                    }
-                    .kqua {
-                        text-align: center;
-                        padding: 20px 20px 0px 20px;
-                    }
+                         #ccr-right-section,
+                         #ccr-header,
+                         .ccr-last-update,
+                         #calemdar tbody tr:first-child,
+                         .bottom-border,
+                         #ccr-footer-sidebar,
+                         footer,
+                         #scrollUp,
+                         #calendar form
+                         {
+                            display: none !important;
+                         }
+                         #ccr-left-section {
+                            border-right: none !important;
+                         }
+                         #ccr-left-section.col-md-8 {
+                            width: 100%;
+                         }
+                         #ccr-left-section  section:nth-child(1) {
+                            display: block !important;
+                         }
                     </style>
                 ';
-                $content = $style . $response;
+
+                $script .= '
+                    <script>
+                        $(function() {
+                            
+                          
+                          $(".fb-like").each(function() {
+                                $(this).closest("tr").remove();
+                          });
+                          
+                          $(".form-group").closest("tr").remove();
+                          $(".adsbygoogle").closest("tr").remove();
+                          
+                          
+                          
+                          $("#ccr-left-section section").each(function() {
+                            if (
+                                $(this).html().includes("Tin bài liên quan")
+                                || $(this).html().includes("Bài liên quan")
+                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                          })
+                          $("#ccr-left-section table").each(function() {
+                            if (
+                                $(this).html().includes("Xem tử vi theo ngày sinh")
+//                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                            
+                            $(this).find("tr").each(function() {
+                                if (
+                                    $(this).html().includes("Xem tiếp các bài")
+                                     || $(this).html().includes("Con số may mắn hôm nay")
+                                     || $(this).html().includes("createElement")
+                                ) {
+                                    $(this).remove();
+                                }
+                          });
+                          })
+                        })
+                    </script>
+                ';
+
+                $baseURL = '<base href="https://huyenbi.net" />';
+
+                $content = $baseURL . $style . $response . $script;
                 break;
             case 10:
-                $response = file_get_contents($url);
-
-                preg_match('/name=\"form_build_id\" value="(.*)"/', $response, $match);
-                $form_build_id = $match[1];
-
-                $year = $params[0];
-                $gioitinh = $params[1];
-                $url = 'http://vansu.net';
+                $so = $params[0];
+                $year = $params[1];
+                $gt = $params[2];
 
                 $response = $this->_curl($url, true, [
-                    'namsinh' => $year,
-                    'gioitinh' => $gioitinh,
-                    'form_id' => 'tuvi_2017_form',
-                    'form_build_id' => $form_build_id,
-                    'op' => 'Xem kết quả'
-                ]);
+                    'tuoiban' => (int)$year,
+                    'r1' => (int)$gt,
+                    'hoten' => (int)$so,
+                    'xemboisim' => ''
+                ], true);
+
 
                 $style = '
                     <style>
-                    header,nav,.lvn-hnavbar-bottom,
-                    #boxAlert,.lvn-xemtv-form,.lvn-breadcrumbs,
-                    #fb-root,
-                    iframe,
-                    .alert-box,.lvn-main-title,
-                    .lvn-comment-fb,
-                    .col-md-9 .row,
-                    .lvn-sub-abouttab,
-                    .lvn-dnews-some,
-                    .lvn-library,
-                    footer,
-                    .lvn-backtotop  ,
-                    .lvn-main-title + .lvn-main-subnews,
-                    .trac-nghiem-list,
-                    #block-block-38,
-                    .trac-nghiem-thu-vien,
-                    #block-block-105,
-                    .class-block-thuvien
-                     {
-                        display: none !important;
-                    }
-                    body {
-                        background: none !important;
-                    }
-                    .lvn-main {
-                        margin-top: 0px !important;
-                    }
-                    .col-md-9 div:nth-child(2) {
-                        padding: 0px !important;
-                    }
-
+                         #ccr-right-section,
+                         #ccr-header,
+                         .ccr-last-update,
+                         #calemdar tbody tr:first-child,
+                         .bottom-border,
+                         #ccr-footer-sidebar,
+                         footer,
+                         #scrollUp,
+                         #calendar form
+                         {
+                            display: none !important;
+                         }
+                         #ccr-left-section {
+                            border-right: none !important;
+                         }
+                         #ccr-left-section.col-md-8 {
+                            width: 100%;
+                         }
+                         #ccr-left-section  section:nth-child(1) {
+                            display: block !important;
+                         }
                     </style>
                 ';
-                $baseURL = '<base href="http://vansu.net"/>';
-                $content = $baseURL . $style . $response . $script  ;
+
+                $script .= '
+                    <script>
+                        $(function() {
+                            
+                          
+                          $(".fb-like").each(function() {
+                                $(this).closest("tr").remove();
+                          });
+                          
+                          $(".form-group").closest("tr").remove();
+                          $(".adsbygoogle").closest("tr").remove();
+                          
+                          
+                          
+                          $("#ccr-left-section section").each(function() {
+                            if (
+                                $(this).html().includes("Tin bài liên quan")
+                                || $(this).html().includes("Bài liên quan")
+                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                          })
+                          $("#ccr-left-section table").each(function() {
+                            if (
+                                $(this).html().includes("Xem tử vi theo ngày sinh")
+//                                || $(this).html().includes("ccr-thumbnail")
+                            ) {
+                                $(this).remove();
+                            }
+                            var table = $(this);
+                            
+                            $(this).find("tr").each(function() {
+                                if (
+                                    $(this).html().includes("Xem tiếp các bài")
+                                     || $(this).html().includes("Con số may mắn hôm nay")
+                                     || $(this).html().includes("Xem tiếp các chuyên mục")
+                                     || $(this).html().includes("createElement")
+                                ) {
+                                    $(this).remove();
+                                    if ($(this).html().includes("Xem tiếp các chuyên mục")) {
+                                        table.remove();
+                                    }
+                                }
+                          });
+                          })
+                        })
+                    </script>
+                ';
+
+                $baseURL = '<base href="https://huyenbi.net" />';
+
+                $content = $baseURL . $style . $response . $script;
                 break;
             case 11:
                 $response = file_get_contents($url);
