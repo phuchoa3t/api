@@ -687,7 +687,7 @@ class TuviController extends AppController
                 $gt = $params[2];
 
                 $response = $this->_curl($url, true, [
-                    'tuoiban' => (int)$year,
+                    'nam' => (int)$year,
                     'r1' => (int)$gt,
                     'hoten' => (int)$so,
                     'xemboisim' => ''
