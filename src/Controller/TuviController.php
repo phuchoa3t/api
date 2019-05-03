@@ -818,6 +818,8 @@ class TuviController extends AppController
                 break;
         }
 
+        $content = preg_replace('/\<link rel=\"shortcut icon\" href=\"\/img\/icon.png\"\/\>/', '', $content);
+
         $this->response->withStringBody($commonStyle . $content)->withStatus(200)->send();
         die;
     }
@@ -829,7 +831,7 @@ class TuviController extends AppController
     {
         if ($useShell) {
             $shell = 'curl';
-            $shell .= ' -X ' . ($post ? 'POST' : 'GET');
+            $shell .= ' -k -X ' . ($post ? 'POST' : 'GET');
             foreach ($params as $key => $val) {
                 $shell .= ' -F "' . $key . '=' . $val . '"';
             }
