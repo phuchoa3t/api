@@ -818,6 +818,8 @@ class TuviController extends AppController
                 break;
         }
 
+        $content = preg_replace('/\<link rel=\"shortcut icon\" href=\"\/img\/icon.png\"\/\>/', '', $content);
+
         $this->response->withStringBody($commonStyle . $content)->withStatus(200)->send();
         die;
     }
@@ -842,6 +844,8 @@ class TuviController extends AppController
 
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         curl_setopt($ch, CURLOPT_COOKIEFILE, "");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
 
 
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
