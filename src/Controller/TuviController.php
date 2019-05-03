@@ -829,7 +829,7 @@ class TuviController extends AppController
     {
         if ($useShell) {
             $shell = 'curl';
-            $shell .= ' -X ' . ($post ? 'POST' : 'GET');
+            $shell .= ' -k -X ' . ($post ? 'POST' : 'GET');
             foreach ($params as $key => $val) {
                 $shell .= ' -F "' . $key . '=' . $val . '"';
             }
