@@ -55,7 +55,6 @@ class TuviController extends AppController
                     $date = $date->format('d-m-Y');
                 }
 
-
                 $response = $this->_curl($url, true, [
                     'today' => $date,
                     'xemngay' => '',
@@ -98,7 +97,7 @@ class TuviController extends AppController
                                     $(this).remove();
                                 }
                           });
-                          
+
                           $("#ccr-left-section section").each(function() {
                             if (
                                 $(this).html().includes("Tin bài liên quan")
@@ -186,14 +185,14 @@ class TuviController extends AppController
                 $script .= '
                     <script>
                         $(function() {
-                            
-                          
+
+
                           $(".fb-like").each(function() {
                                 $(this).closest("tr").remove();
                           });
-                          
-                          
-                          
+
+
+
                           $("#ccr-left-section section").each(function() {
                             if (
                                 $(this).html().includes("Tin bài liên quan")
@@ -210,7 +209,7 @@ class TuviController extends AppController
                             ) {
                                 $(this).remove();
                             }
-                            
+
                             $(this).find("tr").each(function() {
                                 if (
                                     $(this).html().includes("Xem tiếp các bài")
@@ -316,17 +315,17 @@ class TuviController extends AppController
                 $script .= '
                     <script>
                         $(function() {
-                            
-                          
+
+
                           $(".fb-like").each(function() {
                                 $(this).closest("tr").remove();
                           });
-                          
+
                           $(".form-group").closest("tr").remove();
                           $(".adsbygoogle").closest("tr").remove();
-                          
-                          
-                          
+
+
+
                           $("#ccr-left-section section").each(function() {
                             if (
                                 $(this).html().includes("Tin bài liên quan")
@@ -343,7 +342,7 @@ class TuviController extends AppController
                             ) {
                                 $(this).remove();
                             }
-                            
+
                             $(this).find("tr").each(function() {
                                 if (
                                     $(this).html().includes("Xem tiếp các bài")
@@ -403,17 +402,17 @@ class TuviController extends AppController
                 $script .= '
                     <script>
                         $(function() {
-                            
-                          
+
+
                           $(".fb-like").each(function() {
                                 $(this).closest("tr").remove();
                           });
-                          
+
                           $(".form-group").closest("tr").remove();
                           $(".adsbygoogle").closest("tr").remove();
-                          
-                          
-                          
+
+
+
                           $("#ccr-left-section section").each(function() {
                             if (
                                 $(this).html().includes("Tin bài liên quan")
@@ -430,7 +429,7 @@ class TuviController extends AppController
                             ) {
                                 $(this).remove();
                             }
-                            
+
                             $(this).find("tr").each(function() {
                                 if (
                                     $(this).html().includes("Xem tiếp các bài")
@@ -490,17 +489,17 @@ class TuviController extends AppController
                 $script .= '
                     <script>
                         $(function() {
-                            
-                          
+
+
                           $(".fb-like").each(function() {
                                 $(this).closest("tr").remove();
                           });
-                          
+
                           $(".form-group").closest("tr").remove();
                           $(".adsbygoogle").closest("tr").remove();
-                          
-                          
-                          
+
+
+
                           $("#ccr-left-section section").each(function() {
                             if (
                                 $(this).html().includes("Tin bài liên quan")
@@ -517,7 +516,7 @@ class TuviController extends AppController
                             ) {
                                 $(this).remove();
                             }
-                            
+
                             $(this).find("tr").each(function() {
                                 if (
                                     $(this).html().includes("Xem tiếp các bài")
@@ -635,17 +634,17 @@ class TuviController extends AppController
                 $script .= '
                     <script>
                         $(function() {
-                            
-                          
+
+
                           $(".fb-like").each(function() {
                                 $(this).closest("tr").remove();
                           });
-                          
+
                           $(".form-group").closest("tr").remove();
                           $(".adsbygoogle").closest("tr").remove();
-                          
-                          
-                          
+
+
+
                           $("#ccr-left-section section").each(function() {
                             if (
                                 $(this).html().includes("Tin bài liên quan")
@@ -662,7 +661,7 @@ class TuviController extends AppController
                             ) {
                                 $(this).remove();
                             }
-                            
+
                             $(this).find("tr").each(function() {
                                 if (
                                     $(this).html().includes("Xem tiếp các bài")
@@ -727,16 +726,16 @@ class TuviController extends AppController
                     <script>
                         $(function() {
                           $("html").show();
-                          
+
                           $(".fb-like").each(function() {
                                 $(this).closest("tr").remove();
                           });
-                          
+
                           $(".form-group").closest("tr").remove();
                           $(".adsbygoogle").closest("tr").remove();
-                          
-                          
-                          
+
+
+
                           $("#ccr-left-section section").each(function() {
                             if (
                                 $(this).html().includes("Tin bài liên quan")
@@ -754,7 +753,7 @@ class TuviController extends AppController
                                 $(this).remove();
                             }
                             var table = $(this);
-                            
+
                             $(this).find("tr").each(function() {
                                 if (
                                     $(this).html().includes("Xem tiếp các bài")
