@@ -717,13 +717,16 @@ class TuviController extends AppController
                          #ccr-left-section  section:nth-child(1) {
                             display: block !important;
                          }
+                         html {
+                            display: none;
+                         }
                     </style>
                 ';
 
                 $script .= '
                     <script>
                         $(function() {
-                            
+                          $("html").show();
                           
                           $(".fb-like").each(function() {
                                 $(this).closest("tr").remove();
