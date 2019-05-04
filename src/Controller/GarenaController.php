@@ -481,10 +481,20 @@ class GarenaController extends AppController
     {
         $url = $this->getRequest()->getQuery('url');
         $style = '
-            <style>
-                body { text-align: justify;} 
-                img { max-width: 100%; height:auto !important;}
+            <style> 
+                body { text-align: justify; color: white;} img { width: 100%; height:auto !important;} video {max-width: 100%; height:auto !important;}
             </style>
+        ';
+        $script = '
+            <script>
+                var aTags = document.getElementsByTagName("a"),
+                    atl = aTags.length,
+                    i;
+
+                for (i = 0; i < atl; i++) {
+                    aTags[i].href="javascript:void(0)"
+                }
+            </script>
         ';
 
         if ($url) {
@@ -494,7 +504,7 @@ class GarenaController extends AppController
             //$p = $html('.topdetail')[0]('.mgt15')[0]->html();
             $h2 = '<h4>' . $html('.rightdetail')[0]('h2')[0]->getPlainText() . '</h4>';
             $content = $html('.rightdetail_content')[0]->html();
-            $this->response->withStringBody($style . $h1 . $h2 . $content)->withStatus(200)->send();
+            $this->response->withStringBody($style . $h1 . $h2 . $content . $script)->withStatus(200)->send();
         }
         die;
     }
