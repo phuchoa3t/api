@@ -75,7 +75,7 @@ class GarenaController extends AppController
                         max-height: 500px !important;
                         height: unset !important;
                     }
-                    .menu-m {
+                    .menu-m, .in-skill .bt {
                         display: none!important;  
                     }
                 }
